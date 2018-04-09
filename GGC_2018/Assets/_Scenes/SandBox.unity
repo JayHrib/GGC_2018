@@ -355,7 +355,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d012d4438cdae6e44858bbff9bbfaa3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pooledObject: {fileID: 0}
+  pooledObject: {fileID: 1106084595894072, guid: d4964d6d7a652af4f8eceffc7975eb9c,
+    type: 2}
   pooledAmount: 10
   willGrow: 0
 --- !u!1 &1107970746
@@ -639,7 +640,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a02d491b9ff6ce7469fa712e1a3251bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1113322176}
 --- !u!114 &1755760922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +709,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1976220535}
+  - component: {fileID: 1976220536}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -730,3 +731,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1976220536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00154ebfdfe8fa94d8b94a8905e800ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1106084595894072, guid: d4964d6d7a652af4f8eceffc7975eb9c, type: 2}

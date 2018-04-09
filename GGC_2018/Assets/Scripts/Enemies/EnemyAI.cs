@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyStats))]
 public class EnemyAI : MonoBehaviour {
 
-    public Transform target;
+    private GameObject target;
 
     private float targetDistance;
     public const float GOAL_DISTANCE = 1f;
@@ -18,15 +18,16 @@ public class EnemyAI : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         speed = gameObject.GetComponent<EnemyStats>().movementSpeed;
+        target = GameObject.Find("da_faiz");
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-        targetDistance = Vector3.Distance(target.position, transform.position);
+        targetDistance = Vector3.Distance(target.transform.position, transform.position);
 
 		if (targetDistance > GOAL_DISTANCE)
         {
-            transform.position = Vector2.MoveTowards(transform.position, target.position, (speed * Time.deltaTime));
+            transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (speed * Time.deltaTime));
         }
 	}
 }
