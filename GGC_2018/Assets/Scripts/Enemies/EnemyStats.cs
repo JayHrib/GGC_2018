@@ -5,7 +5,6 @@ using UnityEngine;
 public class EnemyStats : MonoBehaviour {
 
     public float maxHealth = 100f;
-    private float currentHealth;
 
     public float movementSpeed;
 
@@ -16,6 +15,6 @@ public class EnemyStats : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        currentHealth = maxHealth;
+      
 	}
 }

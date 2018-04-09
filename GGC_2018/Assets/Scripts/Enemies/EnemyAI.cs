@@ -21,7 +21,7 @@ public class EnemyAI : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         targetDistance = Vector3.Distance(target.position, transform.position);
 
 		if (targetDistance > GOAL_DISTANCE)

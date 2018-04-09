@@ -8,7 +8,6 @@ using UnityEngine.SceneManagement;
 
 public class LinusAI : MonoBehaviour
 {
-
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
 

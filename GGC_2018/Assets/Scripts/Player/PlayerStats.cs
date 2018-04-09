@@ -5,18 +5,18 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour {
 
     public float maxHealth = 100f;
-    public bool playerOne = false;
-    public bool playerTwo = false;
-
-    private float currentHealth;
+    public int playerIdentifier;
    
 	// Use this for initialization
 	void Start () {
-        currentHealth = maxHealth;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+        if (playerIdentifier < 1)
+        {
+            playerIdentifier = 1;
+        }
+        else
+        {
+            playerIdentifier = 2;
+        }
 	}
 }
