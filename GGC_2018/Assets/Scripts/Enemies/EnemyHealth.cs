@@ -27,7 +27,7 @@ public class EnemyHealth : MonoBehaviour {
 
     void TakeDamage(GameObject other)
     {
-        float modifier = 
+        float modifier = other.GetComponent<EnemyStats>();
     }
 
     void CheckElement(float modifer)
