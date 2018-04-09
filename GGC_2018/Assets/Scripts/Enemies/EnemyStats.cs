@@ -2,21 +2,20 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerStats : MonoBehaviour {
+public class EnemyStats : MonoBehaviour {
 
     public float maxHealth = 100f;
-    public bool playerOne = false;
-    public bool playerTwo = false;
-
     private float currentHealth;
-   
+
+    public float movementSpeed;
+
+    public string element = "";
+
+    private float weaknessModifier = .25f;
+    private float resistanceModifier = .5f;
+
 	// Use this for initialization
 	void Start () {
         currentHealth = maxHealth;
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
 	}
 }
