@@ -2,6 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
+public class EnemySprite
+{
+    public string name;
+    public Sprite sprite;
+}
+
+public class Element
+{
+    public string type;
+
+    public Element(string newType)
+    {
+        type = newType;
+    }
+}
+
 public class LevelManager : MonoBehaviour {
 
     public static bool active = false;
@@ -12,15 +29,27 @@ public class LevelManager : MonoBehaviour {
     public GameObject enemy;
     List<Element> elementList = new List<Element>();
 
+    [SerializeField]
+    EnemySprite[] enemySprites;
+
+    private ObjectPooler objectPool;
+
     void Start()
     {
+        if (enemySprites == null)
+        {
+            Debug.LogError("LevelManager: No sprites available!");
+        }
+
+        objectPool = ObjectPooler.instance;
+
         elementList.Add(new Element("Fire"));
-        elementList.Add(new Element("Water"));
-        elementList.Add(new Element("Ice"));
-        elementList.Add(new Element("Earth"));
-        elementList.Add(new Element("Electricity"));
-        elementList.Add(new Element("The one we dont talk about"));
-        elementList.Add(new Element("Wind"));
+        elementList.Add(new Element("Grass"));
+        //elementList.Add(new Element("Ice"));
+        //elementList.Add(new Element("Earth"));
+        //elementList.Add(new Element("Electricity"));
+        //elementList.Add(new Element("The one we dont talk about"));
+        //elementList.Add(new Element("Wind"));
         foreach (Element i in elementList)
         {
             Debug.Log(i.type);
@@ -35,7 +64,7 @@ public class LevelManager : MonoBehaviour {
             if (time >= 120)
             {
                 time = 0;
-                int rand = Random.Range(0, 6);
+                int rand = Random.Range(0, elementList.Count);
                 Spawn(rand);
                 toll = 1;
                 active = false;
@@ -51,19 +80,32 @@ public class LevelManager : MonoBehaviour {
 
     private void Spawn(int elementNumber)
     {
-        GameObject go = (GameObject)Instantiate(enemy);
+        GameObject go = objectPool.GetPooledObject();
+
+        if (go == null)
+        {
+            return;
+        }
+
         EnemyStats mystats = go.GetComponent<EnemyStats>();
         mystats.element = elementList[elementNumber].type;
-        Debug.Log(elementList[elementNumber].type);
+        SetSprite(mystats.element, go);
+
+        go.SetActive(true);
     }
 
-    public class Element
+    private void SetSprite(string element, GameObject enemy)
     {
-        public string type;
+        SpriteRenderer enemySprite = enemy.GetComponent<SpriteRenderer>();
 
-        public Element(string newType)
+        for (int i = 0; i < enemySprites.Length; i++)
         {
-            type = newType;
+            if (enemySprites[i].name == element)
+            {
+                enemySprite.sprite = enemySprites[i].sprite;
+
+                return;
+            }
         }
     }
 }
