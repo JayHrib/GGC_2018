@@ -96,6 +96,7 @@ public class EnemyHealth : MonoBehaviour {
 
         if (currentHealth <= 0)
         {
+            LevelManager.deaths++;
             gameObject.SetActive(false);
         }
     }

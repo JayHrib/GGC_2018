@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour {
                 time = 0;
                 int rand = Random.Range(0, elementList.Count);
                 Spawn(rand);
-                toll = 1;
+                toll++;
                 active = false;
             }
         }
