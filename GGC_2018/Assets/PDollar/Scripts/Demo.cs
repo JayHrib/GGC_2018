@@ -33,6 +33,7 @@ public class Demo : MonoBehaviour {
     //Custom 
     private bool displayDrawing = false;
     private bool drawnWellEnough = false;
+    private bool drawing = false;
 
     private const float REQUIRED_SCORE = 0.85f;
 
@@ -63,7 +64,7 @@ public class Demo : MonoBehaviour {
             }
 
            // Debug.Log("Draw area created");
-            drawArea = new Rect(0, 0, Screen.width - Screen.width / 3, Screen.height);
+            drawArea = new Rect(0, 0, Screen.width, Screen.height);
         }
         
         //Destroy draw area
@@ -74,44 +75,50 @@ public class Demo : MonoBehaviour {
                 displayDrawing = false;
             }
 
-            recognized = true;
-
-            Gesture candidate = new Gesture(points.ToArray());
-            Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
-
-            message = gestureResult.GestureClass + " " + gestureResult.Score;
-            if (gestureResult.Score > REQUIRED_SCORE)
+            if (drawing)
             {
-                Debug.Log("Spell has been cast!");
-                if (!drawnWellEnough)
+                recognized = true;
+
+                Gesture candidate = new Gesture(points.ToArray());
+                Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
+
+                message = gestureResult.GestureClass + " " + gestureResult.Score;
+                if (gestureResult.Score > REQUIRED_SCORE)
                 {
-                    drawnWellEnough = true;
+                    Debug.Log("Spell has been cast!");
+                    if (!drawnWellEnough)
+                    {
+                        drawnWellEnough = true;
+                    }
+
+                    if (gestureResult.GestureClass == "Water")
+                    {
+                        Debug.Log("Water spell cast!");
+                    }
+                    if (gestureResult.GestureClass == "Fire")
+                    {
+                        Debug.Log("Fire spell cast!");
+                    }
+                    if (gestureResult.GestureClass == "Ice")
+                    {
+                        Debug.Log("Ice spell cast!");
+                    }
+                }
+                else
+                {
+                    Debug.Log("Too poorly drawn");
+                    if (drawnWellEnough)
+                    {
+                        drawnWellEnough = false;
+                    }
                 }
 
-                if (gestureResult.GestureClass == "Water")
-                {
-                    Debug.Log("Water spell cast!");
-                }
-                if (gestureResult.GestureClass == "Fire")
-                {
-                    Debug.Log("Fire spell cast!");
-                }
-                if (gestureResult.GestureClass == "Ice")
-                {
-                    Debug.Log("Ice spell cast!");
-                }
+                drawing = false;
             }
-            else
-            {
-                Debug.Log("Too poorly drawn");
-                if (drawnWellEnough)
-                {
-                    drawnWellEnough = false;
-                }
-            }
+
+            
 
             //Use to remove area
-            // Debug.Log("Draw area removed");
             drawArea = new Rect(0, 0, 0, 0);
         }
 
@@ -157,7 +164,12 @@ public class Demo : MonoBehaviour {
 			}
 			
 			if (Input.GetMouseButton(0)) {
-				points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
+                if (!drawing)
+                {
+                    drawing = true;
+                }
+
+                points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
                 
 				currentGestureLineRenderer.SetVertexCount(++vertexCount);
 				currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
@@ -234,7 +246,6 @@ public class Demo : MonoBehaviour {
 
         if (devMode)
         {
-
             GUI.Label(new Rect(Screen.width - 200, 150, 70, 30), "Add as: ");
             newGestureName = GUI.TextField(new Rect(Screen.width - 150, 150, 100, 30), newGestureName);
 
