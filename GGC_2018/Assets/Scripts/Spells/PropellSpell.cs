@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PropellSpell : MonoBehaviour {
 
-    public float lifeTime = 2f;
-    public float moveSpeed = 1.0f;
+    public float lifeTime = 4f;
+    public float moveSpeed = 2.0f;
 
     GameObject target;
 
-    private ObjectPooler objectPooler;
+    private SpellPool spellPool;
 
     void Start()
     {
-        objectPooler = ObjectPooler.instance;
+        spellPool = SpellPool.instance;
     }
 
     void OnEnable()
@@ -56,7 +56,7 @@ public class PropellSpell : MonoBehaviour {
 
     GameObject GetTarget()
     {
-        GameObject toReturn = objectPooler.GetActivePooledObject();
+        GameObject toReturn = spellPool.GetActivePooledObject();
         return toReturn;
     }
 }

@@ -21,6 +21,9 @@ public class SpellElement
 
 public class CastSpell : MonoBehaviour {
 
+    public static CastSpell instance;
+
+    public Transform firePoint;
     public GameObject spellPrefab;
     List<SpellElement> elementList = new List<SpellElement>();
 
@@ -31,6 +34,8 @@ public class CastSpell : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        instance = this;
+
 		if (spellSprites == null)
         {
             Debug.LogError("CastSpell: No sprites available");
@@ -42,11 +47,7 @@ public class CastSpell : MonoBehaviour {
         elementList.Add(new SpellElement("Water"));
         elementList.Add(new SpellElement("Ice"));
     }
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
 
     public void FireSpell(int elementNumber)
     {
@@ -57,7 +58,13 @@ public class CastSpell : MonoBehaviour {
             return;
         }
 
-        
+        SpellStats myStats = go.GetComponent<SpellStats>();
+        myStats.element = elementList[elementNumber].type;
+        SetSprite(myStats.element, go);
+
+        go.transform.position = firePoint.position;
+
+        go.SetActive(true);
     }
 
     private void SetSprite(string element, GameObject spell)

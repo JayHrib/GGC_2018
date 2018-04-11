@@ -31,6 +31,8 @@ public class Demo : MonoBehaviour {
 	private string newGestureName = "";
 
     //Custom 
+    private CastSpell spellSpawner;
+
     private bool displayDrawing = false;
     private bool drawnWellEnough = false;
     private bool drawing = false;
@@ -38,6 +40,7 @@ public class Demo : MonoBehaviour {
     private const float REQUIRED_SCORE = 0.85f;
 
 	void Start () {
+        spellSpawner = CastSpell.instance;
 
         //Create platform of which to draw on
         platform = Application.platform;
@@ -93,14 +96,17 @@ public class Demo : MonoBehaviour {
 
                     if (gestureResult.GestureClass == "Water")
                     {
+                        spellSpawner.FireSpell(1);
                         Debug.Log("Water spell cast!");
                     }
                     if (gestureResult.GestureClass == "Fire")
                     {
+                        spellSpawner.FireSpell(0);
                         Debug.Log("Fire spell cast!");
                     }
                     if (gestureResult.GestureClass == "Ice")
                     {
+                        spellSpawner.FireSpell(2);
                         Debug.Log("Ice spell cast!");
                     }
                 }
