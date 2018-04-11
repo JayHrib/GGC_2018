@@ -40,7 +40,7 @@ public class Demo : MonoBehaviour {
     private const float REQUIRED_SCORE = 0.85f;
 
 	void Start () {
-        spellSpawner = CastSpell.instance;
+        spellSpawner = FindObjectOfType<CastSpell>();
 
         //Create platform of which to draw on
         platform = Application.platform;
