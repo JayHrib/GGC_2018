@@ -252,6 +252,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
+  devMode: 0
 --- !u!81 &486211600
 AudioListener:
   m_ObjectHideFlags: 0

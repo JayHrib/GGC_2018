@@ -9,6 +9,7 @@ using PDollarGestureRecognizer;
 public class Demo : MonoBehaviour {
 
 	public Transform gestureOnScreenPrefab;
+    public bool devMode = false;
 
 	private List<Gesture> trainingSet = new List<Gesture>();
 
@@ -73,8 +74,44 @@ public class Demo : MonoBehaviour {
                 displayDrawing = false;
             }
 
+            recognized = true;
+
+            Gesture candidate = new Gesture(points.ToArray());
+            Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
+
+            message = gestureResult.GestureClass + " " + gestureResult.Score;
+            if (gestureResult.Score > REQUIRED_SCORE)
+            {
+                Debug.Log("Spell has been cast!");
+                if (!drawnWellEnough)
+                {
+                    drawnWellEnough = true;
+                }
+
+                if (gestureResult.GestureClass == "Water")
+                {
+                    Debug.Log("Water spell cast!");
+                }
+                if (gestureResult.GestureClass == "Fire")
+                {
+                    Debug.Log("Fire spell cast!");
+                }
+                if (gestureResult.GestureClass == "Ice")
+                {
+                    Debug.Log("Ice spell cast!");
+                }
+            }
+            else
+            {
+                Debug.Log("Too poorly drawn");
+                if (drawnWellEnough)
+                {
+                    drawnWellEnough = false;
+                }
+            }
+
             //Use to remove area
-           // Debug.Log("Draw area removed");
+            // Debug.Log("Draw area removed");
             drawArea = new Rect(0, 0, 0, 0);
         }
 
@@ -152,62 +189,72 @@ public class Demo : MonoBehaviour {
 
 		GUI.Label(new Rect(10, Screen.height - 40, 500, 50), message);
 
-		if (GUI.Button(new Rect(Screen.width - 100, 10, 100, 30), "Recognize")) {
-
-			recognized = true;
-
-			Gesture candidate = new Gesture(points.ToArray());
-			Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
-			
-			message = gestureResult.GestureClass + " " + gestureResult.Score;
-            if (gestureResult.Score > REQUIRED_SCORE)
+        if (devMode)
+        {
+            if (GUI.Button(new Rect(Screen.width - 100, 10, 100, 30), "Recognize"))
             {
-                Debug.Log("Spell has been cast!");
-                if (!drawnWellEnough)
-                {
-                    drawnWellEnough = true;
-                }
 
-                if (gestureResult.GestureClass == "Water")
+                recognized = true;
+
+                Gesture candidate = new Gesture(points.ToArray());
+                Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
+
+                message = gestureResult.GestureClass + " " + gestureResult.Score;
+                if (gestureResult.Score > REQUIRED_SCORE)
                 {
-                    Debug.Log("Water spell cast!");
+                    Debug.Log("Spell has been cast!");
+                    if (!drawnWellEnough)
+                    {
+                        drawnWellEnough = true;
+                    }
+
+                    if (gestureResult.GestureClass == "Water")
+                    {
+                        Debug.Log("Water spell cast!");
+                    }
+                    if (gestureResult.GestureClass == "Fire")
+                    {
+                        Debug.Log("Fire spell cast!");
+                    }
+                    if (gestureResult.GestureClass == "Ice")
+                    {
+                        Debug.Log("Ice spell cast!");
+                    }
                 }
-                if (gestureResult.GestureClass == "Fire")
+                else
                 {
-                    Debug.Log("Fire spell cast!");
-                }
-                if (gestureResult.GestureClass == "Ice")
-                {
-                    Debug.Log("Ice spell cast!");
-                }
-            } else
-            {
-                Debug.Log("Too poorly drawn");
-                if (drawnWellEnough)
-                {
-                    drawnWellEnough = false;
+                    Debug.Log("Too poorly drawn");
+                    if (drawnWellEnough)
+                    {
+                        drawnWellEnough = false;
+                    }
                 }
             }
-		}
+        }
 
-		GUI.Label(new Rect(Screen.width - 200, 150, 70, 30), "Add as: ");
-		newGestureName = GUI.TextField(new Rect(Screen.width - 150, 150, 100, 30), newGestureName);
+        if (devMode)
+        {
 
-		if (GUI.Button(new Rect(Screen.width - 50, 150, 50, 30), "Add") && points.Count > 0 && newGestureName != "") {
+            GUI.Label(new Rect(Screen.width - 200, 150, 70, 30), "Add as: ");
+            newGestureName = GUI.TextField(new Rect(Screen.width - 150, 150, 100, 30), newGestureName);
 
-            //Stores the new gestures
-			string fileName = String.Format("{0}/{1}-{2}.xml", "Assets/PDollar/Resources/CustomGestureSet", newGestureName, DateTime.Now.ToFileTime());
+            if (GUI.Button(new Rect(Screen.width - 50, 150, 50, 30), "Add") && points.Count > 0 && newGestureName != "")
+            {
 
-            //Used to find the storage location for the point clouds (debug purpose)
-            Debug.Log(Application.persistentDataPath);
+                //Stores the new gestures
+                string fileName = String.Format("{0}/{1}-{2}.xml", "Assets/PDollar/Resources/CustomGestureSet", newGestureName, DateTime.Now.ToFileTime());
 
-			#if !UNITY_WEBPLAYER
-				GestureIO.WriteGesture(points.ToArray(), newGestureName, fileName);
-			#endif
+                //Used to find the storage location for the point clouds (debug purpose)
+                Debug.Log(Application.persistentDataPath);
 
-			trainingSet.Add(new Gesture(points.ToArray(), newGestureName));
+                #if !UNITY_WEBPLAYER
+                GestureIO.WriteGesture(points.ToArray(), newGestureName, fileName);
+                #endif
 
-			newGestureName = "";
-		}
+                trainingSet.Add(new Gesture(points.ToArray(), newGestureName));
+
+                newGestureName = "";
+            }
+        }
 	}
 }
