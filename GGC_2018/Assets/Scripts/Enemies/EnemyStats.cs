@@ -10,7 +10,7 @@ public class EnemyStats : MonoBehaviour {
 
     public string element = "";
 
-    public float weaknessModifier = .25f;
+    public float weaknessModifier = 2.0f;
     public float resistanceModifier = .5f;
 
 	// Use this for initialization

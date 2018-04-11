@@ -63,7 +63,6 @@ public class CastSpell : MonoBehaviour {
         SetSprite(myStats.element, go);
 
         go.transform.position = firePoint.position;
-
         go.SetActive(true);
     }
 
