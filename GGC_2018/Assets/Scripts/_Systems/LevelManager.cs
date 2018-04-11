@@ -50,10 +50,6 @@ public class LevelManager : MonoBehaviour {
         //elementList.Add(new Element("Electricity"));
         //elementList.Add(new Element("The one we dont talk about"));
         //elementList.Add(new Element("Wind"));
-        foreach (Element i in elementList)
-        {
-            Debug.Log(i.type);
-        }
     }
 
     void FixedUpdate()

@@ -88,7 +88,6 @@ public class Demo : MonoBehaviour {
                 message = gestureResult.GestureClass + " " + gestureResult.Score;
                 if (gestureResult.Score > REQUIRED_SCORE)
                 {
-                    Debug.Log("Spell has been cast!");
                     if (!drawnWellEnough)
                     {
                         drawnWellEnough = true;
@@ -97,17 +96,14 @@ public class Demo : MonoBehaviour {
                     if (gestureResult.GestureClass == "Water")
                     {
                         spellSpawner.FireSpell(1);
-                        Debug.Log("Water spell cast!");
                     }
                     if (gestureResult.GestureClass == "Fire")
                     {
                         spellSpawner.FireSpell(0);
-                        Debug.Log("Fire spell cast!");
                     }
                     if (gestureResult.GestureClass == "Ice")
                     {
                         spellSpawner.FireSpell(2);
-                        Debug.Log("Ice spell cast!");
                     }
                 }
                 else

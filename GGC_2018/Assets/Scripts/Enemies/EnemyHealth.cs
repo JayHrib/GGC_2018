@@ -22,9 +22,14 @@ public class EnemyHealth : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        Debug.Log("Collision!");
+
         if (other.gameObject.CompareTag("Spell"))
         {
+            Debug.Log("Test1");
             TakeDamage(other.gameObject);
+            Debug.Log("Test2");
+            other.gameObject.SetActive(false);
         }
     }
 
@@ -35,18 +40,20 @@ public class EnemyHealth : MonoBehaviour {
 
     void EvaluateModifier(GameObject other)
     {
+        string spellElement = other.GetComponent<SpellStats>().element;
+
         //Fire modidiers
         if (myElement == "Fire")
         {
-            if (other.name == "FireSpell")
+            if (spellElement == "FireSpell")
             {
                 ApplyDamage(resist);
             }
-            else if (other.name == "WaterSpell")
+            else if (spellElement == "WaterSpell")
             {
                 ApplyDamage(weakness);
             }
-            else if (other.name == "IceSpell")
+            else if (spellElement == "IceSpell")
             {
                 ApplyDamage(resist);
             }
@@ -55,15 +62,15 @@ public class EnemyHealth : MonoBehaviour {
         //Water modidiers
         if (myElement == "Water")
         {
-            if (other.name == "FireSpell")
+            if (spellElement == "FireSpell")
             {
                 ApplyDamage(resist);
             }
-            else if (other.name == "WaterSpell")
+            else if (spellElement == "WaterSpell")
             {
                 ApplyDamage(resist);
             }
-            else if (other.name == "IceSpell")
+            else if (spellElement == "IceSpell")
             {
                 ApplyDamage(weakness);
             }
@@ -73,26 +80,45 @@ public class EnemyHealth : MonoBehaviour {
         //Ice modidiers
         if (myElement == "Ice")
         {
-            if (other.name == "FireSpell")
+            if (spellElement == "FireSpell")
             {
                 ApplyDamage(weakness);
             }
-            else if (other.name == "WaterSpell")
+            else if (spellElement == "WaterSpell")
             {
                 ApplyDamage(resist);
             }
-            else if (other.name == "IceSpell")
+            else if (spellElement == "IceSpell")
             {
                 ApplyDamage(resist);
             }
         }
+
+        //Grass modidiers
+        if (myElement == "Grass")
+        {
+            if (spellElement == "FireSpell")
+            {
+                ApplyDamage(weakness);
+            }
+            else if (spellElement == "WaterSpell")
+            {
+                ApplyDamage(resist);
+            }
+            else if (spellElement == "IceSpell")
+            {
+                ApplyDamage(weakness);
+            }
+        }
+
 
 
     }
 
     void ApplyDamage(float modifier)
     {
-        currentHealth -= (baseDamage *= modifier);
+        currentHealth -= (baseDamage * modifier);
+        Debug.Log(currentHealth);
 
         if (currentHealth <= 0)
         {
