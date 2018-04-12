@@ -461,6 +461,8 @@ GameObject:
   - component: {fileID: 1113322178}
   - component: {fileID: 1113322177}
   - component: {fileID: 1113322179}
+  - component: {fileID: 1113322181}
+  - component: {fileID: 1113322180}
   m_Layer: 5
   m_Name: da_faiz
   m_TagString: Player
@@ -583,6 +585,31 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgScroller: {fileID: 114487935}
+--- !u!114 &1113322180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113322174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e10251349dbca844eb561104f1756267, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseDamage: 20
+--- !u!114 &1113322181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113322174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 505ed90bb83d727418005be2d6ecc6a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 100
+  playerIdentifier: 1
 --- !u!1 &1976220534
 GameObject:
   m_ObjectHideFlags: 0
