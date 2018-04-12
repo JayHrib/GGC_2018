@@ -22,14 +22,12 @@ public class EnemyHealth : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("Collision!");
-
         if (other.gameObject.CompareTag("Spell"))
         {
-            Debug.Log("Test1");
             TakeDamage(other.gameObject);
-            Debug.Log("Test2");
             other.gameObject.SetActive(false);
+            LevelManager.deaths++;
+            gameObject.SetActive(false);
         }
     }
 
@@ -110,9 +108,6 @@ public class EnemyHealth : MonoBehaviour {
                 ApplyDamage(weakness);
             }
         }
-
-
-
     }
 
     void ApplyDamage(float modifier)

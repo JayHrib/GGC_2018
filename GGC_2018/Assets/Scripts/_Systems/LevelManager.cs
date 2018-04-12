@@ -21,6 +21,7 @@ public class Element
 
 public class LevelManager : MonoBehaviour {
 
+    public Transform spawnPoint;
     public static bool active = false;
     public static int deaths = 0;
     private int toll = 0;
@@ -57,7 +58,7 @@ public class LevelManager : MonoBehaviour {
         if (active == true)
         {
             time++;
-            if (time >= 120)
+            if (time >= 5)
             {
                 time = 0;
                 int rand = Random.Range(0, elementList.Count);
@@ -86,6 +87,7 @@ public class LevelManager : MonoBehaviour {
         EnemyStats mystats = go.GetComponent<EnemyStats>();
         mystats.element = elementList[elementNumber].type;
         SetSprite(mystats.element, go);
+        go.transform.position = spawnPoint.position;
 
         go.SetActive(true);
     }
