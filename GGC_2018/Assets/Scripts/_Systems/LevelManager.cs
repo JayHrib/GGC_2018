@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour {
             if (spawnTimer >= 5)
             {
                 spawnTimer = 0;
-                int rand = Random.Range(0, (elementList.Count - 1));
+                int rand = Random.Range(0, elementList.Count);
                 Spawn(rand);
                 toll++;
                 active = false;

@@ -93,18 +93,7 @@ public class Demo : MonoBehaviour {
                         drawnWellEnough = true;
                     }
 
-                    if (gestureResult.GestureClass == "Water")
-                    {
-                        spellSpawner.FireSpell(1);
-                    }
-                    if (gestureResult.GestureClass == "Fire")
-                    {
-                        spellSpawner.FireSpell(0);
-                    }
-                    if (gestureResult.GestureClass == "Ice")
-                    {
-                        spellSpawner.FireSpell(2);
-                    }
+                    spellSpawner.FireSpell(gestureResult.GestureClass);
                 }
                 else
                 {

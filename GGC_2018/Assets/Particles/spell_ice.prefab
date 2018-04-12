@@ -19,9 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4720663432093468}
-  m_Layer: 0
+  - component: {fileID: 114720585564232928}
+  - component: {fileID: 114635678571552420}
+  m_Layer: 12
   m_Name: spell_ice
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +38,7 @@ GameObject:
   - component: {fileID: 4312336238752104}
   - component: {fileID: 198871998073617940}
   - component: {fileID: 199268801881814376}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +55,7 @@ GameObject:
   - component: {fileID: 4322842928804376}
   - component: {fileID: 198057482667870236}
   - component: {fileID: 199299319065344410}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +72,7 @@ GameObject:
   - component: {fileID: 4658479452481526}
   - component: {fileID: 198153242076910638}
   - component: {fileID: 199419065395352210}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +89,7 @@ GameObject:
   - component: {fileID: 4060333281270258}
   - component: {fileID: 198993424249011754}
   - component: {fileID: 199774192621898666}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +165,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114635678571552420
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132085978894048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 4
+  moveSpeed: 2
+--- !u!114 &114720585564232928
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1132085978894048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82eedb54a33a0a48b87b8397012417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: Ice
 --- !u!198 &198057482667870236
 ParticleSystem:
   m_ObjectHideFlags: 1

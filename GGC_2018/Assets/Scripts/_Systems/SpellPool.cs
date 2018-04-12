@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpellPool : MonoBehaviour {
 
-
     public static SpellPool instance;
     public GameObject pooledObject;
     public int pooledAmount = 10;

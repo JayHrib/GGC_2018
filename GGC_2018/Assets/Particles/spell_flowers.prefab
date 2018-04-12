@@ -19,9 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4798668554342530}
-  m_Layer: 0
+  - component: {fileID: 114812715473833886}
+  - component: {fileID: 114894523654660002}
+  m_Layer: 12
   m_Name: spell_flowers
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +38,7 @@ GameObject:
   - component: {fileID: 4690233958951190}
   - component: {fileID: 198004128967737842}
   - component: {fileID: 199151731387634214}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +55,7 @@ GameObject:
   - component: {fileID: 4825718983326620}
   - component: {fileID: 198017879280783558}
   - component: {fileID: 199959422525976954}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +72,7 @@ GameObject:
   - component: {fileID: 4765015336742040}
   - component: {fileID: 198188209027625754}
   - component: {fileID: 199977435826814018}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +89,7 @@ GameObject:
   - component: {fileID: 4746409870330320}
   - component: {fileID: 198285723506558890}
   - component: {fileID: 199259967122862344}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -163,6 +165,31 @@ Transform:
   m_Father: {fileID: 4798668554342530}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114812715473833886
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049796061303580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82eedb54a33a0a48b87b8397012417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: Grass
+--- !u!114 &114894523654660002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1049796061303580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 4
+  moveSpeed: 2
 --- !u!198 &198004128967737842
 ParticleSystem:
   m_ObjectHideFlags: 1

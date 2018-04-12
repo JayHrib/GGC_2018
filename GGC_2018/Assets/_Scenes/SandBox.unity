@@ -326,6 +326,7 @@ GameObject:
   - component: {fileID: 555423734}
   - component: {fileID: 555423735}
   - component: {fileID: 555423736}
+  - component: {fileID: 555423737}
   m_Layer: 0
   m_Name: ObjectPoolers
   m_TagString: Untagged
@@ -376,6 +377,28 @@ MonoBehaviour:
     type: 2}
   pooledAmount: 4
   willGrow: 0
+--- !u!114 &555423737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 555423733}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f318a9dc5cf9b3548b92a9ee78a159f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellEffects:
+  - name: Fire
+    particlePrefab: {fileID: 1636748220443332, guid: e842be7bf5bf60f4490bfc3aaa6e3859,
+      type: 2}
+  - name: Water
+    particlePrefab: {fileID: 1022347828558750, guid: 0cf27373dc314e844b93d3634c0ce2db,
+      type: 2}
+  - name: Ice
+    particlePrefab: {fileID: 1132085978894048, guid: a003dbb7613d6434a9887433afaaab6f,
+      type: 2}
+  pooledAmount: 2
 --- !u!1 &1107970746
 GameObject:
   m_ObjectHideFlags: 0

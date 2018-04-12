@@ -19,9 +19,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4987513242742206}
-  m_Layer: 0
+  - component: {fileID: 114588932590015900}
+  - component: {fileID: 114311469560799460}
+  m_Layer: 12
   m_Name: spell_water
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36,7 +38,7 @@ GameObject:
   - component: {fileID: 4815096237019172}
   - component: {fileID: 198936523562322598}
   - component: {fileID: 199540669360648730}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +55,7 @@ GameObject:
   - component: {fileID: 4516069941791806}
   - component: {fileID: 198517845010751740}
   - component: {fileID: 199297084070596334}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +72,7 @@ GameObject:
   - component: {fileID: 4875590740058338}
   - component: {fileID: 198995572687138062}
   - component: {fileID: 199299688873994336}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +89,7 @@ GameObject:
   - component: {fileID: 4261979551970796}
   - component: {fileID: 198970047260853450}
   - component: {fileID: 199939023924858034}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +155,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1022347828558750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.82, y: -1.03, z: -0.041898657}
+  m_LocalPosition: {x: -0.018402062, y: -2.4602072, z: -0.024626669}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4875590740058338}
@@ -163,6 +165,31 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114311469560799460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022347828558750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 4
+  moveSpeed: 2
+--- !u!114 &114588932590015900
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1022347828558750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82eedb54a33a0a48b87b8397012417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: Water
 --- !u!198 &198517845010751740
 ParticleSystem:
   m_ObjectHideFlags: 1

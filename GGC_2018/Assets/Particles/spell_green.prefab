@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4242748423823352}
   - component: {fileID: 198141439117288602}
   - component: {fileID: 199080364916962122}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4946539435111074}
   - component: {fileID: 198690569249285544}
   - component: {fileID: 199804421678093048}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4799147662258822}
   - component: {fileID: 198007258272263922}
   - component: {fileID: 199184279906081658}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4793390855784492}
   - component: {fileID: 198650235343910576}
   - component: {fileID: 199274335683438216}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,9 +87,9 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4637798008902268}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: spell_green
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 4401691988052224}
   - component: {fileID: 198358708149316532}
   - component: {fileID: 199780268371413686}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4964754628308390}
   - component: {fileID: 198392033975883694}
   - component: {fileID: 199541072461013906}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4018940369223036}
   - component: {fileID: 198736737806568890}
   - component: {fileID: 199650574943187012}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4762289383514150}
   - component: {fileID: 198055411432362858}
   - component: {fileID: 199215107761292442}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,9 +70,11 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4454585822481106}
-  m_Layer: 0
+  - component: {fileID: 114059364613025540}
+  - component: {fileID: 114570834595146896}
+  m_Layer: 12
   m_Name: spell_electric
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,7 +89,7 @@ GameObject:
   - component: {fileID: 4125672461703640}
   - component: {fileID: 198793056400054882}
   - component: {fileID: 199191513751700440}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +106,7 @@ GameObject:
   - component: {fileID: 4049379793038994}
   - component: {fileID: 198411296105364422}
   - component: {fileID: 199798528830987886}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -194,6 +196,31 @@ Transform:
   m_Father: {fileID: 4454585822481106}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114059364613025540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673746145247444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a82eedb54a33a0a48b87b8397012417e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  element: Electric
+--- !u!114 &114570834595146896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673746145247444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lifeTime: 4
+  moveSpeed: 2
 --- !u!198 &198055411432362858
 ParticleSystem:
   m_ObjectHideFlags: 1

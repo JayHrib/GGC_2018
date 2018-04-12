@@ -22,7 +22,7 @@ public class SpellElement
 public class CastSpell : MonoBehaviour {
 
     public static CastSpell instance;
-
+    
     public Transform firePoint;
     public GameObject spellPrefab;
     List<SpellElement> elementList = new List<SpellElement>();
@@ -31,6 +31,9 @@ public class CastSpell : MonoBehaviour {
     SpellSprite[] spellSprites;
 
     private SpellPool spellPool;
+    private SpellHandler spellHandler;
+
+    private GameObject toReturn;
 
 	// Use this for initialization
 	void Start () {
@@ -42,6 +45,7 @@ public class CastSpell : MonoBehaviour {
         }
 
         spellPool = SpellPool.instance;
+        spellHandler = SpellHandler.instance;
 
         elementList.Add(new SpellElement("FireSpell"));
         elementList.Add(new SpellElement("WaterSpell"));
@@ -49,21 +53,25 @@ public class CastSpell : MonoBehaviour {
     }
 
 
-    public void FireSpell(int elementNumber)
+    public void FireSpell(string element)
     {
-        GameObject go = spellPool.GetPooledObject();
+        GameObject go = PickPrefab(element);
 
         if (go == null)
         {
             return;
         }
 
-        SpellStats myStats = go.GetComponent<SpellStats>();
-        myStats.element = elementList[elementNumber].type;
-        SetSpell(myStats.element, go);
+        //SpellStats myStats = go.GetComponent<SpellStats>();
+        //myStats.element = elementList[elementNumber].type;
+        //SetSpell(myStats.element, go);
 
         go.transform.position = firePoint.position;
+        Debug.Log("Test 2");
+
         go.SetActive(true);
+
+        Debug.Log(go + " " + go.transform.position + " " + go.activeInHierarchy);
     }
 
     private void SetSpell(string element, GameObject spell)
@@ -79,5 +87,11 @@ public class CastSpell : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    private GameObject PickPrefab(string element)
+    {
+        toReturn = spellHandler.GetSpecifiedSpell(element);
+        return toReturn;
     }
 }
