@@ -677,9 +677,9 @@ MonoBehaviour:
     type: 2}
   spellSprites:
   - name: Fire
-    sprite: {fileID: 21300000, guid: 0eb0231231d076240aa94d6d6fa51c7c, type: 3}
+    spellSprite: {fileID: 21300000, guid: 0eb0231231d076240aa94d6d6fa51c7c, type: 3}
   - name: Water
-    sprite: {fileID: 21300000, guid: 6c37f39cc5480234ab48037c35d8e04d, type: 3}
+    spellSprite: {fileID: 21300000, guid: 6c37f39cc5480234ab48037c35d8e04d, type: 3}
 --- !u!1 &2006988540
 GameObject:
   m_ObjectHideFlags: 0

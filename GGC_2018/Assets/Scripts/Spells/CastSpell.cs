@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpellSprite
 {
     public string name;
-    public Sprite sprite;
+    public Sprite spellSprite;
 }
 
 public class SpellElement
@@ -60,13 +60,13 @@ public class CastSpell : MonoBehaviour {
 
         SpellStats myStats = go.GetComponent<SpellStats>();
         myStats.element = elementList[elementNumber].type;
-        SetSprite(myStats.element, go);
+        SetSpell(myStats.element, go);
 
         go.transform.position = firePoint.position;
         go.SetActive(true);
     }
 
-    private void SetSprite(string element, GameObject spell)
+    private void SetSpell(string element, GameObject spell)
     {
         SpriteRenderer spellSprite = spell.GetComponent<SpriteRenderer>();
 
@@ -74,7 +74,7 @@ public class CastSpell : MonoBehaviour {
         {
             if (spellSprites[i].name == element)
             {
-                spellSprite.sprite = spellSprites[i].sprite;
+                spellSprite.sprite = spellSprites[i].spellSprite;
 
                 return;
             }
