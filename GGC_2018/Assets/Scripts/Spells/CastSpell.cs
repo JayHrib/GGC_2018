@@ -43,9 +43,9 @@ public class CastSpell : MonoBehaviour {
 
         spellPool = SpellPool.instance;
 
-        elementList.Add(new SpellElement("Fire"));
-        elementList.Add(new SpellElement("Water"));
-        elementList.Add(new SpellElement("Ice"));
+        elementList.Add(new SpellElement("FireSpell"));
+        elementList.Add(new SpellElement("WaterSpell"));
+        elementList.Add(new SpellElement("IceSpell"));
     }
 
 

@@ -5,8 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyStats))]
 public class EnemyHealth : MonoBehaviour {
 
-    private float currentHealth;
-    private string myElement;
+    public float currentHealth;
+   // private string myElement;
     private float resist;
     private float weakness;
     private float baseDamage = 50f;
@@ -15,7 +15,6 @@ public class EnemyHealth : MonoBehaviour {
     void Start()
     {
         currentHealth = GetComponent<EnemyStats>().maxHealth;
-        myElement = GetComponent<EnemyStats>().element;
         resist = GetComponent<EnemyStats>().resistanceModifier;
         weakness = GetComponent<EnemyStats>().weaknessModifier;
     }
@@ -26,8 +25,6 @@ public class EnemyHealth : MonoBehaviour {
         {
             TakeDamage(other.gameObject);
             other.gameObject.SetActive(false);
-            LevelManager.deaths++;
-            gameObject.SetActive(false);
         }
     }
 
@@ -41,7 +38,7 @@ public class EnemyHealth : MonoBehaviour {
         string spellElement = other.GetComponent<SpellStats>().element;
 
         //Fire modidiers
-        if (myElement == "Fire")
+        if (GetComponent<EnemyStats>().element == "Fire")
         {
             if (spellElement == "FireSpell")
             {
@@ -58,7 +55,7 @@ public class EnemyHealth : MonoBehaviour {
         }
 
         //Water modidiers
-        if (myElement == "Water")
+        if (GetComponent<EnemyStats>().element == "Water")
         {
             if (spellElement == "FireSpell")
             {
@@ -76,7 +73,7 @@ public class EnemyHealth : MonoBehaviour {
 
 
         //Ice modidiers
-        if (myElement == "Ice")
+        if (GetComponent<EnemyStats>().element == "Ice")
         {
             if (spellElement == "FireSpell")
             {
@@ -93,7 +90,7 @@ public class EnemyHealth : MonoBehaviour {
         }
 
         //Grass modidiers
-        if (myElement == "Grass")
+        if (GetComponent<EnemyStats>().element == "Grass")
         {
             if (spellElement == "FireSpell")
             {

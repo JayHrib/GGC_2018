@@ -25,7 +25,7 @@ public class LevelManager : MonoBehaviour {
     public static bool active = false;
     public static int deaths = 0;
     private int toll = 0;
-    private int time = 0;
+    public int spawnTimer = 0;
 
     public GameObject enemy;
     List<Element> elementList = new List<Element>();
@@ -57,10 +57,10 @@ public class LevelManager : MonoBehaviour {
     {
         if (active == true)
         {
-            time++;
-            if (time >= 5)
+            spawnTimer++;
+            if (spawnTimer >= 5)
             {
-                time = 0;
+                spawnTimer = 0;
                 int rand = Random.Range(0, elementList.Count);
                 Spawn(rand);
                 toll++;
@@ -83,11 +83,14 @@ public class LevelManager : MonoBehaviour {
         {
             return;
         }
-
-        EnemyStats mystats = go.GetComponent<EnemyStats>();
-        mystats.element = elementList[elementNumber].type;
-        SetSprite(mystats.element, go);
+        
+        go.GetComponent<EnemyStats>().element = elementList[elementNumber].type;
+        
+        SetSprite(go.GetComponent<EnemyStats>().element, go);
         go.transform.position = spawnPoint.position;
+        go.GetComponent<EnemyHealth>().currentHealth = 100f;
+
+        Debug.Log("Health: " + go.GetComponent<EnemyHealth>().currentHealth + " Element: " + go.GetComponent<EnemyStats>().element);
 
         go.SetActive(true);
     }
