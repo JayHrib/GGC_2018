@@ -460,6 +460,7 @@ GameObject:
   - component: {fileID: 1113322175}
   - component: {fileID: 1113322178}
   - component: {fileID: 1113322177}
+  - component: {fileID: 1113322179}
   m_Layer: 5
   m_Name: da_faiz
   m_TagString: Player
@@ -570,6 +571,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.84, y: 1.84}
   m_EdgeRadius: 0
+--- !u!114 &1113322179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1113322174}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab11d41f7e75f80419ccd6b85aff3f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgScroller: {fileID: 114487935}
 --- !u!1 &1976220534
 GameObject:
   m_ObjectHideFlags: 0
@@ -614,6 +627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2006988541}
+  spawnTimer: 0
   enemy: {fileID: 1106084595894072, guid: d4964d6d7a652af4f8eceffc7975eb9c, type: 2}
   enemySprites:
   - name: Fire
