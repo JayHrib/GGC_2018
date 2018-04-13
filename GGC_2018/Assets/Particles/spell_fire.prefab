@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 4006716793118478}
   - component: {fileID: 114423401016789046}
   - component: {fileID: 114677027245795400}
+  - component: {fileID: 58042460456807412}
   m_Layer: 12
   m_Name: spell_fire
   m_TagString: Spell
@@ -137,7 +138,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1636748220443332}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.018402062, y: -2.4602072, z: -0.024626669}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4085931723913032}
@@ -227,6 +228,21 @@ Transform:
   m_Father: {fileID: 4006716793118478}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58042460456807412
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1636748220443332}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114423401016789046
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -251,7 +267,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 4
-  moveSpeed: 2
+  moveSpeed: 4
 --- !u!198 &198098438415125584
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -90,8 +90,6 @@ public class LevelManager : MonoBehaviour {
         go.transform.position = spawnPoint.position;
         go.GetComponent<EnemyHealth>().currentHealth = 100f;
 
-        Debug.Log("Health: " + go.GetComponent<EnemyHealth>().currentHealth + " Element: " + go.GetComponent<EnemyStats>().element);
-
         go.SetActive(true);
     }
 

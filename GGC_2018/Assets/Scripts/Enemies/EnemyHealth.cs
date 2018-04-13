@@ -40,15 +40,15 @@ public class EnemyHealth : MonoBehaviour {
         //Fire modidiers
         if (GetComponent<EnemyStats>().element == "Fire")
         {
-            if (spellElement == "FireSpell")
+            if (spellElement == "Fire")
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "WaterSpell")
+            else if (spellElement == "Water")
             {
                 ApplyDamage(weakness);
             }
-            else if (spellElement == "IceSpell")
+            else if (spellElement == "Ice")
             {
                 ApplyDamage(resist);
             }
@@ -57,15 +57,15 @@ public class EnemyHealth : MonoBehaviour {
         //Water modidiers
         if (GetComponent<EnemyStats>().element == "Water")
         {
-            if (spellElement == "FireSpell")
+            if (spellElement == "Fire")
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "WaterSpell")
+            else if (spellElement == "Water")
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "IceSpell")
+            else if (spellElement == "Ice")
             {
                 ApplyDamage(weakness);
             }
@@ -75,15 +75,15 @@ public class EnemyHealth : MonoBehaviour {
         //Ice modidiers
         if (GetComponent<EnemyStats>().element == "Ice")
         {
-            if (spellElement == "FireSpell")
+            if (spellElement == "Fire")
             {
                 ApplyDamage(weakness);
             }
-            else if (spellElement == "WaterSpell")
+            else if (spellElement == "Water")
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "IceSpell")
+            else if (spellElement == "Ice")
             {
                 ApplyDamage(resist);
             }
@@ -92,15 +92,15 @@ public class EnemyHealth : MonoBehaviour {
         //Grass modidiers
         if (GetComponent<EnemyStats>().element == "Grass")
         {
-            if (spellElement == "FireSpell")
+            if (spellElement == "Fire")
             {
                 ApplyDamage(weakness);
             }
-            else if (spellElement == "WaterSpell")
+            else if (spellElement == "Water")
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "IceSpell")
+            else if (spellElement == "Ice")
             {
                 ApplyDamage(weakness);
             }

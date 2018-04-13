@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 4454585822481106}
   - component: {fileID: 114059364613025540}
   - component: {fileID: 114570834595146896}
+  - component: {fileID: 58067403823740334}
   m_Layer: 12
   m_Name: spell_electric
   m_TagString: Spell
@@ -159,7 +160,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1673746145247444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.27, y: 0.17340356, z: -0.041898657}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4125672461703640}
@@ -196,6 +197,21 @@ Transform:
   m_Father: {fileID: 4454585822481106}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &58067403823740334
+CircleCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1673746145247444}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
 --- !u!114 &114059364613025540
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -220,7 +236,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 4
-  moveSpeed: 2
+  moveSpeed: 4
 --- !u!198 &198055411432362858
 ParticleSystem:
   m_ObjectHideFlags: 1

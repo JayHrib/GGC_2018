@@ -67,11 +67,8 @@ public class CastSpell : MonoBehaviour {
         //SetSpell(myStats.element, go);
 
         go.transform.position = firePoint.position;
-        Debug.Log("Test 2");
 
         go.SetActive(true);
-
-        Debug.Log(go + " " + go.transform.position + " " + go.activeInHierarchy);
     }
 
     private void SetSpell(string element, GameObject spell)
