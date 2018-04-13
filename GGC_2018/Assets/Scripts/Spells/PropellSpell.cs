@@ -19,7 +19,7 @@ public class PropellSpell : MonoBehaviour {
     void OnEnable()
     {
         //Invoke("Destroy", lifeTime);
-        //target = GetTarget();
+        target = GetTarget();
     }
 
     // Update is called once per frame
@@ -27,9 +27,9 @@ public class PropellSpell : MonoBehaviour {
 
         transform.Translate(Vector3.up * (moveSpeed * Time.deltaTime));
 
-       /* if (target == null)
+        if(target == null)
         {
-            //target = GetTarget();
+            target = GetTarget();
             transform.Translate(Vector3.forward * Time.deltaTime);
         }
 
@@ -40,7 +40,7 @@ public class PropellSpell : MonoBehaviour {
         else if (target != null && target.activeInHierarchy)
         {
             transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (moveSpeed * Time.deltaTime));
-        }*/
+        }
 	}
 
     void Destroy()

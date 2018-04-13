@@ -8,8 +8,9 @@ public class EnemyAI : MonoBehaviour {
     public static bool active = true;
     public KeyCode pressSpace;
 
-    private GameObject targetOne;
-    private GameObject targetTwo;
+    private GameObject target;
+
+    private List<GameObject> targets = new List<GameObject>();
 
     private float targetDistance;
     public const float GOAL_DISTANCE = 1f;
@@ -19,8 +20,13 @@ public class EnemyAI : MonoBehaviour {
 
 	void Start () {
         speed = gameObject.GetComponent<EnemyStats>().movementSpeed;
-        targetOne = GameObject.Find("WitchPrefab");
-	}
+    }
+
+    void OnEnable()
+    {
+        int rand = Random.Range(0, 2);
+        target = GameObject.Find(ChooseTarget(rand));
+    }
 
 	void FixedUpdate () {
         if (Input.GetKeyDown(pressSpace))
@@ -34,14 +40,30 @@ public class EnemyAI : MonoBehaviour {
                 active = true;
             }
         }
-        if (active)
+        if (active && target != null)
         {
-            targetDistance = Vector3.Distance(targetOne.transform.position, transform.position);
+            targetDistance = Vector3.Distance(target.transform.position, transform.position);
 
             if (targetDistance > GOAL_DISTANCE)
             {
-                transform.position = Vector2.MoveTowards(transform.position, targetOne.transform.position, (speed * Time.deltaTime));
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (speed * Time.deltaTime));
             }
         }
 	}
+
+    private string ChooseTarget(int index)
+    {
+        string toReturn = "";
+
+        if (index == 0)
+        {
+            toReturn = "WitchPrefab";
+        }
+        if (index == 1)
+        {
+            toReturn = "FamiliarPrefab";
+        }
+
+        return toReturn;
+    }
 }
