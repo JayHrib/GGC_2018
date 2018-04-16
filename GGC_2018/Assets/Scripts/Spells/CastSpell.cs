@@ -30,7 +30,6 @@ public class CastSpell : MonoBehaviour {
     [SerializeField]
     SpellSprite[] spellSprites;
 
-    private SpellPool spellPool;
     private SpellHandler spellHandler;
 
     private GameObject toReturn;
@@ -44,7 +43,6 @@ public class CastSpell : MonoBehaviour {
             Debug.LogError("CastSpell: No sprites available");
         }
 
-        spellPool = SpellPool.instance;
         spellHandler = SpellHandler.instance;
 
         elementList.Add(new SpellElement("FireSpell"));
@@ -62,28 +60,9 @@ public class CastSpell : MonoBehaviour {
             return;
         }
 
-        //SpellStats myStats = go.GetComponent<SpellStats>();
-        //myStats.element = elementList[elementNumber].type;
-        //SetSpell(myStats.element, go);
-
         go.transform.position = firePoint.position;
 
         go.SetActive(true);
-    }
-
-    private void SetSpell(string element, GameObject spell)
-    {
-        SpriteRenderer spellSprite = spell.GetComponent<SpriteRenderer>();
-
-        for (int i = 0; i < spellSprites.Length; i++)
-        {
-            if (spellSprites[i].name == element)
-            {
-                spellSprite.sprite = spellSprites[i].spellSprite;
-
-                return;
-            }
-        }
     }
 
     private GameObject PickPrefab(string element)

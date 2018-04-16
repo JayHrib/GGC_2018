@@ -10,8 +10,6 @@ public class EnemyAI : MonoBehaviour {
 
     private GameObject target;
 
-    private List<GameObject> targets = new List<GameObject>();
-
     private float targetDistance;
     public const float GOAL_DISTANCE = 1f;
 
