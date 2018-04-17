@@ -22,7 +22,7 @@ public class EnemyAI : MonoBehaviour {
 
     void OnEnable()
     {
-        int rand = Random.Range(0, 2);
+        int rand = Random.Range(0, 3);
         target = GameObject.Find(ChooseTarget(rand));
     }
 
@@ -53,11 +53,11 @@ public class EnemyAI : MonoBehaviour {
     {
         string toReturn = "";
 
-        if (index == 0)
+        if (index == 0 && index == 1)
         {
             toReturn = "WitchPrefab";
         }
-        if (index == 1)
+        if (index == 2 && index == 3)
         {
             toReturn = "FamiliarPrefab";
         }

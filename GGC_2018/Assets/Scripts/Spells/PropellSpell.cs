@@ -5,7 +5,7 @@ using UnityEngine;
 public class PropellSpell : MonoBehaviour {
 
     public float lifeTime = 4f;
-    public float moveSpeed = 2.0f;
+    public float moveSpeed = 5.0f;
     private bool isActive = false;
 
     GameObject target;

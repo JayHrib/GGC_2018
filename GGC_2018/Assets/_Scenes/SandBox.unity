@@ -481,11 +481,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 7.2573624
+      value: 5.06
       objectReference: {fileID: 0}
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.22
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -528,11 +528,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.56
+      value: -5.16
       objectReference: {fileID: 0}
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -3.22
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -576,6 +576,7 @@ GameObject:
   - component: {fileID: 1976220535}
   - component: {fileID: 1976220536}
   - component: {fileID: 1976220537}
+  - component: {fileID: 1976220538}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Spell
@@ -636,6 +637,18 @@ MonoBehaviour:
     spellSprite: {fileID: 21300000, guid: 0eb0231231d076240aa94d6d6fa51c7c, type: 3}
   - name: Water
     spellSprite: {fileID: 21300000, guid: 6c37f39cc5480234ab48037c35d8e04d, type: 3}
+--- !u!114 &1976220538
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f95d7b64c13ae764a944d43891cddd8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameSpeed: 2
 --- !u!1 &2006988540
 GameObject:
   m_ObjectHideFlags: 0

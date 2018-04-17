@@ -114,11 +114,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pressSpace: 32
-  targets:
-  - identifier: 1
-    playerObject: {fileID: 0}
-  - identifier: 0
-    playerObject: {fileID: 0}
 --- !u!114 &114917637729527552
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -131,7 +126,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  movementSpeed: 1.5
+  movementSpeed: 0.5
   element: 
   weaknessModifier: 2
   resistanceModifier: 0.5

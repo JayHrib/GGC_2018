@@ -38,6 +38,7 @@ public class Demo : MonoBehaviour {
     private bool drawing = false;
 
     private const float REQUIRED_SCORE = 0.85f;
+    private GameObject spellCheck;
 
 	void Start () {
         spellSpawner = FindObjectOfType<CastSpell>();
@@ -187,13 +188,13 @@ public class Demo : MonoBehaviour {
     }
 
 	void OnGUI() {
-
-		GUI.Box(drawArea, "Draw Area");
-
-		GUI.Label(new Rect(10, Screen.height - 40, 500, 50), message);
+       
+        GUI.Box(drawArea, " ");
 
         if (devMode)
         {
+            GUI.Label(new Rect(10, Screen.height - 40, 500, 50), message);
+
             if (GUI.Button(new Rect(Screen.width - 100, 10, 100, 30), "Recognize"))
             {
 
@@ -203,7 +204,7 @@ public class Demo : MonoBehaviour {
                 Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
 
                 message = gestureResult.GestureClass + " " + gestureResult.Score;
-                if (gestureResult.Score > REQUIRED_SCORE)
+                if (gestureResult.Score > 0.7f)
                 {
                     Debug.Log("Spell has been cast!");
                     if (!drawnWellEnough)
