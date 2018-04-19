@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerStats))]
 public class PlayerHealthSystem : MonoBehaviour {
 
-    private float currentHealth;
+    public float currentHealth;
     public float baseDamage = 20f;
 
 

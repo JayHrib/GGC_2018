@@ -53,11 +53,11 @@ public class EnemyAI : MonoBehaviour {
     {
         string toReturn = "";
 
-        if (index == 0 && index == 1)
+        if (index == 0 || index == 1)
         {
             toReturn = "WitchPrefab";
         }
-        if (index == 2 && index == 3)
+        if (index == 2 || index == 3)
         {
             toReturn = "FamiliarPrefab";
         }
