@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour {
 
     public Transform spawnPoint;
     public static bool active = false;
+    public bool isTwoPlayers = false;
     public static int deaths = 0;
     private int toll = 0;
     public int spawnTimer = 0;

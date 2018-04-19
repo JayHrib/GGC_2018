@@ -13,17 +13,28 @@ public class EnemyAI : MonoBehaviour {
     private float targetDistance;
     public const float GOAL_DISTANCE = 1f;
 
+    private bool twoPlayer;
+
     private float speed;
+    private int rand;
 
 
-	void Start () {
+    void Start () {
         speed = gameObject.GetComponent<EnemyStats>().movementSpeed;
+        twoPlayer = FindObjectOfType<LevelManager>().isTwoPlayers;
     }
 
     void OnEnable()
     {
-        int rand = Random.Range(0, 3);
-        target = GameObject.Find(ChooseTarget(rand));
+        if (twoPlayer)
+        {
+            rand = Random.Range(0, 3);
+            target = GameObject.Find(ChooseTarget(rand));
+        }
+        else
+        {
+            target = GameObject.Find("WitchPrefab");
+        }
     }
 
 	void FixedUpdate () {
@@ -38,6 +49,13 @@ public class EnemyAI : MonoBehaviour {
                 active = true;
             }
         }
+
+        if (target == null)
+        {
+            rand = Random.Range(0, 3);
+            target = GameObject.Find(ChooseTarget(rand));
+        }
+
         if (active && target != null)
         {
             targetDistance = Vector3.Distance(target.transform.position, transform.position);
