@@ -5,12 +5,11 @@ using UnityEngine;
 public class BgScroller : MonoBehaviour {
 
     public static bool active;
-    public static float speed;
+    public float speed;
 
     void Start()
     {
         active = true;
-        speed = 1;
     }
 
     void FixedUpdate()

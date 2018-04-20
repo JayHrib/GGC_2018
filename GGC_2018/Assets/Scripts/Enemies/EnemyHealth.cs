@@ -106,6 +106,22 @@ public class EnemyHealth : MonoBehaviour {
                 ApplyDamage(normal);
             }
         }
+
+        if (GetComponent<EnemyStats>().element == "Snail")
+        {
+            if (spellElement == "Fire")
+            {
+                ApplyDamage(weakness);
+            }
+            else if (spellElement == "Water")
+            {
+                ApplyDamage(resist);
+            }
+            else
+            {
+                ApplyDamage(normal);
+            }
+        }
     }
 
     void ApplyDamage(float modifier)

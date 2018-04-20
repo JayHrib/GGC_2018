@@ -26,6 +26,8 @@ public class EnemyAI : MonoBehaviour {
 
     void OnEnable()
     {
+        active = true;
+
         if (twoPlayer)
         {
             rand = Random.Range(0, 3);
