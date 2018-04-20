@@ -18,16 +18,16 @@ public class HealthBar : MonoBehaviour {
         {
             if(senpai.GetComponent<PlayerStats>().playerIdentifier == 1)
             {
-                gameObject.GetComponent<Image>().color = new Color(0, 0, 255, 255);
+                gameObject.GetComponent<Image>().color = new Color(0, 0.6f, 1, 1);
             }
             else
             {
-                gameObject.GetComponent<Image>().color = new Color(0, 255, 0, 255);
+                gameObject.GetComponent<Image>().color = new Color(0, 1, 0, 1);
             }
         }
         else
         {
-            gameObject.GetComponent<Image>().color = new Color(255, 0, 0, 255);
+            gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
         }
 	}
 	
@@ -41,7 +41,7 @@ public class HealthBar : MonoBehaviour {
         }
         else
         {
-            newpos.y = newpos.y + 1;
+            newpos.y = newpos.y - 1.5f;
             health = senpai.GetComponent<EnemyHealth>().currentHealth;
         }
         transform.position = newpos;

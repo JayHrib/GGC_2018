@@ -9,6 +9,7 @@ public class EnemyHealth : MonoBehaviour {
    // private string myElement;
     private float resist;
     private float weakness;
+    private float normal = 1;
     private float baseDamage = 50f;
 
     // Use this for initialization
@@ -40,7 +41,7 @@ public class EnemyHealth : MonoBehaviour {
         //Fire modidiers
         if (GetComponent<EnemyStats>().element == "Fire")
         {
-            if (spellElement == "Fire")
+            if (spellElement == "Ice")
             {
                 ApplyDamage(resist);
             }
@@ -48,9 +49,9 @@ public class EnemyHealth : MonoBehaviour {
             {
                 ApplyDamage(weakness);
             }
-            else if (spellElement == "Ice")
+            else
             {
-                ApplyDamage(resist);
+                ApplyDamage(normal);
             }
         }
 
@@ -61,13 +62,13 @@ public class EnemyHealth : MonoBehaviour {
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "Water")
-            {
-                ApplyDamage(resist);
-            }
             else if (spellElement == "Ice")
             {
                 ApplyDamage(weakness);
+            }
+            else
+            {
+                ApplyDamage(normal);
             }
         }
 
@@ -83,9 +84,9 @@ public class EnemyHealth : MonoBehaviour {
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "Ice")
+            else
             {
-                ApplyDamage(resist);
+                ApplyDamage(normal);
             }
         }
 
@@ -100,9 +101,9 @@ public class EnemyHealth : MonoBehaviour {
             {
                 ApplyDamage(resist);
             }
-            else if (spellElement == "Ice")
+            else
             {
-                ApplyDamage(weakness);
+                ApplyDamage(normal);
             }
         }
     }

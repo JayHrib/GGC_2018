@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/MainMenu.unity
+    guid: 1b46a3de46ac59f48b5d95dd68e09e85
+  - enabled: 1
     path: Assets/_Scenes/SandBox.unity
     guid: 815f6d3e9307bb74183ad5c407df17cf
-  - enabled: 0
-    path: Assets/_Scenes/JBs Dungeon of Horror.unity
-    guid: 44c26ced0d4e8014a9191d042d5a19b8

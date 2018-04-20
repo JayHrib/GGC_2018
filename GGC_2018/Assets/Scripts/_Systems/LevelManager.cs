@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class EnemySprite
@@ -27,6 +28,7 @@ public class LevelManager : MonoBehaviour {
     public static int deaths = 0;
     private int toll = 0;
     public int spawnTimer = 0;
+    public KeyCode pressEscape;
 
     public GameObject enemy;
     List<Element> elementList = new List<Element>();
@@ -47,6 +49,7 @@ public class LevelManager : MonoBehaviour {
 
         elementList.Add(new Element("Fire"));
         elementList.Add(new Element("Grass"));
+        elementList.Add(new Element("Snail"));
         //elementList.Add(new Element("Ice"));
         //elementList.Add(new Element("Earth"));
         //elementList.Add(new Element("Electricity"));
@@ -56,6 +59,10 @@ public class LevelManager : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (Input.GetKeyDown(pressEscape))
+        {
+            SceneManager.LoadScene(0);
+        }
         if (active == true)
         {
             spawnTimer++;

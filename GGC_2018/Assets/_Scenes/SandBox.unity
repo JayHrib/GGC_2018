@@ -553,11 +553,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 114188003065628076, guid: b50e332627add2b48aa13901e04f282f,
-        type: 2}
-      propertyPath: playerIdentifier
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_IsPrefabParent: 0
@@ -608,6 +603,7 @@ MonoBehaviour:
   spawnPoint: {fileID: 2006988541}
   isTwoPlayers: 1
   spawnTimer: 0
+  pressEscape: 27
   enemy: {fileID: 1106084595894072, guid: d4964d6d7a652af4f8eceffc7975eb9c, type: 2}
   enemySprites:
   - name: Fire
