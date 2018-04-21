@@ -9,6 +9,7 @@ public class PropellSpell : MonoBehaviour {
     private bool isActive = false;
 
     GameObject target;
+    private bool manager;
 
     void OnEnable()
     {
@@ -23,12 +24,12 @@ public class PropellSpell : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
+        manager = FindObjectOfType<LevelManager>().atBoss;
         if (isActive)
         {
             if (target == null)
             {
                 target = GetTarget();
-                //transform.Translate(Vector3.forward * Time.deltaTime);
             }
 
             if (target != null && !target.activeInHierarchy)
@@ -71,7 +72,17 @@ public class PropellSpell : MonoBehaviour {
 
     GameObject GetTarget()
     {
-        GameObject toReturn = GameObject.FindGameObjectWithTag("Enemy");
-        return toReturn;
+        GameObject toReturn = null;
+        if (!manager)
+        {
+            toReturn = GameObject.FindGameObjectWithTag("Enemy");
+            return toReturn;
+        }
+        else
+        {
+            toReturn = GameObject.FindGameObjectWithTag("Boss");
+            Debug.Log(toReturn);
+            return toReturn;
+        }
     }
 }

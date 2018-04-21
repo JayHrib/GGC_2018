@@ -18,9 +18,9 @@ public class BgScroller : MonoBehaviour {
         {
             Vector3 newpos = new Vector3(transform.position.x, transform.position.y - (0.05f * speed));
             transform.position = newpos;
-            if (transform.position.y <= (-65))
+            if (transform.position.y <= (-92))
             {
-                Reset();
+                speed = 0;
             }
         }
     }

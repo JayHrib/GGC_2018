@@ -1,12 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(PlayerStats))]
 public class PlayerHealthSystem : MonoBehaviour {
 
     public float currentHealth;
     public float baseDamage = 20f;
+
 
 
 	// Use this for initialization
@@ -31,6 +33,7 @@ public class PlayerHealthSystem : MonoBehaviour {
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
+            SceneManager.LoadScene(0);
         }
     }
 }

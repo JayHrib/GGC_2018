@@ -29,17 +29,23 @@ public class LevelManager : MonoBehaviour {
     private int toll = 0;
     public int spawnTimer = 0;
     public KeyCode pressEscape;
+    private GameObject background;
 
     public GameObject enemy;
     List<Element> elementList = new List<Element>();
+
+    public bool atBoss = false;
 
     [SerializeField]
     EnemySprite[] enemySprites;
 
     private ObjectPooler objectPool;
+    private GameObject boss;
 
     void Start()
     {
+        boss = GameObject.Find("solid_snail");
+        background = GameObject.Find("PlaytestEnvironment");
         if (enemySprites == null)
         {
             Debug.LogError("LevelManager: No sprites available!");
@@ -49,7 +55,7 @@ public class LevelManager : MonoBehaviour {
 
         elementList.Add(new Element("Fire"));
         elementList.Add(new Element("Grass"));
-        elementList.Add(new Element("Snail"));
+        //elementList.Add(new Element("Snail"));
         //elementList.Add(new Element("Ice"));
         //elementList.Add(new Element("Earth"));
         //elementList.Add(new Element("Electricity"));
@@ -81,24 +87,37 @@ public class LevelManager : MonoBehaviour {
             toll = 0;
             active = true;
         }
+
+        if (!atBoss && background.transform.position.y <= -92)
+        {
+            atBoss = true;
+        }
+
+        if (!boss.activeInHierarchy)
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 
     private void Spawn(int elementNumber)
     {
-        GameObject go = objectPool.GetPooledObject();
-
-        if (go == null)
+        if (!atBoss)
         {
-            return;
-        }
-        
-        go.GetComponent<EnemyStats>().element = elementList[elementNumber].type;
-        
-        SetSprite(go.GetComponent<EnemyStats>().element, go);
-        go.transform.position = spawnPoint.position;
-        go.GetComponent<EnemyHealth>().currentHealth = 100f;
+            GameObject go = objectPool.GetPooledObject();
 
-        go.SetActive(true);
+            if (go == null)
+            {
+                return;
+            }
+
+            go.GetComponent<EnemyStats>().element = elementList[elementNumber].type;
+
+            SetSprite(go.GetComponent<EnemyStats>().element, go);
+            go.transform.position = spawnPoint.position;
+            go.GetComponent<EnemyHealth>().currentHealth = 100f;
+
+            go.SetActive(true);
+        }
     }
 
     private void SetSprite(string element, GameObject enemy)
