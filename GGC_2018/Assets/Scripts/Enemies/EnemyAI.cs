@@ -5,9 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(EnemyStats))]
 public class EnemyAI : MonoBehaviour {
 
-    public static bool active = true;
-    public KeyCode pressSpace;
-
     private GameObject target;
 
     private float targetDistance;
@@ -26,7 +23,6 @@ public class EnemyAI : MonoBehaviour {
 
     void OnEnable()
     {
-        active = true;
 
         if (twoPlayer)
         {
@@ -40,17 +36,6 @@ public class EnemyAI : MonoBehaviour {
     }
 
 	void FixedUpdate () {
-        if (Input.GetKeyDown(pressSpace))
-        {
-            if(active)
-            {
-                active = false;
-            }
-            else
-            {
-                active = true;
-            }
-        }
 
         if (target == null)
         {
@@ -58,13 +43,13 @@ public class EnemyAI : MonoBehaviour {
             target = GameObject.Find(ChooseTarget(rand));
         }
 
-        if (active && target != null)
+        else
         {
             targetDistance = Vector3.Distance(target.transform.position, transform.position);
 
             if (targetDistance > GOAL_DISTANCE)
             {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (speed * Time.deltaTime));
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (speed * GameConfig.gameSpeed * Time.deltaTime));
             }
         }
 	}

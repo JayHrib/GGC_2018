@@ -67,8 +67,8 @@ public class Demo : MonoBehaviour {
                 displayDrawing = true;
             }
 
-           // Debug.Log("Draw area created");
             drawArea = new Rect(0, 0, Screen.width, Screen.height);
+            GameConfig.gameSpeed /= 3;
         }
         
         //Destroy draw area
@@ -112,6 +112,7 @@ public class Demo : MonoBehaviour {
 
             //Use to remove area
             drawArea = new Rect(0, 0, 0, 0);
+            GameConfig.gameSpeed *= 3;
         }
 
         if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer) {
@@ -162,8 +163,8 @@ public class Demo : MonoBehaviour {
                 }
 
                 points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
-                
-				currentGestureLineRenderer.SetVertexCount(++vertexCount);
+
+                currentGestureLineRenderer.SetVertexCount(++vertexCount);
 				currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
 			}
 		}

@@ -19,6 +19,10 @@ public class PropellSpell : MonoBehaviour {
         {
             isActive = true;
         }
+        for (int i = 0; i < gameObject.transform.childCount; i++)
+        {
+            gameObject.transform.GetChild(i).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().sortingLayerName = "Spell";
+        }
     }
 
     // Update is called once per frame

@@ -30,8 +30,7 @@ public class HealthBar : MonoBehaviour {
             gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
         }
 	}
-	
-	// Update is called once per frame
+
 	void FixedUpdate () {
         Vector3 newpos = senpai.transform.position;
         if (senpai.GetComponent<PlayerStats>() != null)

@@ -127,7 +127,6 @@ public class EnemyHealth : MonoBehaviour {
     void ApplyDamage(float modifier)
     {
         currentHealth -= (baseDamage * modifier);
-        Debug.Log(currentHealth);
 
         if (currentHealth <= 0)
         {
