@@ -52,8 +52,11 @@ public class Demo : MonoBehaviour {
         platform = Application.platform;
 
         //Find scripts used by the PS Move controllers
-        cursorController = FindObjectOfType<VRCursorController>();
-        moveController = FindObjectOfType<PSMoveController>();
+        if (usingMoveController)
+        {
+            cursorController = FindObjectOfType<VRCursorController>();
+            moveController = FindObjectOfType<PSMoveController>();
+        }
 
         //Load gesture templates
         TextAsset[] filePaths = Resources.LoadAll<TextAsset>("CustomGestureSet/");
