@@ -113,6 +113,48 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1001 &455460302
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 8.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -5.08
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4437996180925566, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &486211598
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,6 +188,7 @@ MonoBehaviour:
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
   devMode: 0
+  usingMoveController: 0
 --- !u!81 &486211600
 AudioListener:
   m_ObjectHideFlags: 0
@@ -509,10 +552,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1976220534}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f95d7b64c13ae764a944d43891cddd8c, type: 3}
+  m_Script: {fileID: 11500000, guid: a9d990939dc255d41837d272e3d916fa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameSpeed: 2
 --- !u!1 &2006988540
 GameObject:
   m_ObjectHideFlags: 0

@@ -10,6 +10,8 @@ public class EnemyStats : MonoBehaviour {
 
     public string element = "";
 
+    public int lane;
+
     public float weaknessModifier = 2.0f;
     public float resistanceModifier = .5f;
 

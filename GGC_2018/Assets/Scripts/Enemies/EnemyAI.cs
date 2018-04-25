@@ -14,6 +14,7 @@ public class EnemyAI : MonoBehaviour {
 
     private float speed;
     private int rand;
+    private float lane;
 
 
     void Start () {
@@ -23,6 +24,30 @@ public class EnemyAI : MonoBehaviour {
 
     void OnEnable()
     {
+        int ponta = gameObject.GetComponent<EnemyStats>().lane;
+        switch (ponta)
+        {
+            case 1:
+                lane = -7.5f;
+                break;
+            case 2:
+                lane = -4.5f;
+                break;
+            case 3:
+                lane = -1.5f;
+                break;
+            case 4:
+                lane = 1.5f;
+                break;
+            case 5:
+                lane = 4.5f;
+                break;
+            case 6:
+                lane = 7.5f;
+                break;
+            default:
+                break;
+        }
 
         if (twoPlayer)
         {
@@ -47,9 +72,14 @@ public class EnemyAI : MonoBehaviour {
         {
             targetDistance = Vector3.Distance(target.transform.position, transform.position);
 
-            if (targetDistance > GOAL_DISTANCE)
+            if (targetDistance > GOAL_DISTANCE && transform.localPosition.y < 0)
             {
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (speed * GameConfig.gameSpeed * Time.deltaTime));
+            }
+            else
+            {
+                float tempPos = transform.localPosition.y - (speed * 0.02f * GameConfig.gameSpeed);
+                transform.localPosition = new Vector3(lane, tempPos, 0);
             }
         }
 	}

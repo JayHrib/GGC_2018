@@ -76,7 +76,8 @@ public class LevelManager : MonoBehaviour {
             {
                 spawnTimer = 0;
                 int rand = Random.Range(0, elementList.Count);
-                Spawn(rand);
+                int lane = Random.Range(1,6);
+                Spawn(rand, lane);
                 toll++;
                 active = false;
             }
@@ -99,7 +100,7 @@ public class LevelManager : MonoBehaviour {
         }
     }
 
-    private void Spawn(int elementNumber)
+    private void Spawn(int elementNumber, int lane)
     {
         if (!atBoss)
         {
@@ -111,6 +112,7 @@ public class LevelManager : MonoBehaviour {
             }
 
             go.GetComponent<EnemyStats>().element = elementList[elementNumber].type;
+            go.GetComponent<EnemyStats>().lane = lane;
 
             SetSprite(go.GetComponent<EnemyStats>().element, go);
             go.transform.position = spawnPoint.position;
