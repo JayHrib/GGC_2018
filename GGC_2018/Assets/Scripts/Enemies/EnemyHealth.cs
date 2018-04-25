@@ -6,18 +6,26 @@ using UnityEngine;
 public class EnemyHealth : MonoBehaviour {
 
     public float currentHealth;
-   // private string myElement;
-    private float resist;
-    private float weakness;
-    private float normal = 1;
+    private string myElement;
+  
     private float baseDamage = 50f;
+    private float modifier;
+    private DamageModifierCalculator damageCalculator;
 
     // Use this for initialization
     void Start()
     {
         currentHealth = GetComponent<EnemyStats>().maxHealth;
-        resist = GetComponent<EnemyStats>().resistanceModifier;
-        weakness = GetComponent<EnemyStats>().weaknessModifier;
+        damageCalculator = FindObjectOfType<DamageModifierCalculator>();
+        if (damageCalculator == null)
+        {
+            Debug.LogError("EnemyHealth: No damage modifier script present in scene!");
+        }
+    }
+
+    void OnEnable()
+    {
+        myElement = gameObject.GetComponent<EnemyStats>().element;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -38,95 +46,13 @@ public class EnemyHealth : MonoBehaviour {
     {
         string spellElement = other.GetComponent<SpellStats>().element;
 
-        //Fire modidiers
-        if (GetComponent<EnemyStats>().element == "Fire")
-        {
-            if (spellElement == "Ice")
-            {
-                ApplyDamage(resist);
-            }
-            else if (spellElement == "Water")
-            {
-                ApplyDamage(weakness);
-            }
-            else
-            {
-                ApplyDamage(normal);
-            }
-        }
-
-        //Water modidiers
-        if (GetComponent<EnemyStats>().element == "Water")
-        {
-            if (spellElement == "Fire")
-            {
-                ApplyDamage(resist);
-            }
-            else if (spellElement == "Ice")
-            {
-                ApplyDamage(weakness);
-            }
-            else
-            {
-                ApplyDamage(normal);
-            }
-        }
-
-
-        //Ice modidiers
-        if (GetComponent<EnemyStats>().element == "Ice")
-        {
-            if (spellElement == "Fire")
-            {
-                ApplyDamage(weakness);
-            }
-            else if (spellElement == "Water")
-            {
-                ApplyDamage(resist);
-            }
-            else
-            {
-                ApplyDamage(normal);
-            }
-        }
-
-        //Grass modidiers
-        if (GetComponent<EnemyStats>().element == "Grass")
-        {
-            if (spellElement == "Fire")
-            {
-                ApplyDamage(weakness);
-            }
-            else if (spellElement == "Water")
-            {
-                ApplyDamage(resist);
-            }
-            else
-            {
-                ApplyDamage(normal);
-            }
-        }
-
-        if (GetComponent<EnemyStats>().element == "Snail")
-        {
-            if (spellElement == "Fire")
-            {
-                ApplyDamage(weakness);
-            }
-            else if (spellElement == "Water")
-            {
-                ApplyDamage(resist);
-            }
-            else
-            {
-                ApplyDamage(normal);
-            }
-        }
+        modifier = damageCalculator.CalculateDamage(spellElement, myElement);
+        ApplyDamage(modifier);
     }
 
-    void ApplyDamage(float modifier)
+    void ApplyDamage(float damage)
     {
-        currentHealth -= (baseDamage * modifier);
+        currentHealth -= (damage *= baseDamage);
 
         if (currentHealth <= 0)
         {

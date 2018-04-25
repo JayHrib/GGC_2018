@@ -15,6 +15,8 @@ public class EnemyAI : MonoBehaviour {
     private float speed;
     private int rand;
     private float lane;
+    private int min_rand;
+    private int max_rand;
 
 
     void Start () {
@@ -24,37 +26,56 @@ public class EnemyAI : MonoBehaviour {
 
     void OnEnable()
     {
-        int ponta = gameObject.GetComponent<EnemyStats>().lane;
-        switch (ponta)
+        int enemyLane = gameObject.GetComponent<EnemyStats>().lane;
+        switch (enemyLane)
         {
             case 1:
                 lane = -7.5f;
+                if (twoPlayer)
+                {
+                    target = GameObject.Find(ChooseTarget(1));
+                }
                 break;
             case 2:
                 lane = -4.5f;
+                if (twoPlayer)
+                {
+                    target = GameObject.Find(ChooseTarget(1));
+                }
                 break;
             case 3:
                 lane = -1.5f;
+                if (twoPlayer)
+                {
+                    target = GameObject.Find(ChooseTarget(1));
+                }
                 break;
             case 4:
                 lane = 1.5f;
+                if (twoPlayer)
+                {
+                    target = GameObject.Find(ChooseTarget(2));
+                }
                 break;
             case 5:
                 lane = 4.5f;
+                if (twoPlayer)
+                {
+                    target = GameObject.Find(ChooseTarget(2));
+                }
                 break;
             case 6:
                 lane = 7.5f;
+                if (twoPlayer)
+                {
+                    target = GameObject.Find(ChooseTarget(2));
+                }
                 break;
             default:
                 break;
         }
 
-        if (twoPlayer)
-        {
-            rand = Random.Range(0, 3);
-            target = GameObject.Find(ChooseTarget(rand));
-        }
-        else
+        if (!twoPlayer)
         {
             target = GameObject.Find("WitchPrefab");
         }
@@ -88,11 +109,11 @@ public class EnemyAI : MonoBehaviour {
     {
         string toReturn = "";
 
-        if (index == 0 || index == 1)
+        if (index == 1)
         {
             toReturn = "WitchPrefab";
         }
-        if (index == 2 || index == 3)
+        if (index == 2)
         {
             toReturn = "FamiliarPrefab";
         }

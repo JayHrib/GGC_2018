@@ -252,12 +252,11 @@ public class Demo : MonoBehaviour {
             {
                 if (moveController.IsMoveButtonDown)
                 {
-                    Transform tmpGesture;
-
                     if (pressSeparator)
                     {
                         ++strokeId;
 
+                        Transform tmpGesture;
                         tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
                         currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
 
