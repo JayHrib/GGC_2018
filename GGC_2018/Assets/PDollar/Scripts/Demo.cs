@@ -72,7 +72,7 @@ public class Demo : MonoBehaviour {
             //Create draw area
             if (moveController.IsTriggerButtonDown)
             {
-                if (displayDrawing == false)
+                if (!displayDrawing)
                 {
                     displayDrawing = true;
                 }
@@ -84,7 +84,7 @@ public class Demo : MonoBehaviour {
             //Destroy draw area
             if (moveController.IsTriggerButtonReleased)
             {
-                if (displayDrawing == true)
+                if (displayDrawing)
                 {
                     displayDrawing = false;
                 }
@@ -103,7 +103,7 @@ public class Demo : MonoBehaviour {
                         {
                             drawnWellEnough = true;
                         }
-                        Debug.Log(gestureResult.GestureClass);
+
                         spellSpawner.FireSpell(gestureResult.GestureClass);
                     }
                     else
@@ -252,11 +252,13 @@ public class Demo : MonoBehaviour {
             {
                 if (moveController.IsMoveButtonDown)
                 {
+                    Transform tmpGesture;
+
                     if (pressSeparator)
                     {
                         ++strokeId;
 
-                        Transform tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
+                        tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
                         currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
 
                         gestureLinesRenderer.Add(currentGestureLineRenderer);

@@ -10,11 +10,13 @@ public class LinusAI : MonoBehaviour
 {
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
+    private CastSpell spellSpawner;
 
     public BgScroller bgScroller;
 
     void Start()
     {
+        spellSpawner = FindObjectOfType<CastSpell>();
         keywordActions.Add("test", Test);
         keywordActions.Add("go left", Left);
         keywordActions.Add("go right", Right);
