@@ -275,13 +275,13 @@ public class Demo : MonoBehaviour {
                     currentGestureLineRenderer.SetVertexCount(++vertexCount);
                     currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
                 }
-            }
 
-            if (moveController.IsMoveButtonReleased)
-            {
-                if (!pressSeparator)
+                else if (moveController.IsMoveButtonReleased)
                 {
-                    pressSeparator = true;
+                    if (!pressSeparator)
+                    {
+                        pressSeparator = true;
+                    }
                 }
             }
         }
@@ -359,8 +359,11 @@ public class Demo : MonoBehaviour {
         }
 
         //Checking positioning of curson for debug purposes
-        GUI.Label(new Rect(10, 10, 500, 50), cursorController.GetCursorPosition().x.ToString() + cursorController.GetCursorPosition().ToString());
-        GUI.Label(new Rect(10, 30, 500, 50), virtualKeyPosition.x.ToString() + virtualKeyPosition.y.ToString());
+        if (usingMoveController)
+        {
+            GUI.Label(new Rect(10, 10, 500, 50), cursorController.GetCursorPosition().x.ToString() + cursorController.GetCursorPosition().ToString());
+            GUI.Label(new Rect(10, 30, 500, 50), virtualKeyPosition.x.ToString() + virtualKeyPosition.y.ToString());
+        }
 
         if (devMode)
         {
