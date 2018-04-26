@@ -51,7 +51,7 @@ public class Demo : MonoBehaviour {
         //Create platform of which to draw on
         platform = Application.platform;
 
-        //Find scripts used by the PS Move controllers
+        //Find scripts used by the PS Move controllers if controllers are in use
         if (usingMoveController)
         {
             cursorController = FindObjectOfType<VRCursorController>();

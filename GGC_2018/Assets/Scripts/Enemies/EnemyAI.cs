@@ -115,7 +115,7 @@ public class EnemyAI : MonoBehaviour {
         }
         if (index == 2)
         {
-            toReturn = "FamiliarPrefab";
+            toReturn = "Bokaj";
         }
 
         return toReturn;

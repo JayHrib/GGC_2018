@@ -38,16 +38,16 @@ public class DamageModifierCalculator : MonoBehaviour {
         {
             modifierFound = false;
         }
+        //Reset modifier in case it has not been reset 
         modifier = 1f;
 
         for (int i = 0; 0 < listOfRelations.Length - 1; i++)
         {
             if (listOfRelations[i].element == currentEnemyElement)
             {
-                Debug.Log("Match found! " + listOfRelations[i].element + " = " + currentEnemyElement);
                 for (int j = 0; j < listOfRelations[i].weaknesses.Length; j++)
                 {
-                    Debug.Log(listOfRelations[i].weaknesses[j]);
+                    //Check if spell element is inside of the weakness list
                     if (listOfRelations[i].weaknesses[j] == spellElement)
                     {
                         modifier = weaknessModifier;
@@ -56,6 +56,7 @@ public class DamageModifierCalculator : MonoBehaviour {
                     }
                     else
                     {
+                        //Break loop if no modifier has been found at the last iteration
                         if (j == listOfRelations[i].weaknesses.Length && !modifierFound)
                         {
                             break;
@@ -65,9 +66,9 @@ public class DamageModifierCalculator : MonoBehaviour {
 
                 if (!modifierFound)
                 {
+                    //Check if spell element is inside of the resistance list
                     for (int k = 0; k < listOfRelations[i].resisting.Length; k++)
                     {
-                        Debug.Log(listOfRelations[i].resisting[k]);
                         if (listOfRelations[i].resisting[k] == spellElement)
                         {
                             modifier = resistanceModifier;
@@ -75,6 +76,7 @@ public class DamageModifierCalculator : MonoBehaviour {
                             break;
                         }
 
+                        //Break loop if no modifier has been found at the last iteration
                         if (k == listOfRelations[i].resisting.Length && !modifierFound)
                         {
                             break;
@@ -85,13 +87,13 @@ public class DamageModifierCalculator : MonoBehaviour {
 
             if (modifierFound)
             {
+                //Break loop early in case modifier has been found
                 break;
             }
 
             if (i == listOfRelations.Length - 1 && !modifierFound)
             {
                 //Nothing found in the lists, apply base damage
-                Debug.Log("Element not found");
                 break;
             }
         }
