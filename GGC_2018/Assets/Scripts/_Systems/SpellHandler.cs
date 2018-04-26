@@ -51,7 +51,6 @@ public class SpellHandler : MonoBehaviour {
             if (spellElementList[i] == element)
             {
                 toReturn = spellEffectPool[i];
-                Debug.Log(toReturn);
 
                 return toReturn;
             }
