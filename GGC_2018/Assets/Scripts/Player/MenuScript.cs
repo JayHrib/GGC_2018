@@ -5,19 +5,14 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
-
     public void StartGame()
     {
         SceneManager.LoadScene(1);
+    }
+
+    public void OpenMoveScene()
+    {
+        SceneManager.LoadScene(2);
     }
 
     public void CloseGame()

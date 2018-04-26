@@ -72,7 +72,7 @@ public class Demo : MonoBehaviour {
             //Create draw area
             if (moveController.IsTriggerButtonDown)
             {
-                if (displayDrawing == false)
+                if (!displayDrawing)
                 {
                     displayDrawing = true;
                 }
@@ -84,7 +84,7 @@ public class Demo : MonoBehaviour {
             //Destroy draw area
             if (moveController.IsTriggerButtonReleased)
             {
-                if (displayDrawing == true)
+                if (displayDrawing)
                 {
                     displayDrawing = false;
                 }
@@ -103,7 +103,7 @@ public class Demo : MonoBehaviour {
                         {
                             drawnWellEnough = true;
                         }
-                        Debug.Log(gestureResult.GestureClass);
+
                         spellSpawner.FireSpell(gestureResult.GestureClass);
                     }
                     else
@@ -256,7 +256,8 @@ public class Demo : MonoBehaviour {
                     {
                         ++strokeId;
 
-                        Transform tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
+                        Transform tmpGesture;
+                        tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
                         currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
 
                         gestureLinesRenderer.Add(currentGestureLineRenderer);
@@ -275,13 +276,13 @@ public class Demo : MonoBehaviour {
                     currentGestureLineRenderer.SetVertexCount(++vertexCount);
                     currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
                 }
-            }
 
-            if (moveController.IsMoveButtonReleased)
-            {
-                if (!pressSeparator)
+                else if (moveController.IsMoveButtonReleased)
                 {
-                    pressSeparator = true;
+                    if (!pressSeparator)
+                    {
+                        pressSeparator = true;
+                    }
                 }
             }
         }
@@ -359,8 +360,11 @@ public class Demo : MonoBehaviour {
         }
 
         //Checking positioning of curson for debug purposes
-        GUI.Label(new Rect(10, 10, 500, 50), cursorController.GetCursorPosition().x.ToString() + cursorController.GetCursorPosition().ToString());
-        GUI.Label(new Rect(10, 30, 500, 50), virtualKeyPosition.x.ToString() + virtualKeyPosition.y.ToString());
+        if (usingMoveController)
+        {
+            GUI.Label(new Rect(10, 10, 500, 50), cursorController.GetCursorPosition().x.ToString() + cursorController.GetCursorPosition().ToString());
+            GUI.Label(new Rect(10, 30, 500, 50), virtualKeyPosition.x.ToString() + virtualKeyPosition.y.ToString());
+        }
 
         if (devMode)
         {

@@ -36,9 +36,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4813917340328404}
-  - component: {fileID: 114783838123723492}
-  - component: {fileID: 114299434321176678}
-  - component: {fileID: 58176734530734412}
+  - component: {fileID: 114825939853168008}
   m_Layer: 12
   m_Name: spell_drawing
   m_TagString: Spell
@@ -215,8 +213,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1098150529402128}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.36820698, y: -2.4390557, z: -0.3058109}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4479563961699266}
@@ -228,22 +226,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58176734530734412
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098150529402128}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &114299434321176678
+--- !u!114 &114825939853168008
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -251,23 +234,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1098150529402128}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
+  m_Script: {fileID: 11500000, guid: 83edb0b13936b294eaf11b14af68477e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lifeTime: 4
-  moveSpeed: 5
---- !u!114 &114783838123723492
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1098150529402128}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82eedb54a33a0a48b87b8397012417e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  element: Electric
+  cursorBooster: 10
+  objectToTrack: {fileID: 0}
 --- !u!198 &198303002783017098
 ParticleSystem:
   m_ObjectHideFlags: 1

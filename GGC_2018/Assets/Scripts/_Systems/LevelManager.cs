@@ -54,13 +54,14 @@ public class LevelManager : MonoBehaviour {
         objectPool = ObjectPooler.instance;
 
         elementList.Add(new Element("Fire"));
-        elementList.Add(new Element("Grass"));
+        elementList.Add(new Element("Nature"));
+        elementList.Add(new Element("Water"));
         //elementList.Add(new Element("Snail"));
         //elementList.Add(new Element("Ice"));
         //elementList.Add(new Element("Earth"));
-        //elementList.Add(new Element("Electricity"));
+        elementList.Add(new Element("Electricity"));
         //elementList.Add(new Element("The one we dont talk about"));
-        //elementList.Add(new Element("Wind"));
+        elementList.Add(new Element("Air"));
     }
 
     void FixedUpdate()

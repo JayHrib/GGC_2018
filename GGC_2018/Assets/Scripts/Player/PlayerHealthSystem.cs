@@ -9,8 +9,6 @@ public class PlayerHealthSystem : MonoBehaviour {
     public float currentHealth;
     public float baseDamage = 20f;
 
-
-
 	// Use this for initialization
 	void Start () {
         currentHealth = GetComponent<PlayerStats>().maxHealth;
