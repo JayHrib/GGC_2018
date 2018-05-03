@@ -12,10 +12,26 @@ public class PropellSpell : MonoBehaviour {
 
     GameObject target;
     private bool manager;
+    public bool isUsingLanes = false;
+    private ClickTargeting targeting;
+
+    void Start()
+    {
+        if (targeting.isBeingUsed)
+        {
+            isUsingLanes = false;
+        }
+        else
+        {
+            isUsingLanes = true;
+        }
+    }
 
     void OnEnable()
     {
         levelManager = FindObjectOfType<LevelManager>();
+        targeting = FindObjectOfType<ClickTargeting>();
+
         //Invoke("Destroy", lifeTime);
         target = GetTarget();
         if (!isActive)
@@ -80,17 +96,16 @@ public class PropellSpell : MonoBehaviour {
     GameObject GetTarget()
     {
         GameObject toReturn = null;
-        if (!manager)
+        
+        if (isUsingLanes)
         {
-            //toReturn = GameObject.FindGameObjectWithTag("Enemy");
             toReturn = levelManager.GetComponent<LevelManager>().GetEnemy(FindObjectOfType<Aimer>().lane);
-            return toReturn;
         }
         else
         {
-            toReturn = GameObject.FindGameObjectWithTag("Boss");
-            Debug.Log(toReturn);
-            return toReturn;
+            toReturn = targeting.GetTarget();
         }
+
+        return toReturn;
     }
 }

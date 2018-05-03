@@ -111,7 +111,7 @@ public class EnemyAI : MonoBehaviour {
 
         if (index == 1)
         {
-            toReturn = "WitchPrefab";
+            toReturn = "Erio";
         }
         if (index == 2)
         {
