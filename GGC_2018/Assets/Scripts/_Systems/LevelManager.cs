@@ -20,7 +20,10 @@ public class Element
     }
 }
 
+[RequireComponent(typeof(EnvironmentManager))]
 public class LevelManager : MonoBehaviour {
+
+    private EnvironmentManager e_manager;
 
     public Transform spawnPoint;
     public static bool active = false;
@@ -35,6 +38,7 @@ public class LevelManager : MonoBehaviour {
     List<Element> elementList = new List<Element>();
 
     public bool atBoss = false;
+    private int upperLimit;
 
     [SerializeField]
     EnemySprite[] enemySprites;
@@ -46,6 +50,7 @@ public class LevelManager : MonoBehaviour {
 
     void Start()
     {
+        e_manager = FindObjectOfType<EnvironmentManager>();
         boss = GameObject.Find("solid_snail");
         background = GameObject.Find("PlaytestEnvironment");
         if (enemySprites == null)
@@ -58,16 +63,18 @@ public class LevelManager : MonoBehaviour {
         elementList.Add(new Element("Fire"));
         elementList.Add(new Element("Nature"));
         elementList.Add(new Element("Water"));
-        //elementList.Add(new Element("Snail"));
+        //elementList.Add(new Element("Light"));
         //elementList.Add(new Element("Ice"));
         //elementList.Add(new Element("Earth"));
         elementList.Add(new Element("Electricity"));
-        //elementList.Add(new Element("The one we dont talk about"));
+        //elementList.Add(new Element("Dark"));
         elementList.Add(new Element("Air"));
     }
 
     void FixedUpdate()
     {
+        upperLimit = e_manager.GetSizeOfPool();
+
         if (Input.GetKeyDown(pressEscape))
         {
             SceneManager.LoadScene(0);
@@ -78,7 +85,7 @@ public class LevelManager : MonoBehaviour {
             if (spawnTimer >= 5)
             {
                 spawnTimer = 0;
-                int rand = Random.Range(0, elementList.Count);
+                int rand = Random.Range(0, upperLimit);
                 int lane = Random.Range(1,6);
                 Spawn(rand, lane);
                 toll++;
@@ -114,7 +121,8 @@ public class LevelManager : MonoBehaviour {
                 return;
             }
 
-            go.GetComponent<EnemyStats>().element = elementList[elementNumber].type;
+            //go.GetComponent<EnemyStats>().element = elementList[elementNumber].type;
+            go.GetComponent<EnemyStats>().element = e_manager.GetEnemyFromPool(elementNumber);
             go.GetComponent<EnemyStats>().lane = lane;
 
             SetSprite(go.GetComponent<EnemyStats>().element, go);
@@ -143,26 +151,26 @@ public class LevelManager : MonoBehaviour {
 
     public GameObject GetEnemy(int lane)
     {
-        float poz = -1.5f;
+        float pos = -1.5f;
         switch (lane)
         {
             case 1:
-                poz = -7.5f;
+                pos = -7.5f;
                 break;
             case 2:
-                poz = -4.5f;
+                pos = -4.5f;
                 break;
             case 3:
-                poz = -1.5f;
+                pos = -1.5f;
                 break;
             case 4:
-                poz = 1.5f;
+                pos = 1.5f;
                 break;
             case 5:
-                poz = 4.5f;
+                pos = 4.5f;
                 break;
             case 6:
-                poz = 7.5f;
+                pos = 7.5f;
                 break;
             default:
                 break;
@@ -170,7 +178,7 @@ public class LevelManager : MonoBehaviour {
         GameObject result = null;
         for (int i = 0; i < enemyList.Count; i++)
         {
-            if(enemyList[i].GetComponent<EnemyAI>().lane == poz)
+            if(enemyList[i].GetComponent<EnemyAI>().lane == pos)
             {
                 result = enemyList[i];
                 break;

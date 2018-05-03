@@ -13,41 +13,22 @@ public class EnvironmentManager : MonoBehaviour {
 
     private string currentEnvironment = "";
     private string newEnvironment = "";
-    public string startEnvironment = "";
 
     [SerializeField]
     EnemyHabitat[] enemyHabitats;
-    List<string> currentPool;
+
+    List<string> currentPool = new List<string>();
 
 	// Use this for initialization
 	void Start () {
-        if (startEnvironment == "")
-        {
-            Debug.LogError("EnvironmentManager: No start environment has been set!");
-        }
-        else
-        {
-            SetPool(startEnvironment);
-        }
 
 		if(enemyHabitats == null)
         {
             Debug.LogError("EnvironmentManager: List of habitats is empty!");
         }
 
-
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (currentEnvironment != newEnvironment)
-        {
-            currentEnvironment = newEnvironment;
-            newEnvironment = "";
-
-            SetPool(currentEnvironment);
-        }
-	}
+        SetPool(enemyHabitats[0].environment);
+    }
 
     void SetPool(string environment)
     {
@@ -56,10 +37,11 @@ public class EnvironmentManager : MonoBehaviour {
             currentPool.Clear();
         }
 
-        for (int i = 0; i < enemyHabitats.Length - 1; i++)
+        for (int i = 0; i < enemyHabitats.Length; i++)
         {
             if (enemyHabitats[i].environment == environment)
             {
+                Debug.Log(enemyHabitats[i].environment);
                 for (int j = 0; j < enemyHabitats[i].elementsInArea.Length; j++)
                 {
                     currentPool.Add(enemyHabitats[i].elementsInArea[j]);
@@ -80,6 +62,12 @@ public class EnvironmentManager : MonoBehaviour {
             }
         }
 
+        return toReturn;
+    }
+
+    public int GetSizeOfPool()
+    {
+        int toReturn = currentPool.Count;
         return toReturn;
     }
 }
