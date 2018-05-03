@@ -292,6 +292,15 @@ MonoBehaviour:
   - name: Ice
     particlePrefab: {fileID: 1132085978894048, guid: a003dbb7613d6434a9887433afaaab6f,
       type: 2}
+  - name: Nature
+    particlePrefab: {fileID: 1049796061303580, guid: 91b071d935c86db46ae1b7849954e3d5,
+      type: 2}
+  - name: Electricity
+    particlePrefab: {fileID: 1673746145247444, guid: 496c4c3730290d94288e98dacbe201ca,
+      type: 2}
+  - name: Light
+    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+      type: 2}
   pooledAmount: 2
 --- !u!1001 &661903299
 Prefab:
@@ -331,6 +340,10 @@ Prefab:
     - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
       propertyPath: m_RootOrder
       value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1949439103531208, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
@@ -391,7 +404,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -471,7 +484,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2006988541}
-  isTwoPlayers: 1
+  isTwoPlayers: 0
   spawnTimer: 0
   pressEscape: 27
   enemy: {fileID: 1106084595894072, guid: d4964d6d7a652af4f8eceffc7975eb9c, type: 2}

@@ -223,7 +223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a82eedb54a33a0a48b87b8397012417e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  element: Electric
+  element: Electricity
 --- !u!114 &114570834595146896
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -5,9 +5,4 @@ using UnityEngine;
 public class SpellStats : MonoBehaviour {
 
     public string element = "";
-
-    void Start()
-    {
-
-    }
 }

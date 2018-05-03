@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ObjectTrackerTest : MonoBehaviour {
 
-    public float cursorBooster = 10f;
+    public float cursorSensitivity = 10f;
     public Transform objectToTrack;
     private VRCursorController controller;
 
@@ -16,7 +16,7 @@ public class ObjectTrackerTest : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //gameObject.transform.position = new Vector3(objectToTrack.position.x, objectToTrack.position.y, 0f);
-        Vector3 temp = new Vector3(-controller.GetCursorPosition().x * cursorBooster, controller.GetCursorPosition().y * cursorBooster, 0f);
+        Vector3 temp = new Vector3(-controller.GetCursorPosition().x * cursorSensitivity, controller.GetCursorPosition().y * cursorSensitivity, 0f);
         transform.position = temp;
 	}
 

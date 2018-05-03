@@ -8,6 +8,7 @@ TagManager:
   - Spell
   - Boss
   - MovePointer
+  - Hazard
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - Enemy
   - Drawing
   - Spell
-  - 
+  - Hazard
   - 
   - 
   - 

@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Windows.Speech;
 using System.Linq;
 using System;
+using System.Text;
 using UnityEngine.SceneManagement;
 
 public class LinusAI : MonoBehaviour
@@ -17,10 +18,20 @@ public class LinusAI : MonoBehaviour
     void Start()
     {
         spellSpawner = FindObjectOfType<CastSpell>();
+
+        keywordActions.Add("I'll hit you where the sun don't shine", Dark);
+        keywordActions.Add("empty quotes kills the man", Earth);
+        keywordActions.Add("silent but deadly", Air);
+        keywordActions.Add("Praise the sun", Light);
+        keywordActions.Add("why dont you make like a leaf and blow away", Nature);
+        keywordActions.Add("Thunder bolt", Electricity);
+        keywordActions.Add("How much does a polar bear weigh", Ice);
+        keywordActions.Add("would you like to get moist my friend", Water);
+        keywordActions.Add("i am about to drop my mixtape", Fire);
         keywordActions.Add("test", Test);
-        keywordActions.Add("go left", Left);
-        keywordActions.Add("go right", Right);
-        keywordActions.Add("go up", Forward);
+        keywordActions.Add("teddy", Left);
+        keywordActions.Add("in send dio", Right);
+        keywordActions.Add("lightning", Forward);
         keywordActions.Add("go down", Back);
         keywordActions.Add("pause background", PauseBackground);
         keywordActions.Add("start background", StartBackground);
@@ -111,4 +122,51 @@ public class LinusAI : MonoBehaviour
     {
         gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
     }
+
+    private void Fire()
+    {
+        spellSpawner.FireSpell("Fire");
+    }
+
+    private void Water()
+    {
+        spellSpawner.FireSpell("Water");
+    }
+
+    private void Ice()
+    {
+        spellSpawner.FireSpell("Ice");
+    }
+
+    private void Electricity()
+    {
+        spellSpawner.FireSpell("Electricity");
+    }
+
+    private void Nature()
+    {
+        spellSpawner.FireSpell("Nature");
+    }
+
+    private void Light()
+    {
+        spellSpawner.FireSpell("Light");
+    }
+
+    private void Air()
+    {
+        spellSpawner.FireSpell("Air");
+    }
+
+    private void Earth()
+    {
+        spellSpawner.FireSpell("Earth");
+    }
+
+    private void Dark()
+    {
+        spellSpawner.FireSpell("Dark");
+    }
+
+
 }
