@@ -8,11 +8,14 @@ public class PropellSpell : MonoBehaviour {
     public float moveSpeed = 5.0f;
     private bool isActive = false;
 
+    public LevelManager levelManager;
+
     GameObject target;
     private bool manager;
 
     void OnEnable()
     {
+        levelManager = FindObjectOfType<LevelManager>();
         //Invoke("Destroy", lifeTime);
         target = GetTarget();
         if (!isActive)
@@ -79,7 +82,8 @@ public class PropellSpell : MonoBehaviour {
         GameObject toReturn = null;
         if (!manager)
         {
-            toReturn = GameObject.FindGameObjectWithTag("Enemy");
+            //toReturn = GameObject.FindGameObjectWithTag("Enemy");
+            toReturn = levelManager.GetComponent<LevelManager>().GetEnemy(FindObjectOfType<Aimer>().lane);
             return toReturn;
         }
         else

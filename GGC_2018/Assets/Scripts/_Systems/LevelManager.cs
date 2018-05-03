@@ -42,6 +42,8 @@ public class LevelManager : MonoBehaviour {
     private ObjectPooler objectPool;
     private GameObject boss;
 
+    List<GameObject> enemyList = new List<GameObject>();
+
     void Start()
     {
         boss = GameObject.Find("solid_snail");
@@ -120,6 +122,7 @@ public class LevelManager : MonoBehaviour {
             go.GetComponent<EnemyHealth>().currentHealth = 100f;
 
             go.SetActive(true);
+            enemyList.Add(go);
         }
     }
 
@@ -136,5 +139,43 @@ public class LevelManager : MonoBehaviour {
                 return;
             }
         }
+    }
+
+    public GameObject GetEnemy(int lane)
+    {
+        float poz = -1.5f;
+        switch (lane)
+        {
+            case 1:
+                poz = -7.5f;
+                break;
+            case 2:
+                poz = -4.5f;
+                break;
+            case 3:
+                poz = -1.5f;
+                break;
+            case 4:
+                poz = 1.5f;
+                break;
+            case 5:
+                poz = 4.5f;
+                break;
+            case 6:
+                poz = 7.5f;
+                break;
+            default:
+                break;
+        }
+        GameObject result = null;
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if(enemyList[i].GetComponent<EnemyAI>().lane == poz)
+            {
+                result = enemyList[i];
+                break;
+            }
+        }
+        return result;
     }
 }

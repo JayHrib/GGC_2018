@@ -14,7 +14,7 @@ public class EnemyAI : MonoBehaviour {
 
     private float speed;
     private int rand;
-    private float lane;
+    public float lane;
     private int min_rand;
     private int max_rand;
 

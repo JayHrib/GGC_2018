@@ -18,7 +18,7 @@ public class Shockscript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         uutela = transform.localScale;
-        if (uutela.x > 50)
+        if (uutela.x > 9)
         {
             uutela = new Vector3(0,0,0);
         }
