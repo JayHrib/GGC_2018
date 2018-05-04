@@ -12722,7 +12722,7 @@ GameObject:
   - component: {fileID: 114771695297650326}
   - component: {fileID: 114892331993332028}
   m_Layer: 0
-  m_Name: solid_snail
+  m_Name: Boss
   m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27570,7 +27570,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.2771721, y: -0.27705383}
@@ -27699,9 +27699,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a0ba2e970556fe45a641d16744627df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 100
+  maxHealth: 1000
   movementSpeed: 0
-  element: Snail
+  element: 
   lane: 0
   weaknessModifier: 0.25
   resistanceModifier: 0.25

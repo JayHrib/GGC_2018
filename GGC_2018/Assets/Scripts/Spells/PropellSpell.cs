@@ -10,7 +10,7 @@ public class PropellSpell : MonoBehaviour {
     private float desiredDistance = 3.0f;
     private Collider2D collider;
 
-    public LevelManager levelManager;
+    private LevelManager levelManager;
 
     GameObject target;
     private bool isUsingLanes = false;
@@ -28,6 +28,7 @@ public class PropellSpell : MonoBehaviour {
         }
 
         collider = GetComponent<Collider2D>();
+        collider.enabled = false;
     }
 
     void OnEnable()
@@ -37,9 +38,8 @@ public class PropellSpell : MonoBehaviour {
         
         /*Deactivate the collider until it's close enough to it's target.
          Used to make sure that only the clicked target can get hurt by the spell*/
-        collider.enabled = false;
 
-        //Invoke("Destroy", lifeTime);
+        Invoke("Destroy", lifeTime);
         target = GetTarget();
         if (!isActive)
         {
@@ -48,10 +48,7 @@ public class PropellSpell : MonoBehaviour {
         //Dynamically makes sure that the sorting layer of each particle system is correct
         for (int i = 0; i < gameObject.transform.childCount; i++)
         {
-            if (gameObject.transform.GetChild(i).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().sortingLayerName == "Spell")
-            {
-                gameObject.transform.GetChild(i).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().sortingLayerName = "Spell";
-            }
+            gameObject.transform.GetChild(i).GetComponent<ParticleSystem>().GetComponent<ParticleSystemRenderer>().sortingLayerName = "Spell";
         }
     }
 
