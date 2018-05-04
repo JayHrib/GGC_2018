@@ -16,11 +16,20 @@ public class ClickTargeting : MonoBehaviour {
 	void Update () {
 		if (Input.GetMouseButtonDown(0))
         {
+            //Use raycasts to determine which target the player clicked
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
             if (hit.collider != null)
             {
-                target = hit.collider.gameObject;
+                //Make sure that the clicked object is either a hazard or an enemy
+                if (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("Hazard"))
+                {
+                    target = hit.collider.gameObject;
+                }
+                else
+                {
+                    target = null;
+                }
             }
             else
             {

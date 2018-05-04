@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4443507057582282}
   - component: {fileID: 198684729003299168}
   - component: {fileID: 199316649307555736}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4745592269294720}
   - component: {fileID: 198566224874690834}
   - component: {fileID: 199662107723137200}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: 4439433215759988}
   - component: {fileID: 198178512557606272}
   - component: {fileID: 199832062997496536}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 4350216421520758}
   - component: {fileID: 198030704385113558}
   - component: {fileID: 199934964806379050}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4918472847423104}
   - component: {fileID: 198243448082971008}
   - component: {fileID: 199741999798795180}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Particle System (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,9 +107,9 @@ GameObject:
   - component: {fileID: 114332048806324552}
   - component: {fileID: 114395032825472038}
   - component: {fileID: 58150899200611882}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: spell_light
-  m_TagString: Untagged
+  m_TagString: Spell
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,7 +206,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}

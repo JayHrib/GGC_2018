@@ -32,6 +32,7 @@ public class EnvironmentManager : MonoBehaviour {
 
     public void SetPool(string environment)
     {
+        //Clear out the pool if not already empty when new pool is set
         if (currentPool != null)
         {
             currentPool.Clear();
@@ -39,8 +40,10 @@ public class EnvironmentManager : MonoBehaviour {
 
         for (int i = 0; i < enemyHabitats.Length; i++)
         {
+            //Find the new pool
             if (enemyHabitats[i].environment == environment)
             {
+                //Add all elements within the pool to a list used by the level manager
                 for (int j = 0; j < enemyHabitats[i].elementsInArea.Length; j++)
                 {
                     currentPool.Add(enemyHabitats[i].elementsInArea[j]);
@@ -53,6 +56,7 @@ public class EnvironmentManager : MonoBehaviour {
     {
         string toReturn = "";
 
+        //Find the correct indexed enemy within the listed pool
         for (int i = 0; i < currentPool.Count; i++)
         {
             if (i == index)
@@ -66,6 +70,7 @@ public class EnvironmentManager : MonoBehaviour {
 
     public int GetSizeOfPool()
     {
+        //Return the size of the pool, used by level manager
         int toReturn = currentPool.Count;
         return toReturn;
     }

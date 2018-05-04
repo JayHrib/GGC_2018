@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour {
     void Start()
     {
         e_manager = FindObjectOfType<EnvironmentManager>();
-        boss = GameObject.Find("solid_snail");
+        boss = GameObject.Find("Boss");
         background = GameObject.Find("PlaytestEnvironment");
         if (enemySprites == null)
         {
