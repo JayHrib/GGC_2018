@@ -455,22 +455,31 @@ MonoBehaviour:
   enemySprites:
   - name: Fire
     sprite: {fileID: 21300000, guid: b507af6e0a96ed346aea20994fb36867, type: 3}
+    animController: {fileID: 0}
   - name: Nature
     sprite: {fileID: 21300000, guid: ecbcc4821324c2643b403de6e262e06d, type: 3}
+    animController: {fileID: 0}
   - name: Water
     sprite: {fileID: 21300000, guid: d45c1d4ae89f5fb428f56c0a98c09c12, type: 3}
+    animController: {fileID: 0}
   - name: Electricity
     sprite: {fileID: 21300000, guid: 2cccbae1b68d15040ba5575d8936ba88, type: 3}
+    animController: {fileID: 0}
   - name: Air
     sprite: {fileID: 21300000, guid: bd3f201d14137784789aa15aa29904c6, type: 3}
+    animController: {fileID: 9100000, guid: 424e1fb2aefc7104c9ed10018284d02a, type: 2}
   - name: Dark
     sprite: {fileID: 21300000, guid: 3f83c9cd6ea4c874f8bbf201e3833554, type: 3}
+    animController: {fileID: 0}
   - name: Light
     sprite: {fileID: 21300000, guid: 6e14e7de859f888469fb4be3ab1e5486, type: 3}
+    animController: {fileID: 0}
   - name: Ice
     sprite: {fileID: 21300000, guid: 8bb1d055d047a3e43b5a34465ee44bd0, type: 3}
+    animController: {fileID: 0}
   - name: Earth
     sprite: {fileID: 21300000, guid: 555bb9fd4dbf74a48a5072690fd08c63, type: 3}
+    animController: {fileID: 0}
 --- !u!114 &1976220537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -560,8 +569,7 @@ MonoBehaviour:
   enemyHabitats:
   - environment: Cupboard Fields
     elementsInArea:
-    - Nature
-    - Water
+    - Air
   - environment: Desert
     elementsInArea:
     - Earth

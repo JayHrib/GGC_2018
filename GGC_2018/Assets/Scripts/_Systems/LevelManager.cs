@@ -8,6 +8,7 @@ public class EnemySprite
 {
     public string name;
     public Sprite sprite;
+    public RuntimeAnimatorController animController;
 }
 
 [RequireComponent(typeof(EnvironmentManager))]
@@ -104,6 +105,7 @@ public class LevelManager : MonoBehaviour {
             go.GetComponent<EnemyStats>().lane = lane;
 
             SetSprite(go.GetComponent<EnemyStats>().element, go);
+            SetAnimController(go.GetComponent<EnemyStats>().element, go);
             go.transform.position = spawnPoint.position;
             go.GetComponent<EnemyHealth>().currentHealth = 100f;
 
@@ -121,6 +123,21 @@ public class LevelManager : MonoBehaviour {
             if (enemySprites[i].name == element)
             {
                 enemySprite.sprite = enemySprites[i].sprite;
+
+                return;
+            }
+        }
+    }
+
+    private void SetAnimController(string element, GameObject enemy)
+    {
+        Animator animator = enemy.GetComponent<Animator>();
+
+        for (int i = 0; i < enemySprites.Length; i++)
+        {
+            if (enemySprites[i].name == element)
+            {
+                animator.runtimeAnimatorController = enemySprites[i].animController;
 
                 return;
             }
