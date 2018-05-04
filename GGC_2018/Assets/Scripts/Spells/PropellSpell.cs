@@ -12,7 +12,7 @@ public class PropellSpell : MonoBehaviour {
 
     GameObject target;
     private bool manager;
-    public bool isUsingLanes = false;
+    private bool isUsingLanes = false;
     private ClickTargeting targeting;
 
     void Start()
@@ -47,7 +47,7 @@ public class PropellSpell : MonoBehaviour {
     // Update is called once per frame
     void Update ()
     {
-        manager = FindObjectOfType<LevelManager>().atBoss;
+        manager = FindObjectOfType<LevelManager>().IsAtBoss();
         if (isActive)
         {
             if (target == null)

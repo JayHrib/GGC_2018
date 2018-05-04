@@ -9,6 +9,7 @@ TagManager:
   - Boss
   - MovePointer
   - Hazard
+  - Transition
   layers:
   - Default
   - TransparentFX

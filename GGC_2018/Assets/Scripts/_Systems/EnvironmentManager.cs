@@ -30,7 +30,7 @@ public class EnvironmentManager : MonoBehaviour {
         SetPool(enemyHabitats[0].environment);
     }
 
-    void SetPool(string environment)
+    public void SetPool(string environment)
     {
         if (currentPool != null)
         {
@@ -41,7 +41,6 @@ public class EnvironmentManager : MonoBehaviour {
         {
             if (enemyHabitats[i].environment == environment)
             {
-                Debug.Log(enemyHabitats[i].environment);
                 for (int j = 0; j < enemyHabitats[i].elementsInArea.Length; j++)
                 {
                     currentPool.Add(enemyHabitats[i].elementsInArea[j]);

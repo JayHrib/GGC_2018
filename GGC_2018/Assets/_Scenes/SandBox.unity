@@ -298,56 +298,153 @@ MonoBehaviour:
   - name: Electricity
     particlePrefab: {fileID: 1673746145247444, guid: 496c4c3730290d94288e98dacbe201ca,
       type: 2}
+  - name: Earth
+    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+      type: 2}
+  - name: Dark
+    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+      type: 2}
+  - name: Air
+    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+      type: 2}
   - name: Light
     particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
       type: 2}
   pooledAmount: 2
---- !u!1001 &661903299
-Prefab:
+--- !u!1 &919659588
+GameObject:
   m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 919659591}
+  - component: {fileID: 919659590}
+  - component: {fileID: 919659589}
+  m_Layer: 0
+  m_Name: Transition_Desert-Snow
+  m_TagString: Transition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &919659589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919659588}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dabc810a275f394e8eb3f2a46ad716f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environment: Snow
+--- !u!61 &919659590
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919659588}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.046397686, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
   serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 4.66
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: -3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4194085225456346, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 1949439103531208, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: e37b05ae7d1cff049abf7963243744dc, type: 2}
-  m_IsPrefabParent: 0
+  m_Size: {x: 19.392914, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &919659591
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 919659588}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05, y: -2.4000015, z: 0.661611}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1878493077}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1535250145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1535250148}
+  - component: {fileID: 1535250147}
+  - component: {fileID: 1535250146}
+  m_Layer: 0
+  m_Name: Transition_Snow-Lava
+  m_TagString: Transition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1535250146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535250145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dabc810a275f394e8eb3f2a46ad716f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environment: Lava
+--- !u!61 &1535250147
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535250145}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.046397686, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.392914, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &1535250148
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1535250145}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05, y: 48.809998, z: 0.661611}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1878493077}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1623755789
 Prefab:
   m_ObjectHideFlags: 0
@@ -390,7 +487,7 @@ Prefab:
     - target: {fileID: 114784388144088844, guid: fc4aae42dc030f8418606ad0bd95569a,
         type: 2}
       propertyPath: speed
-      value: 1
+      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc4aae42dc030f8418606ad0bd95569a, type: 2}
@@ -434,9 +531,18 @@ Prefab:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1859346237307474, guid: b50e332627add2b48aa13901e04f282f, type: 2}
+      propertyPath: m_Name
+      value: Erio
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1878493077 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4820831346486916, guid: fc4aae42dc030f8418606ad0bd95569a,
+    type: 2}
+  m_PrefabInternal: {fileID: 1623755789}
 --- !u!1 &1976220534
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +556,8 @@ GameObject:
   - component: {fileID: 1976220538}
   - component: {fileID: 1976220539}
   - component: {fileID: 1976220540}
+  - component: {fileID: 1976220541}
+  - component: {fileID: 1976220542}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Spell
@@ -491,15 +599,23 @@ MonoBehaviour:
   atBoss: 0
   enemySprites:
   - name: Fire
-    sprite: {fileID: 21300000, guid: d5a908e482215784e91ce3adde9520c3, type: 3}
+    sprite: {fileID: 21300000, guid: b507af6e0a96ed346aea20994fb36867, type: 3}
   - name: Nature
-    sprite: {fileID: 21300000, guid: 2e33b5572869cd641bdac267c99062c6, type: 3}
+    sprite: {fileID: 21300000, guid: ecbcc4821324c2643b403de6e262e06d, type: 3}
   - name: Water
     sprite: {fileID: 21300000, guid: d45c1d4ae89f5fb428f56c0a98c09c12, type: 3}
   - name: Electricity
-    sprite: {fileID: 21300000, guid: cbf1aee3de3164a40954266cba8a35ff, type: 3}
+    sprite: {fileID: 21300000, guid: 2cccbae1b68d15040ba5575d8936ba88, type: 3}
   - name: Air
-    sprite: {fileID: 21300000, guid: cc711881dbac2d14c8e37a1791b0e00c, type: 3}
+    sprite: {fileID: 21300000, guid: bd3f201d14137784789aa15aa29904c6, type: 3}
+  - name: Dark
+    sprite: {fileID: 21300000, guid: 3f83c9cd6ea4c874f8bbf201e3833554, type: 3}
+  - name: Light
+    sprite: {fileID: 21300000, guid: 6e14e7de859f888469fb4be3ab1e5486, type: 3}
+  - name: Ice
+    sprite: {fileID: 21300000, guid: 8bb1d055d047a3e43b5a34465ee44bd0, type: 3}
+  - name: Earth
+    sprite: {fileID: 21300000, guid: 555bb9fd4dbf74a48a5072690fd08c63, type: 3}
 --- !u!114 &1976220537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,11 +630,6 @@ MonoBehaviour:
   firePoint: {fileID: 2042564260}
   spellPrefab: {fileID: 1956645924251680, guid: 71c1674f91fb8c445a23a34ffd68e21e,
     type: 2}
-  spellSprites:
-  - name: Fire
-    spellSprite: {fileID: 21300000, guid: 0eb0231231d076240aa94d6d6fa51c7c, type: 3}
-  - name: Water
-    spellSprite: {fileID: 21300000, guid: 6c37f39cc5480234ab48037c35d8e04d, type: 3}
 --- !u!114 &1976220538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -580,6 +691,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71137feda5e4f344eaae333cfaccbe0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1976220541
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4873da1aa2efa2b46891bbbc9a2f7172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyHabitats:
+  - environment: Cupboard Fields
+    elementsInArea:
+    - Nature
+    - Water
+  - environment: Desert
+    elementsInArea:
+    - Earth
+    - Fire
+  - environment: Snow
+    elementsInArea:
+    - Ice
+    - Air
+  - environment: Lava
+    elementsInArea:
+    - Fire
+    - Earth
+--- !u!114 &1976220542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 040574a43366c4042abd36cce9bcc0fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isBeingUsed: 1
 --- !u!1 &2006988540
 GameObject:
   m_ObjectHideFlags: 0
@@ -613,3 +764,91 @@ Transform:
   m_PrefabParentObject: {fileID: 4832007849942160, guid: b50e332627add2b48aa13901e04f282f,
     type: 2}
   m_PrefabInternal: {fileID: 1800142335}
+--- !u!1 &2072274344
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2072274347}
+  - component: {fileID: 2072274346}
+  - component: {fileID: 2072274345}
+  - component: {fileID: 2072274348}
+  m_Layer: 0
+  m_Name: Transition_Grass-Desert
+  m_TagString: Transition
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2072274345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072274344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8dabc810a275f394e8eb3f2a46ad716f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  environment: Desert
+--- !u!61 &2072274346
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072274344}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.046397686, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 19.392914, y: 1}
+  m_EdgeRadius: 0
+--- !u!4 &2072274347
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072274344}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.05, y: -61.07, z: 0.661611}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1878493077}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &2072274348
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2072274344}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

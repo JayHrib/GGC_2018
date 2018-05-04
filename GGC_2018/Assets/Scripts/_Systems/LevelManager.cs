@@ -10,16 +10,6 @@ public class EnemySprite
     public Sprite sprite;
 }
 
-public class Element
-{
-    public string type;
-
-    public Element(string newType)
-    {
-        type = newType;
-    }
-}
-
 [RequireComponent(typeof(EnvironmentManager))]
 public class LevelManager : MonoBehaviour {
 
@@ -35,9 +25,8 @@ public class LevelManager : MonoBehaviour {
     private GameObject background;
 
     public GameObject enemy;
-    List<Element> elementList = new List<Element>();
 
-    public bool atBoss = false;
+    private bool atBoss = false;
     private int upperLimit;
 
     [SerializeField]
@@ -59,16 +48,6 @@ public class LevelManager : MonoBehaviour {
         }
 
         objectPool = ObjectPooler.instance;
-
-        elementList.Add(new Element("Fire"));
-        elementList.Add(new Element("Nature"));
-        elementList.Add(new Element("Water"));
-        //elementList.Add(new Element("Light"));
-        //elementList.Add(new Element("Ice"));
-        //elementList.Add(new Element("Earth"));
-        elementList.Add(new Element("Electricity"));
-        //elementList.Add(new Element("Dark"));
-        elementList.Add(new Element("Air"));
     }
 
     void FixedUpdate()
@@ -121,7 +100,6 @@ public class LevelManager : MonoBehaviour {
                 return;
             }
 
-            //go.GetComponent<EnemyStats>().element = elementList[elementNumber].type;
             go.GetComponent<EnemyStats>().element = e_manager.GetEnemyFromPool(elementNumber);
             go.GetComponent<EnemyStats>().lane = lane;
 
@@ -185,5 +163,10 @@ public class LevelManager : MonoBehaviour {
             }
         }
         return result;
+    }
+
+    public bool IsAtBoss()
+    {
+        return atBoss;
     }
 }
