@@ -12,6 +12,7 @@ public class LinusAI : MonoBehaviour
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
     private CastSpell spellSpawner;
+    private float obstaclesMove = -2;
 
     public BgScroller bgScroller;
 
@@ -19,6 +20,7 @@ public class LinusAI : MonoBehaviour
     {
         spellSpawner = FindObjectOfType<CastSpell>();
 
+        keywordActions.Add("");
         keywordActions.Add("I'll hit you where the sun don't shine", Dark);
         keywordActions.Add("empty quotes kills the man", Earth);
         keywordActions.Add("silent but deadly", Air);
@@ -167,6 +169,42 @@ public class LinusAI : MonoBehaviour
     {
         spellSpawner.FireSpell("Dark");
     }
+
+    private void MoveMarkedObject()
+    {
+        ToogleMovementOfVisibleObstaclesWithTag("Log");
+    }
+
+    //Test: voice recognition input test, move obstacels with voice command
+
+
+    private List<GameObject> GetAllVisibleObstacles()
+    {
+        List<GameObject> visibleObstacles = new List<GameObject>();
+        foreach (Transform child in GameObject.FindGameObjectWithTag("Obstacles").transform.GetComponentInChildren<Transform>())
+        {
+            if (child.GetComponent<Renderer>().isVisible)
+            {
+                visibleObstacles.Add(child.gameObject);
+            }
+        }
+        Debug.Log("visible obstacles count = " + visibleObstacles.Count);
+        return visibleObstacles;
+    }
+
+    private void ToogleMovementOfVisibleObstaclesWithTag(string tag)
+    {
+        obstaclesMove *= -1;
+        foreach (GameObject visibleObs in GetAllVisibleObstacles())
+        {
+            if (visibleObs.CompareTag(tag))
+            {
+                Debug.Log("visible obstacle with tag " + tag + " found!");
+                visibleObs.transform.position += new Vector3(obstaclesMove, 0, 0);
+            }
+        }
+    }
+    //test end
 
 
 }
