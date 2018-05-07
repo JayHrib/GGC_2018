@@ -470,7 +470,7 @@ MonoBehaviour:
     animController: {fileID: 9100000, guid: 424e1fb2aefc7104c9ed10018284d02a, type: 2}
   - name: Dark
     sprite: {fileID: 21300000, guid: 3f83c9cd6ea4c874f8bbf201e3833554, type: 3}
-    animController: {fileID: 0}
+    animController: {fileID: 9100000, guid: fafee7f8459135a44ac0a7440fef6cba, type: 2}
   - name: Light
     sprite: {fileID: 21300000, guid: 6e14e7de859f888469fb4be3ab1e5486, type: 3}
     animController: {fileID: 0}
@@ -569,7 +569,7 @@ MonoBehaviour:
   enemyHabitats:
   - environment: Cupboard Fields
     elementsInArea:
-    - Earth
+    - Dark
   - environment: Desert
     elementsInArea:
     - Earth
