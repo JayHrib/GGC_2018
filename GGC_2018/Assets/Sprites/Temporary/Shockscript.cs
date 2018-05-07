@@ -18,9 +18,10 @@ public class Shockscript : MonoBehaviour {
 	// Update is called once per frame
 	void FixedUpdate () {
         uutela = transform.localScale;
-        if (uutela.x > 9)
+        if (uutela.x > 19)
         {
-            uutela = new Vector3(0,0,0);
+            //uutela = new Vector3(0,0,0);
+            Destroy(gameObject);
         }
         else if (uutela.x > 4)
         {

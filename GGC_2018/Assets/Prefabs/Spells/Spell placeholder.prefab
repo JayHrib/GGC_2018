@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ripple: {fileID: 1227968556759370, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
   lifeTime: 2
   moveSpeed: 10
 --- !u!212 &212263515211115490
@@ -146,5 +147,5 @@ SpriteRenderer:
   m_Size: {x: 28.16, y: 21.12}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0

@@ -20,7 +20,7 @@ public class LinusAI : MonoBehaviour
     {
         spellSpawner = FindObjectOfType<CastSpell>();
 
-        keywordActions.Add("");
+        //keywordActions.Add("");
         keywordActions.Add("I'll hit you where the sun don't shine", Dark);
         keywordActions.Add("empty quotes kills the man", Earth);
         keywordActions.Add("silent but deadly", Air);

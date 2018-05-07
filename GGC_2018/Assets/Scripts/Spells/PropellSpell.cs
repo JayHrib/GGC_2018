@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PropellSpell : MonoBehaviour {
 
+    public GameObject ripple;
+
     public float lifeTime = 4f;
     public float moveSpeed = 5.0f;
     private bool isActive = false;
@@ -39,7 +41,7 @@ public class PropellSpell : MonoBehaviour {
         /*Deactivate the collider until it's close enough to it's target.
          Used to make sure that only the clicked target can get hurt by the spell*/
 
-        Invoke("Destroy", lifeTime);
+        //Invoke("Destroy", lifeTime);
         target = GetTarget();
         if (!isActive)
         {
@@ -100,6 +102,7 @@ public class PropellSpell : MonoBehaviour {
 
     void OnDisable()
     {
+        Instantiate(ripple, transform.position, Quaternion.identity);
         if (isActive)
         {
             isActive = false;
