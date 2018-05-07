@@ -53,12 +53,12 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4995333204188206}
-  - component: {fileID: 114363387498598970}
-  - component: {fileID: 114462775488765308}
-  - component: {fileID: 58238493582289546}
+  - component: {fileID: 114427287218753522}
+  - component: {fileID: 50633264758479698}
+  - component: {fileID: 58516988722761784}
   m_Layer: 12
   m_Name: spell_earth
-  m_TagString: Spell
+  m_TagString: Marker
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -259,7 +259,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &58238493582289546
+--- !u!50 &50633264758479698
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1389538729821774}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!58 &58516988722761784
 CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -273,8 +293,8 @@ CircleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.5
---- !u!114 &114363387498598970
+  m_Radius: 1.5
+--- !u!114 &114427287218753522
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -282,23 +302,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1389538729821774}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a82eedb54a33a0a48b87b8397012417e, type: 3}
+  m_Script: {fileID: 11500000, guid: 51d0687c24d2dcf409f1be8749ead2c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  element: Fire
---- !u!114 &114462775488765308
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1389538729821774}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lifeTime: 4
-  moveSpeed: 5
 --- !u!198 &198060053146401838
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -23905,7 +23911,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009586141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 10
   m_RenderMode: 0
   m_SortMode: 0
@@ -23959,7 +23965,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009586141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0
@@ -24013,7 +24019,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009586141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -24067,7 +24073,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009586141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 10
   m_RenderMode: 0
   m_SortMode: 0
@@ -24121,7 +24127,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009586141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -24175,7 +24181,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009586141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_RenderMode: 0
   m_SortMode: 0
@@ -24229,7 +24235,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1009586141
-  m_SortingLayer: 3
+  m_SortingLayer: 4
   m_SortingOrder: 2
   m_RenderMode: 0
   m_SortMode: 0

@@ -6,6 +6,7 @@ public class ClickTargeting : MonoBehaviour {
 
     private GameObject target;
     public bool isBeingUsed = true;
+    public GameObject targetMarker;
 
     void Start()
     {
@@ -22,9 +23,10 @@ public class ClickTargeting : MonoBehaviour {
             if (hit.collider != null)
             {
                 //Make sure that the clicked object is either a hazard or an enemy
-                if (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("Hazard"))
+                if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     target = hit.collider.gameObject;
+                    MarkTarget(target);
                 }
                 else
                 {
@@ -47,4 +49,11 @@ public class ClickTargeting : MonoBehaviour {
     {
         return target;
     } 
+
+    private void MarkTarget(GameObject target)
+    {
+        GameObject marker;
+        marker = Instantiate(targetMarker, target.transform.position, target.transform.rotation);
+        marker.GetComponent<Marker>().SetTarget(target);
+    }
 }

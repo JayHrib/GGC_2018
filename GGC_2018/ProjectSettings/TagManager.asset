@@ -10,6 +10,7 @@ TagManager:
   - MovePointer
   - Hazard
   - Transition
+  - Marker
   layers:
   - Default
   - TransparentFX
@@ -49,6 +50,9 @@ TagManager:
     locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Marker
+    uniqueID: 4054885521
     locked: 0
   - name: Enemy
     uniqueID: 3036314907

@@ -348,7 +348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4820831346486916, guid: fc4aae42dc030f8418606ad0bd95569a, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc4aae42dc030f8418606ad0bd95569a, type: 2}
@@ -416,7 +416,7 @@ GameObject:
   - component: {fileID: 1976220542}
   m_Layer: 0
   m_Name: GameManager
-  m_TagString: Spell
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -434,7 +434,7 @@ Transform:
   - {fileID: 555423734}
   - {fileID: 2006988541}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1976220536
 MonoBehaviour:
@@ -479,7 +479,7 @@ MonoBehaviour:
     animController: {fileID: 0}
   - name: Earth
     sprite: {fileID: 21300000, guid: 555bb9fd4dbf74a48a5072690fd08c63, type: 3}
-    animController: {fileID: 0}
+    animController: {fileID: 9100000, guid: 138e45e0e4a31064fa3761b9fd96a086, type: 2}
 --- !u!114 &1976220537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -569,7 +569,7 @@ MonoBehaviour:
   enemyHabitats:
   - environment: Cupboard Fields
     elementsInArea:
-    - Air
+    - Earth
   - environment: Desert
     elementsInArea:
     - Earth
@@ -594,6 +594,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isBeingUsed: 1
+  targetMarker: {fileID: 1389538729821774, guid: ea8b46e91d991d841b7cba5d20a25844,
+    type: 2}
 --- !u!1 &2006988540
 GameObject:
   m_ObjectHideFlags: 0
