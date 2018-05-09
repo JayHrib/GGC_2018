@@ -5,8 +5,11 @@ using UnityEngine;
 public class ClickTargeting : MonoBehaviour {
 
     private GameObject target;
+    private GameObject PrevClickedObject;
+    private bool somethingIsMarked = false;
     public bool isBeingUsed = true;
     public GameObject targetMarker;
+    GameObject marker;
 
     void Start()
     {
@@ -26,8 +29,16 @@ public class ClickTargeting : MonoBehaviour {
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     target = hit.collider.gameObject;
-                    if (!target.GetComponent<EnemyHealth>().marked)
+                    if (!somethingIsMarked)
                     {
+                        if (!target.GetComponent<EnemyHealth>().marked)
+                        {
+                            MarkTarget(target);
+                        }
+                    }
+                    else if (somethingIsMarked && target != PrevClickedObject)
+                    {
+                        DeMarkTarget(PrevClickedObject);
                         MarkTarget(target);
                     }
                 }
@@ -53,11 +64,32 @@ public class ClickTargeting : MonoBehaviour {
         return target;
     } 
 
+    public void SetMarked()
+    {
+        if (!somethingIsMarked)
+        {
+            somethingIsMarked = true;
+        }
+    }
+
     private void MarkTarget(GameObject target)
     {
-        GameObject marker;
+        PrevClickedObject = target;
         marker = Instantiate(targetMarker, target.transform.position, target.transform.rotation);
         marker.GetComponent<Marker>().SetTarget(target);
         target.GetComponent<EnemyHealth>().marked = true;
+        somethingIsMarked = true;
+    }
+
+    private void DeMarkTarget(GameObject target)
+    {
+        PrevClickedObject = null;
+        if (marker != null)
+        {
+            Destroy(marker);
+        }
+
+        target.GetComponent<EnemyHealth>().marked = false;
+        somethingIsMarked = false;
     }
 }
