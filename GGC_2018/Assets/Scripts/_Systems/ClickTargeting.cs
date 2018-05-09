@@ -26,7 +26,10 @@ public class ClickTargeting : MonoBehaviour {
                 if (hit.collider.gameObject.CompareTag("Enemy"))
                 {
                     target = hit.collider.gameObject;
-                    MarkTarget(target);
+                    if (!target.GetComponent<EnemyHealth>().marked)
+                    {
+                        MarkTarget(target);
+                    }
                 }
                 else
                 {
@@ -55,5 +58,6 @@ public class ClickTargeting : MonoBehaviour {
         GameObject marker;
         marker = Instantiate(targetMarker, target.transform.position, target.transform.rotation);
         marker.GetComponent<Marker>().SetTarget(target);
+        target.GetComponent<EnemyHealth>().marked = true;
     }
 }

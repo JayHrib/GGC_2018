@@ -235,6 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9158845a34657b846b1c73b5b8e24157, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ripple: {fileID: 1227968556759370, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
   lifeTime: 4
   moveSpeed: 5
 --- !u!198 &198055411432362858

@@ -7,167 +7,163 @@ using System;
 using System.Text;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(SpellOutlineHandler))]
 public class LinusAI : MonoBehaviour
 {
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
     private CastSpell spellSpawner;
-    private float obstaclesMove = -2;
+    private SpellOutlineHandler outlineHandler;
 
-    public BgScroller bgScroller;
+    private float obstaclesMove = -2;
 
     void Start()
     {
         spellSpawner = FindObjectOfType<CastSpell>();
+        outlineHandler = FindObjectOfType<SpellOutlineHandler>();
 
-        //keywordActions.Add("");
-        keywordActions.Add("I'll hit you where the sun don't shine", Dark);
-        keywordActions.Add("empty quotes kills the man", Earth);
-        keywordActions.Add("silent but deadly", Air);
-        keywordActions.Add("Praise the sun", Light);
-        keywordActions.Add("why dont you make like a leaf and blow away", Nature);
-        keywordActions.Add("Thunder bolt", Electricity);
-        keywordActions.Add("How much does a polar bear weigh", Ice);
-        keywordActions.Add("would you like to get moist my friend", Water);
-        keywordActions.Add("i am about to drop my mixtape", Fire);
-        keywordActions.Add("test", Test);
-        keywordActions.Add("teddy", Left);
-        keywordActions.Add("in send dio", Right);
-        keywordActions.Add("lightning", Forward);
-        keywordActions.Add("go down", Back);
-        keywordActions.Add("pause background", PauseBackground);
-        keywordActions.Add("start background", StartBackground);
-        keywordActions.Add("reset background", ResetBackground);
-        keywordActions.Add("exit game", ExitGame);
-        keywordActions.Add("restart game", RestartGame);
-        keywordActions.Add("turn white", White);
-        keywordActions.Add("turn blue", Blue);
-        keywordActions.Add("turn red", Red);
-        keywordActions.Add("turn green", Green);
+        keywordActions.Add("display fire", DisplayOutlineFire);
+        keywordActions.Add("display water", DisplayOutlineWater);
+        keywordActions.Add("display nature", DisplayOutlineNature);
+        keywordActions.Add("display ice", DisplayOutlineIce);
+        keywordActions.Add("display electricity", DisplayOutlineElectricity);
+        keywordActions.Add("display air", DisplayOutlineAir);
+        keywordActions.Add("display light", DisplayOutlineLight);
+        keywordActions.Add("display dark", DisplayOutlineDark);
+        keywordActions.Add("display earth", DisplayOutlineEarth);
+
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
         keywordRecognizer.Start();
     }
 
+    #region Outlines
+
+    private void DisplayOutlineFire()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Fire");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Fire");
+        }
+    }
+
+    private void DisplayOutlineWater()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Water");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Water");
+        }
+    }
+
+    private void DisplayOutlineIce()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Ice");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Ice");
+        }
+    }
+
+    private void DisplayOutlineNature()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Nature");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Nature");
+        }
+    }
+
+    private void DisplayOutlineElectricity()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Electricity");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Electricity");
+        }
+    }
+
+    private void DisplayOutlineEarth()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Earth");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Earth");
+        }
+    }
+
+    private void DisplayOutlineLight()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Light");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Light");
+        }
+    }
+
+    private void DisplayOutlineDark()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Dark");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Dark");
+        }
+    }
+
+    private void DisplayOutlineAir()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Air");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Air");
+        }
+    }
+
+    #endregion
+
+    #region Obstacles
+
     private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
     {
         Debug.Log("Keyword: " + args.text);
         keywordActions[args.text].Invoke();
-    }
-
-    private void Test()
-    {
-        print("You said TEST, hopefully it went well");
-    }
-
-    private void Left()
-    {
-        transform.position = new Vector3(transform.position.x - 1, transform.position.y);
-    }
-
-    private void Right()
-    {
-        transform.position = new Vector3(transform.position.x + 1, transform.position.y);
-    }
-
-    private void Forward()
-    {
-        transform.position = new Vector3(transform.position.x, transform.position.y + 1);
-    }
-
-    private void Back()
-    {
-        transform.position = new Vector3(transform.position.x, transform.position.y - 1);
-    }
-
-    private void PauseBackground()
-    {
-        BgScroller.active = false;
-    }
-
-    private void StartBackground()
-    {
-        BgScroller.active = true;
-    }
-
-    private void ResetBackground()
-    {
-        bgScroller.Reset();
-    }
-
-    private void ExitGame()
-    {
-        Application.Quit();
-    }
-
-    private void RestartGame()
-    {
-        SceneManager.LoadScene(0);
-    }
-
-    private void White()
-    {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
-    }
-
-    private void Blue()
-    {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
-    }
-
-    private void Red()
-    {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
-    }
-
-    private void Green()
-    {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
-    }
-
-    private void Fire()
-    {
-        spellSpawner.FireSpell("Fire");
-    }
-
-    private void Water()
-    {
-        spellSpawner.FireSpell("Water");
-    }
-
-    private void Ice()
-    {
-        spellSpawner.FireSpell("Ice");
-    }
-
-    private void Electricity()
-    {
-        spellSpawner.FireSpell("Electricity");
-    }
-
-    private void Nature()
-    {
-        spellSpawner.FireSpell("Nature");
-    }
-
-    private void Light()
-    {
-        spellSpawner.FireSpell("Light");
-    }
-
-    private void Air()
-    {
-        spellSpawner.FireSpell("Air");
-    }
-
-    private void Earth()
-    {
-        spellSpawner.FireSpell("Earth");
-    }
-
-    private void Dark()
-    {
-        spellSpawner.FireSpell("Dark");
     }
 
     private void MoveMarkedObject()
@@ -206,5 +202,5 @@ public class LinusAI : MonoBehaviour
     }
     //test end
 
-
+    #endregion
 }

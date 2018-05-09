@@ -82,6 +82,15 @@ public class PropellSpell : MonoBehaviour {
         }
 	}
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag("Enemy"))
+        {
+            Instantiate(ripple, transform.position, Quaternion.identity);
+            gameObject.SetActive(false);
+        }
+    }
+
     void Destroy()
     {
         if (isActive)
@@ -102,7 +111,6 @@ public class PropellSpell : MonoBehaviour {
 
     void OnDisable()
     {
-        Instantiate(ripple, transform.position, Quaternion.identity);
         if (isActive)
         {
             isActive = false;

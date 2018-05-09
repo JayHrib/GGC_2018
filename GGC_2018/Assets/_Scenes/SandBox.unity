@@ -348,7 +348,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4820831346486916, guid: fc4aae42dc030f8418606ad0bd95569a, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: fc4aae42dc030f8418606ad0bd95569a, type: 2}
@@ -414,6 +414,8 @@ GameObject:
   - component: {fileID: 1976220540}
   - component: {fileID: 1976220541}
   - component: {fileID: 1976220542}
+  - component: {fileID: 1976220544}
+  - component: {fileID: 1976220543}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -434,7 +436,7 @@ Transform:
   - {fileID: 555423734}
   - {fileID: 2006988541}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1976220536
 MonoBehaviour:
@@ -461,7 +463,7 @@ MonoBehaviour:
     animController: {fileID: 0}
   - name: Water
     sprite: {fileID: 21300000, guid: d45c1d4ae89f5fb428f56c0a98c09c12, type: 3}
-    animController: {fileID: 0}
+    animController: {fileID: 9100000, guid: 6df48bd6f6dccce408100ecdfbee970c, type: 2}
   - name: Electricity
     sprite: {fileID: 21300000, guid: 2cccbae1b68d15040ba5575d8936ba88, type: 3}
     animController: {fileID: 0}
@@ -476,7 +478,7 @@ MonoBehaviour:
     animController: {fileID: 0}
   - name: Ice
     sprite: {fileID: 21300000, guid: 8bb1d055d047a3e43b5a34465ee44bd0, type: 3}
-    animController: {fileID: 0}
+    animController: {fileID: 9100000, guid: faf55571dfc2d7d4185cb6c252ccda48, type: 2}
   - name: Earth
     sprite: {fileID: 21300000, guid: 555bb9fd4dbf74a48a5072690fd08c63, type: 3}
     animController: {fileID: 9100000, guid: 138e45e0e4a31064fa3761b9fd96a086, type: 2}
@@ -596,6 +598,47 @@ MonoBehaviour:
   isBeingUsed: 1
   targetMarker: {fileID: 1389538729821774, guid: ea8b46e91d991d841b7cba5d20a25844,
     type: 2}
+--- !u!114 &1976220543
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab11d41f7e75f80419ccd6b85aff3f9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1976220544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a42eb5e6ddac8148a836bd14cec5609, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spellOutlines:
+  - spellName: Fire
+    outline: {fileID: 0}
+  - spellName: Water
+    outline: {fileID: 0}
+  - spellName: Nature
+    outline: {fileID: 0}
+  - spellName: Ice
+    outline: {fileID: 0}
+  - spellName: Earth
+    outline: {fileID: 0}
+  - spellName: Air
+    outline: {fileID: 0}
+  - spellName: Light
+    outline: {fileID: 0}
+  - spellName: Dark
+    outline: {fileID: 0}
+  - spellName: Electricity
+    outline: {fileID: 0}
 --- !u!1 &2006988540
 GameObject:
   m_ObjectHideFlags: 0
