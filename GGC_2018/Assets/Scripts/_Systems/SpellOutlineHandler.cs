@@ -25,9 +25,9 @@ public class SpellOutlineHandler : MonoBehaviour {
         {
             for (int i = 0; i < spellOutlines.Length; i++)
             {
-                if (spellOutlines[i].outline.enabled)
+                if (spellOutlines[i].outline.GetComponent<Image>().enabled)
                 {
-                    spellOutlines[i].outline.enabled = false;
+                    spellOutlines[i].outline.GetComponent<Image>().enabled = false;
                 }
             }
         }
