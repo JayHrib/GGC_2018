@@ -11,6 +11,7 @@ TagManager:
   - Hazard
   - Transition
   - Marker
+  - SpawnPoint
   layers:
   - Default
   - TransparentFX

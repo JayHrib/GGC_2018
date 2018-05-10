@@ -489,11 +489,6 @@ Prefab:
       propertyPath: m_Name
       value: Erio
       objectReference: {fileID: 0}
-    - target: {fileID: 114363299425821074, guid: b50e332627add2b48aa13901e04f282f,
-        type: 2}
-      propertyPath: movementSpeed
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_IsPrefabParent: 0
@@ -571,7 +566,6 @@ GameObject:
   - component: {fileID: 1976220537}
   - component: {fileID: 1976220538}
   - component: {fileID: 1976220539}
-  - component: {fileID: 1976220540}
   - component: {fileID: 1976220541}
   - component: {fileID: 1976220542}
   - component: {fileID: 1976220544}
@@ -705,19 +699,28 @@ MonoBehaviour:
     - Earth
     resisting:
     - Electricity
+  - element: Earth
+    weaknesses:
+    - Nature
+    resisting:
+    - Air
+  - element: Ice
+    weaknesses:
+    - Fire
+    resisting:
+    - Nature
+  - element: Light
+    weaknesses:
+    - Dark
+    resisting:
+    - Light
+  - element: Dark
+    weaknesses:
+    - Light
+    resisting:
+    - Dark
   weaknessModifier: 2
   resistanceModifier: 0.25
---- !u!114 &1976220540
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1976220534}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 71137feda5e4f344eaae333cfaccbe0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1976220541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -732,7 +735,8 @@ MonoBehaviour:
   enemyHabitats:
   - environment: Cupboard Fields
     elementsInArea:
-    - Dark
+    - Nature
+    - Water
   - environment: Desert
     elementsInArea:
     - Earth
