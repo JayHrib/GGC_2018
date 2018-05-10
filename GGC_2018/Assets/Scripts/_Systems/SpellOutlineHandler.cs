@@ -23,7 +23,7 @@ public class SpellOutlineHandler : MonoBehaviour {
         }
         else
         {
-            for (int i = 0; i < spellOutlines.Length - 1; i++)
+            for (int i = 0; i < spellOutlines.Length; i++)
             {
                 if (spellOutlines[i].outline.enabled)
                 {
@@ -35,7 +35,7 @@ public class SpellOutlineHandler : MonoBehaviour {
 
     public void DisplayOutline(string outline)
     {
-        for (int i = 0; i < spellOutlines.Length - 1; i++)
+        for (int i = 0; i < spellOutlines.Length; i++)
         {
             if (spellOutlines[i].spellName == outline)
             {
@@ -46,7 +46,7 @@ public class SpellOutlineHandler : MonoBehaviour {
 
     public void HideOutline(string outline)
     {
-        for (int i = 0; i < spellOutlines.Length - 1; i++)
+        for (int i = 0; i < spellOutlines.Length; i++)
         {
             if (spellOutlines[i].spellName == outline)
             {
@@ -57,7 +57,7 @@ public class SpellOutlineHandler : MonoBehaviour {
 
     public void HideOutline()
     {
-        for (int i = 0; i < spellOutlines.Length - 1; i++)
+        for (int i = 0; i < spellOutlines.Length; i++)
         {
             if (spellOutlines[i].outline.gameObject.activeInHierarchy)
             {
@@ -70,7 +70,7 @@ public class SpellOutlineHandler : MonoBehaviour {
     {
         int toReturn = 0;
 
-        for (int i = 0; i < spellOutlines.Length - 1; i++)
+        for (int i = 0; i < spellOutlines.Length; i++)
         {
             if (spellOutlines[i].outline.enabled)
             {
