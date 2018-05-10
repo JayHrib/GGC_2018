@@ -12,6 +12,7 @@ public class PropellSpell : MonoBehaviour {
     private bool ableToCollide = false;
     private float desiredDistance = 3.0f;
     private Collider2D collider;
+    private Transform spawnPoint;
 
     private LevelManager levelManager;
 
@@ -38,6 +39,7 @@ public class PropellSpell : MonoBehaviour {
     {
         levelManager = FindObjectOfType<LevelManager>();
         targeting = FindObjectOfType<ClickTargeting>();
+        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
         
         /*Deactivate the collider until it's close enough to it's target.
          Used to make sure that only the clicked target can get hurt by the spell*/
@@ -66,6 +68,7 @@ public class PropellSpell : MonoBehaviour {
             if (target == null)
             {
                 target = GetTarget();
+                transform.position = spawnPoint.position;
             }
 
             if (target != null && !target.activeInHierarchy)
