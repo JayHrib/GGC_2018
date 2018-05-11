@@ -39,9 +39,13 @@ public class Demo : MonoBehaviour {
 
     private const float REQUIRED_SCORE = 0.5f;
     private GameObject spellCheck;
+    private ManaBar mana;
+
+    private bool ductTape = false;
 
     void Start() {
         spellSpawner = FindObjectOfType<CastSpell>();
+        mana = FindObjectOfType<ManaBar>();
 
         //Create platform of which to draw on
         platform = Application.platform;
@@ -60,12 +64,37 @@ public class Demo : MonoBehaviour {
             displayDrawing = true;
 
             drawArea = new Rect(0, 0, Screen.width, Screen.height);
-            GameConfig.gameSpeed /= 3;
+        }
+
+        if (Input.GetMouseButton(1))
+        {
+            if (ManaBar.mana > 50)
+            {
+                ductTape = true;
+            }
+            if (ductTape)
+            {
+                ManaBar.mana -= 0.6f;
+                GameConfig.gameSpeed = 0.25f;
+            }
+            else
+            {
+                GameConfig.gameSpeed = 1;
+            }
+
+            if (ManaBar.mana < 1f)
+            {
+                GameConfig.gameSpeed = 1f;
+                ductTape = false;
+            }
         }
 
         //Destroy draw area
         if (Input.GetMouseButtonUp(1))
         {
+            GameConfig.gameSpeed = 1f;
+            ductTape = false;
+
             displayDrawing = false;
 
             if (drawing)
@@ -101,7 +130,6 @@ public class Demo : MonoBehaviour {
 
             //Use to remove area
             drawArea = new Rect(0, 0, 0, 0);
-            GameConfig.gameSpeed *= 3;
         }
 
 
@@ -155,7 +183,6 @@ public class Demo : MonoBehaviour {
         //Compare and clean drawings when drawing area is removed
         if (!displayDrawing)
         {
-            Debug.Log("Test");
             recognized = false;
             strokeId = -1;
 

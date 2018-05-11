@@ -245,7 +245,6 @@ MonoBehaviour:
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
   devMode: 0
-  usingMoveController: 0
 --- !u!81 &486211600
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1208,16 +1207,10 @@ MonoBehaviour:
     outline: {fileID: 1227670809}
   - spellName: Ice
     outline: {fileID: 1702133172}
-  - spellName: Earth
-    outline: {fileID: 0}
-  - spellName: Air
-    outline: {fileID: 0}
-  - spellName: Light
-    outline: {fileID: 1012662766}
-  - spellName: Dark
-    outline: {fileID: 0}
   - spellName: Electricity
     outline: {fileID: 532281733}
+  - spellName: Light
+    outline: {fileID: 1012662766}
 --- !u!1 &2006988540
 GameObject:
   m_ObjectHideFlags: 0
