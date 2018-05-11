@@ -983,6 +983,7 @@ GameObject:
   - component: {fileID: 1976220542}
   - component: {fileID: 1976220544}
   - component: {fileID: 1976220543}
+  - component: {fileID: 1976220540}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1134,6 +1135,18 @@ MonoBehaviour:
     - Dark
   weaknessModifier: 2
   resistanceModifier: 0.25
+--- !u!114 &1976220540
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb7ff9ed86bede4bb844d93e1655851, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activeSpells: 0
 --- !u!114 &1976220541
 MonoBehaviour:
   m_ObjectHideFlags: 0

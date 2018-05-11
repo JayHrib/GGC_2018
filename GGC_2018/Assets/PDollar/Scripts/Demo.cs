@@ -42,10 +42,12 @@ public class Demo : MonoBehaviour {
     private ManaBar mana;
 
     private bool ductTape = false;
+    private CastingManager castManager;
 
     void Start() {
         spellSpawner = FindObjectOfType<CastSpell>();
         mana = FindObjectOfType<ManaBar>();
+        castManager = FindObjectOfType<CastingManager>();
 
         //Create platform of which to draw on
         platform = Application.platform;
@@ -111,8 +113,11 @@ public class Demo : MonoBehaviour {
                     {
                         drawnWellEnough = true;
                     }
-
-                    spellSpawner.FireSpell(gestureResult.GestureClass);
+                    if (castManager.activeSpells < 1)
+                    {
+                        spellSpawner.FireSpell(gestureResult.GestureClass);
+                        castManager.activeSpells++;
+                    }
                 }
                 else
                 {

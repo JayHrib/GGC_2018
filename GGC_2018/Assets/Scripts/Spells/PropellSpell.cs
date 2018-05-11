@@ -15,6 +15,7 @@ public class PropellSpell : MonoBehaviour {
     private Transform spawnPoint;
 
     private LevelManager levelManager;
+    private CastingManager castManager;
 
     GameObject target;
     private bool isUsingLanes = false;
@@ -22,6 +23,7 @@ public class PropellSpell : MonoBehaviour {
 
     void Start()
     {
+        castManager = FindObjectOfType<CastingManager>();
         if (targeting.isBeingUsed)
         {
             isUsingLanes = false;
@@ -131,6 +133,7 @@ public class PropellSpell : MonoBehaviour {
         {
             isActive = false;
         }
+        castManager.activeSpells = 0;
     }
 
     GameObject GetTarget()
