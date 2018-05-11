@@ -41,6 +41,10 @@ public class ClickTargeting : MonoBehaviour {
                         DeMarkTarget(PrevClickedObject);
                         MarkTarget(target);
                     }
+                    else if(somethingIsMarked && target == PrevClickedObject)
+                    {
+                        ReMarkTarget();
+                    }
                 }
                 else
                 {
@@ -91,5 +95,18 @@ public class ClickTargeting : MonoBehaviour {
 
         target.GetComponent<EnemyHealth>().marked = false;
         somethingIsMarked = false;
+    }
+
+    private void ReMarkTarget()
+    {
+        PrevClickedObject = null;
+
+        target.GetComponent<EnemyHealth>().marked = false;
+        somethingIsMarked = false;
+
+        PrevClickedObject = target;
+     
+        target.GetComponent<EnemyHealth>().marked = true;
+        somethingIsMarked = true;
     }
 }
