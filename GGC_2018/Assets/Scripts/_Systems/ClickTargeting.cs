@@ -26,7 +26,7 @@ public class ClickTargeting : MonoBehaviour {
             if (hit.collider != null)
             {
                 //Make sure that the clicked object is either a hazard or an enemy
-                if (hit.collider.gameObject.CompareTag("Enemy"))
+                if (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("Boss"))
                 {
                     target = hit.collider.gameObject;
                     if (!somethingIsMarked)

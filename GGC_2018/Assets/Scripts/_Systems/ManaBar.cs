@@ -19,12 +19,10 @@ public class ManaBar : MonoBehaviour
         bar = gameObject.GetComponent<Image>();
         gameObject.GetComponent<Image>().color = new Color(0, 0, 1, 1);
         mana = 0;
-
     }
 
     void Update()
     {
-
         Vector3 newpos = target.transform.position;
         if (target.GetComponent<PlayerStats>() != null)
         {

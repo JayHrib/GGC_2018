@@ -21,6 +21,8 @@ public class PropellSpell : MonoBehaviour {
     private bool isUsingLanes = false;
     private ClickTargeting targeting;
 
+    private bool initialIterationDone = false;
+
     void Start()
     {
         castManager = FindObjectOfType<CastingManager>();
@@ -133,7 +135,15 @@ public class PropellSpell : MonoBehaviour {
         {
             isActive = false;
         }
-        castManager.activeSpells = 0;
+        if (!initialIterationDone)
+        {
+            initialIterationDone = true;
+        }
+
+        if (initialIterationDone)
+        {
+            castManager.activeSpells = 0;
+        }
     }
 
     GameObject GetTarget()
