@@ -518,7 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spellEffects:
   - name: Fire
-    particlePrefab: {fileID: 1636748220443332, guid: e842be7bf5bf60f4490bfc3aaa6e3859,
+    particlePrefab: {fileID: 1021749666020864, guid: 81183b729ced3874fa754f46d3129b18,
       type: 2}
   - name: Water
     particlePrefab: {fileID: 1022347828558750, guid: 0cf27373dc314e844b93d3634c0ce2db,
@@ -533,16 +533,16 @@ MonoBehaviour:
     particlePrefab: {fileID: 1673746145247444, guid: 496c4c3730290d94288e98dacbe201ca,
       type: 2}
   - name: Earth
-    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+    particlePrefab: {fileID: 1989583048544790, guid: b9d2490f36c136442ade00cd59728073,
       type: 2}
   - name: Dark
-    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+    particlePrefab: {fileID: 1505762061587434, guid: fb7f155c22ffaff46aa910686ca48d71,
       type: 2}
   - name: Air
-    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+    particlePrefab: {fileID: 1928681726238150, guid: 2685df9580634564c872b7e3358535cb,
       type: 2}
   - name: Light
-    particlePrefab: {fileID: 1953046774452334, guid: 0bb8f67d0786b8d498a1e507125d6682,
+    particlePrefab: {fileID: 1441817389905752, guid: 4757541836ee6d44985b08b43fcb2ee6,
       type: 2}
   pooledAmount: 2
 --- !u!1 &1012662764
