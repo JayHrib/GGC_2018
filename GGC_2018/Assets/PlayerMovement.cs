@@ -10,8 +10,16 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         Vector3 pos = transform.position;
 
-        Vector3 velocity = new Vector3(Input.GetAxis("Horizontal") * (movementSpeed * Time.deltaTime), 0, 0);
+        Vector3 velocity = new Vector3(Input.GetAxis("Horizontal") * (movementSpeed * Time.deltaTime * GameConfig.gameSpeed), 0, 0);
         pos += velocity;
+        if(pos.x > 7)
+        {
+            pos.x = 7;
+        }
+        else if(pos.x < -7)
+        {
+            pos.x = -7;
+        }
         transform.position = pos;
 	}
 }

@@ -15,22 +15,8 @@ public class HealthBar : MonoBehaviour {
 
         target = gameObject.transform.parent.parent.gameObject;
         bar = gameObject.GetComponent<Image>();
-        if (target.GetComponent<PlayerStats>() != null)
-        {
-            if (target.GetComponent<PlayerStats>().playerIdentifier == 1)
-            {
-                gameObject.GetComponent<Image>().color = new Color(0, 0.6f, 1, 1);
-            }
-            else
-            {
-                gameObject.GetComponent<Image>().color = new Color(0, 1, 0, 1);
-            }
-        }
-        else
-        {
-            gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
-        }
- 
+        gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
+
     }
 
 	void FixedUpdate () {

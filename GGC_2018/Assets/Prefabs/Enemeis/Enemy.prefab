@@ -184,8 +184,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4bf7c16251a396439a61f6e813a9c1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ripple: {fileID: 1227968556759370, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
   currentHealth: 0
+  marked: 0
 --- !u!114 &114265963296144972
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
-  movementSpeed: 2
+  movementSpeed: 1.5
   element: 
   lane: 0
   weaknessModifier: 2
@@ -309,7 +309,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1258652389
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: d5a908e482215784e91ce3adde9520c3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
