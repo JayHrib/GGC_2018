@@ -1,0 +1,1362 @@
+fileFormatVersion: 2
+guid: 175b1ff2a825da54895aee450c12b87e
+timeCreated: 1526288927
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: spr_closing_book_hdsize_0
+    21300002: spr_closing_book_hdsize_1
+    21300004: spr_closing_book_hdsize_2
+    21300006: spr_closing_book_hdsize_3
+    21300008: spr_closing_book_hdsize_4
+    21300010: spr_closing_book_hdsize_5
+    21300012: spr_closing_book_hdsize_6
+    21300014: spr_closing_book_hdsize_7
+    21300016: spr_closing_book_hdsize_8
+    21300018: spr_closing_book_hdsize_9
+    21300020: spr_closing_book_hdsize_10
+    21300022: spr_closing_book_hdsize_11
+    21300024: spr_closing_book_hdsize_12
+    21300026: spr_closing_book_hdsize_13
+    21300028: spr_closing_book_hdsize_14
+    21300030: spr_closing_book_hdsize_15
+    21300032: spr_closing_book_hdsize_16
+    21300034: spr_closing_book_hdsize_17
+    21300036: spr_closing_book_hdsize_18
+    21300038: spr_closing_book_hdsize_19
+    21300040: spr_closing_book_hdsize_20
+    21300042: spr_closing_book_hdsize_21
+    21300044: spr_closing_book_hdsize_22
+    21300046: spr_closing_book_hdsize_23
+    21300048: spr_closing_book_hdsize_24
+    21300050: spr_closing_book_hdsize_25
+    21300052: spr_closing_book_hdsize_26
+    21300054: spr_closing_book_hdsize_27
+    21300056: spr_closing_book_hdsize_28
+    21300058: spr_closing_book_hdsize_29
+    21300060: spr_closing_book_hdsize_30
+    21300062: spr_closing_book_hdsize_31
+    21300064: spr_closing_book_hdsize_32
+    21300066: spr_closing_book_hdsize_33
+    21300068: spr_closing_book_hdsize_34
+    21300070: spr_closing_book_hdsize_35
+    21300072: spr_closing_book_hdsize_36
+    21300074: spr_closing_book_hdsize_37
+    21300076: spr_closing_book_hdsize_38
+    21300078: spr_closing_book_hdsize_39
+    21300080: spr_closing_book_hdsize_40
+    21300082: spr_closing_book_hdsize_41
+    21300084: spr_closing_book_hdsize_42
+    21300086: spr_closing_book_hdsize_43
+    21300088: spr_closing_book_hdsize_44
+    21300090: spr_closing_book_hdsize_45
+    21300092: spr_closing_book_hdsize_46
+    21300094: spr_closing_book_hdsize_47
+    21300096: spr_closing_book_hdsize_48
+    21300098: spr_closing_book_hdsize_49
+    21300100: spr_closing_book_hdsize_50
+    21300102: spr_closing_book_hdsize_51
+    21300104: spr_closing_book_hdsize_52
+    21300106: spr_closing_book_hdsize_53
+    21300108: spr_closing_book_hdsize_54
+    21300110: spr_closing_book_hdsize_55
+    21300112: spr_closing_book_hdsize_56
+    21300114: spr_closing_book_hdsize_57
+    21300116: spr_closing_book_hdsize_58
+    21300118: spr_closing_book_hdsize_59
+    21300120: spr_closing_book_hdsize_60
+    21300122: spr_closing_book_hdsize_61
+    21300124: spr_closing_book_hdsize_62
+    21300126: spr_closing_book_hdsize_63
+    21300128: spr_closing_book_hdsize_64
+    21300130: spr_closing_book_hdsize_65
+    21300132: spr_closing_book_hdsize_66
+    21300134: spr_closing_book_hdsize_67
+    21300136: spr_closing_book_hdsize_68
+    21300138: spr_closing_book_hdsize_69
+    21300140: spr_closing_book_hdsize_70
+    21300142: spr_closing_book_hdsize_71
+    21300144: spr_closing_book_hdsize_72
+    21300146: spr_closing_book_hdsize_73
+    21300148: spr_closing_book_hdsize_74
+    21300150: spr_closing_book_hdsize_75
+    21300152: spr_closing_book_hdsize_76
+    21300154: spr_closing_book_hdsize_77
+    21300156: spr_closing_book_hdsize_78
+    21300158: spr_closing_book_hdsize_79
+    21300160: spr_closing_book_hdsize_80
+    21300162: spr_closing_book_hdsize_81
+    21300164: spr_closing_book_hdsize_82
+    21300166: spr_closing_book_hdsize_83
+    21300168: spr_closing_book_hdsize_84
+  externalObjects: {}
+  serializedVersion: 4
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -1
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_0
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 15444
+        width: 1500
+        height: 670
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_1
+      rect:
+        serializedVersion: 2
+        x: 2114
+        y: 15462
+        width: 1566
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_2
+      rect:
+        serializedVersion: 2
+        x: 4034
+        y: 15462
+        width: 1566
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_3
+      rect:
+        serializedVersion: 2
+        x: 5954
+        y: 15462
+        width: 1566
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_4
+      rect:
+        serializedVersion: 2
+        x: 7874
+        y: 15462
+        width: 1566
+        height: 728
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_5
+      rect:
+        serializedVersion: 2
+        x: 9802
+        y: 15444
+        width: 1536
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_6
+      rect:
+        serializedVersion: 2
+        x: 11722
+        y: 15444
+        width: 1536
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_7
+      rect:
+        serializedVersion: 2
+        x: 13642
+        y: 15444
+        width: 1536
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_8
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 14364
+        width: 1536
+        height: 908
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_9
+      rect:
+        serializedVersion: 2
+        x: 2130
+        y: 14370
+        width: 1492
+        height: 936
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_10
+      rect:
+        serializedVersion: 2
+        x: 4050
+        y: 14370
+        width: 1492
+        height: 936
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_11
+      rect:
+        serializedVersion: 2
+        x: 5970
+        y: 14370
+        width: 1492
+        height: 936
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_12
+      rect:
+        serializedVersion: 2
+        x: 7890
+        y: 14370
+        width: 1492
+        height: 936
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_13
+      rect:
+        serializedVersion: 2
+        x: 9752
+        y: 14330
+        width: 1576
+        height: 976
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_14
+      rect:
+        serializedVersion: 2
+        x: 11672
+        y: 14330
+        width: 1576
+        height: 976
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_15
+      rect:
+        serializedVersion: 2
+        x: 13592
+        y: 14330
+        width: 1576
+        height: 976
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_16
+      rect:
+        serializedVersion: 2
+        x: 152
+        y: 13250
+        width: 1576
+        height: 976
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_17
+      rect:
+        serializedVersion: 2
+        x: 2082
+        y: 13212
+        width: 1548
+        height: 1014
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_18
+      rect:
+        serializedVersion: 2
+        x: 4002
+        y: 13212
+        width: 1548
+        height: 1014
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_19
+      rect:
+        serializedVersion: 2
+        x: 5922
+        y: 13212
+        width: 1548
+        height: 1014
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_20
+      rect:
+        serializedVersion: 2
+        x: 7842
+        y: 13212
+        width: 1548
+        height: 1014
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_21
+      rect:
+        serializedVersion: 2
+        x: 9758
+        y: 13226
+        width: 1512
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_22
+      rect:
+        serializedVersion: 2
+        x: 11678
+        y: 13226
+        width: 1512
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_23
+      rect:
+        serializedVersion: 2
+        x: 13598
+        y: 13226
+        width: 1512
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_24
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 12146
+        width: 1512
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_25
+      rect:
+        serializedVersion: 2
+        x: 2066
+        y: 12222
+        width: 1520
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_26
+      rect:
+        serializedVersion: 2
+        x: 3986
+        y: 12222
+        width: 1520
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_27
+      rect:
+        serializedVersion: 2
+        x: 5906
+        y: 12222
+        width: 1520
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_28
+      rect:
+        serializedVersion: 2
+        x: 7826
+        y: 12222
+        width: 1520
+        height: 924
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_29
+      rect:
+        serializedVersion: 2
+        x: 9758
+        y: 12252
+        width: 1490
+        height: 884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_30
+      rect:
+        serializedVersion: 2
+        x: 11678
+        y: 12252
+        width: 1490
+        height: 884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_31
+      rect:
+        serializedVersion: 2
+        x: 13598
+        y: 12252
+        width: 1490
+        height: 884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_32
+      rect:
+        serializedVersion: 2
+        x: 158
+        y: 11172
+        width: 1490
+        height: 884
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_33
+      rect:
+        serializedVersion: 2
+        x: 2138
+        y: 11156
+        width: 1424
+        height: 878
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_34
+      rect:
+        serializedVersion: 2
+        x: 4058
+        y: 11156
+        width: 1424
+        height: 878
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_35
+      rect:
+        serializedVersion: 2
+        x: 5978
+        y: 11156
+        width: 1424
+        height: 878
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_36
+      rect:
+        serializedVersion: 2
+        x: 7898
+        y: 11156
+        width: 1424
+        height: 878
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_37
+      rect:
+        serializedVersion: 2
+        x: 9932
+        y: 11170
+        width: 1304
+        height: 840
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_38
+      rect:
+        serializedVersion: 2
+        x: 11852
+        y: 11170
+        width: 1304
+        height: 840
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_39
+      rect:
+        serializedVersion: 2
+        x: 13772
+        y: 11170
+        width: 1304
+        height: 840
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_40
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 10090
+        width: 1304
+        height: 840
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_41
+      rect:
+        serializedVersion: 2
+        x: 2406
+        y: 10076
+        width: 1116
+        height: 894
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_42
+      rect:
+        serializedVersion: 2
+        x: 4326
+        y: 10076
+        width: 1116
+        height: 894
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_43
+      rect:
+        serializedVersion: 2
+        x: 6246
+        y: 10076
+        width: 1116
+        height: 894
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_44
+      rect:
+        serializedVersion: 2
+        x: 8166
+        y: 10076
+        width: 1116
+        height: 894
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_45
+      rect:
+        serializedVersion: 2
+        x: 10256
+        y: 10098
+        width: 932
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_46
+      rect:
+        serializedVersion: 2
+        x: 12176
+        y: 10098
+        width: 932
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_47
+      rect:
+        serializedVersion: 2
+        x: 14096
+        y: 10098
+        width: 932
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_48
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 9018
+        width: 932
+        height: 888
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_49
+      rect:
+        serializedVersion: 2
+        x: 2626
+        y: 9014
+        width: 858
+        height: 880
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_50
+      rect:
+        serializedVersion: 2
+        x: 4546
+        y: 9014
+        width: 858
+        height: 880
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_51
+      rect:
+        serializedVersion: 2
+        x: 6466
+        y: 9014
+        width: 858
+        height: 880
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_52
+      rect:
+        serializedVersion: 2
+        x: 8386
+        y: 9014
+        width: 858
+        height: 880
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_53
+      rect:
+        serializedVersion: 2
+        x: 10300
+        y: 9036
+        width: 858
+        height: 776
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_54
+      rect:
+        serializedVersion: 2
+        x: 12220
+        y: 9036
+        width: 858
+        height: 776
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_55
+      rect:
+        serializedVersion: 2
+        x: 14140
+        y: 9036
+        width: 858
+        height: 776
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_56
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 7956
+        width: 858
+        height: 776
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_57
+      rect:
+        serializedVersion: 2
+        x: 2654
+        y: 7974
+        width: 798
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_58
+      rect:
+        serializedVersion: 2
+        x: 4574
+        y: 7974
+        width: 798
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_59
+      rect:
+        serializedVersion: 2
+        x: 6494
+        y: 7974
+        width: 798
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_60
+      rect:
+        serializedVersion: 2
+        x: 8414
+        y: 7974
+        width: 798
+        height: 678
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_61
+      rect:
+        serializedVersion: 2
+        x: 10328
+        y: 7982
+        width: 794
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_62
+      rect:
+        serializedVersion: 2
+        x: 12248
+        y: 7982
+        width: 794
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_63
+      rect:
+        serializedVersion: 2
+        x: 14168
+        y: 7982
+        width: 794
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_64
+      rect:
+        serializedVersion: 2
+        x: 728
+        y: 6902
+        width: 794
+        height: 560
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_65
+      rect:
+        serializedVersion: 2
+        x: 2664
+        y: 6908
+        width: 772
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_66
+      rect:
+        serializedVersion: 2
+        x: 4584
+        y: 6908
+        width: 772
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_67
+      rect:
+        serializedVersion: 2
+        x: 6504
+        y: 6908
+        width: 772
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_68
+      rect:
+        serializedVersion: 2
+        x: 8424
+        y: 6908
+        width: 772
+        height: 448
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_69
+      rect:
+        serializedVersion: 2
+        x: 10334
+        y: 6906
+        width: 770
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_70
+      rect:
+        serializedVersion: 2
+        x: 12254
+        y: 6906
+        width: 770
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_71
+      rect:
+        serializedVersion: 2
+        x: 14174
+        y: 6906
+        width: 770
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_72
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 5826
+        width: 770
+        height: 380
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_73
+      rect:
+        serializedVersion: 2
+        x: 2662
+        y: 5840
+        width: 756
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_74
+      rect:
+        serializedVersion: 2
+        x: 4582
+        y: 5840
+        width: 756
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_75
+      rect:
+        serializedVersion: 2
+        x: 6502
+        y: 5840
+        width: 756
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_76
+      rect:
+        serializedVersion: 2
+        x: 8422
+        y: 5840
+        width: 756
+        height: 342
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_77
+      rect:
+        serializedVersion: 2
+        x: 10338
+        y: 5838
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_78
+      rect:
+        serializedVersion: 2
+        x: 12258
+        y: 5838
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_79
+      rect:
+        serializedVersion: 2
+        x: 14178
+        y: 5838
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_80
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 4758
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_81
+      rect:
+        serializedVersion: 2
+        x: 2658
+        y: 4758
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_82
+      rect:
+        serializedVersion: 2
+        x: 4578
+        y: 4758
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_83
+      rect:
+        serializedVersion: 2
+        x: 6498
+        y: 4758
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: spr_closing_book_hdsize_84
+      rect:
+        serializedVersion: 2
+        x: 8418
+        y: 4758
+        width: 764
+        height: 334
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline: []
+    physicsShape: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
