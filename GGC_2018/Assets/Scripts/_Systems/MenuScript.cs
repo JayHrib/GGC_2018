@@ -10,9 +10,9 @@ public class MenuScript : MonoBehaviour {
         SceneManager.LoadScene(1);
     }
 
-    public void OpenMoveScene()
+    public void MainMenu()
     {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(0);
     }
 
     public void CloseGame()
