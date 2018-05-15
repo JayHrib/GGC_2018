@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Book
 {
     public string name;
-    public Image book;
+    public GameObject book;
 }
 
 public class BookScript : MonoBehaviour {
@@ -24,25 +24,23 @@ public class BookScript : MonoBehaviour {
             Debug.LogError("BookScript: Something went wrong, 'books' array is empty!");
         }
 
-        currentBook = books[0].name;
+        for (int i = 0; i < books.Length; i++)
+        {
+            if (books[i].book.activeInHierarchy)
+            {
+                currentBook = books[i].name;
+                break;
+            }
+        }
 	}
 	
 	public void FlipToMenu()
     {
         if (currentBook != books[0].name)
         {
-            for (int i = 0; i < books.Length; i++)
-            {
-                if (books[i].name == "Main")
-                {
-                    //Play flipping animation
-                    //Activate other book
-                    //Deactivate current book
-                    Debug.Log("Flipping to Main");
-                    currentBook = books[i].name;
-                    break;
-                }
-            }
+            ActivateNext("Main");
+            DeactivateCurrent(currentBook);
+            currentBook = "Main";
         }
     }
 
@@ -50,18 +48,9 @@ public class BookScript : MonoBehaviour {
     {
         if (currentBook != books[1].name)
         {
-            for (int i = 0; i < books.Length; i++)
-            {
-                if (books[i].name == "Controls")
-                {
-                    //Play flipping animation
-                    //Activate other book
-                    //Deactivate current book
-                    Debug.Log("Flipping to Controls");
-                    currentBook = books[i].name;
-                    break;
-                }
-            }
+            ActivateNext("Controls");
+            DeactivateCurrent(currentBook);
+            currentBook = "Controls";
         }
     }
 
@@ -69,18 +58,9 @@ public class BookScript : MonoBehaviour {
     {
         if (currentBook != books[2].name)
         {
-            for (int i = 0; i < books.Length; i++)
-            {
-                if (books[i].name == "Story")
-                {
-                    //Play flipping animation
-                    //Activate other book
-                    //Deactivate current book
-                    Debug.Log("Flipping to Story");
-                    currentBook = books[i].name;
-                    break;
-                }
-            }
+            ActivateNext("Story");
+            DeactivateCurrent(currentBook);
+            currentBook = "Story";
         }
     }
 
@@ -88,29 +68,34 @@ public class BookScript : MonoBehaviour {
     {
         if (currentBook != books[3].name)
         {
-            for (int i = 0; i < books.Length; i++)
-            {
-                if (books[i].name == "Credits")
-                {
-                    //Play flipping animation
-                    //Activate other book
-                    //Deactivate current book
-                    Debug.Log("Flipping to Credits");
-                    currentBook = books[i].name;
-                    break;
-                }
-            }
+            ActivateNext("Credits");
+            DeactivateCurrent(currentBook);
+            currentBook = "Credits";
         }
     }
 
     private void DeactivateCurrent(string name)
     {
-
+        for (int i = 0; i < books.Length; i++)
+        {
+            if (books[i].name == name)
+            {
+                books[i].book.SetActive(false);
+                break;
+            }
+        }
     }
 
     private void ActivateNext(string name)
     {
-
+        for (int i = 0; i < books.Length; i++)
+        {
+            if (books[i].name == name)
+            {
+                books[i].book.SetActive(true);
+                break;
+            }
+        }
     }
 
     private void PlayAnimation(string direction)

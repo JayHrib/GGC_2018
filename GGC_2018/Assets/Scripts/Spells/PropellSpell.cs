@@ -142,7 +142,10 @@ public class PropellSpell : MonoBehaviour {
 
         if (initialIterationDone)
         {
-            castManager.activeSpells = 0;
+            if (castManager.activeSpells != 0)
+            {
+                castManager.activeSpells = 0;
+            }
         }
     }
 

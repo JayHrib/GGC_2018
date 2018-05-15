@@ -1,9 +1,20 @@
 fileFormatVersion: 2
-guid: de902524b9393ee4cb3e74f275181f7e
-timeCreated: 1526149160
+guid: 4682850914c1ef744be6cc3db1446051
+timeCreated: 1526288930
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: flippin_pages_backwards_0
+    21300002: flippin_pages_backwards_1
+    21300004: flippin_pages_backwards_2
+    21300006: flippin_pages_backwards_3
+    21300008: flippin_pages_backwards_4
+    21300010: flippin_pages_backwards_5
+    21300012: flippin_pages_backwards_6
+    21300014: flippin_pages_backwards_7
+    21300016: flippin_pages_backwards_8
+    21300018: flippin_pages_backwards_9
+    21300020: flippin_pages_backwards_10
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -31,7 +42,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: -1
+    filterMode: 0
     aniso: -1
     mipBias: -1
     wrapU: 1
@@ -40,7 +51,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -57,10 +68,20 @@ TextureImporter:
   textureFormatSet: 0
   platformSettings:
   - buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 4096
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 4096
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -68,7 +89,161 @@ TextureImporter:
     androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: flippin_pages_backwards_0
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 3157
+        width: 1500
+        height: 668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_1
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 3157
+        width: 1500
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_2
+      rect:
+        serializedVersion: 2
+        x: 4064
+        y: 3157
+        width: 1500
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_3
+      rect:
+        serializedVersion: 2
+        x: 5984
+        y: 3157
+        width: 1500
+        height: 930
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_4
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 2077
+        width: 1500
+        height: 877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_5
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 2077
+        width: 1500
+        height: 877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_6
+      rect:
+        serializedVersion: 2
+        x: 4064
+        y: 2077
+        width: 1500
+        height: 877
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_7
+      rect:
+        serializedVersion: 2
+        x: 5984
+        y: 2077
+        width: 1500
+        height: 668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_8
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 997
+        width: 1500
+        height: 668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_9
+      rect:
+        serializedVersion: 2
+        x: 2144
+        y: 997
+        width: 1500
+        height: 668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: flippin_pages_backwards_10
+      rect:
+        serializedVersion: 2
+        x: 4064
+        y: 997
+        width: 1500
+        height: 668
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
     outline: []
     physicsShape: []
   spritePackingTag: 
