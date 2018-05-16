@@ -12,6 +12,7 @@ TagManager:
   - Transition
   - Marker
   - SpawnPoint
+  - Hitbox
   layers:
   - Default
   - TransparentFX

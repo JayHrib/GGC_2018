@@ -33,7 +33,18 @@ public class HealthBar : MonoBehaviour {
             health = target.GetComponent<EnemyHealth>().currentHealth;
         }
         transform.position = newpos;
-        bar.fillAmount = health / 100;
+        if(target.GetComponent<BossScript>() != null)
+        {
+            bar.fillAmount = health / 800;
+        }
+        else if(target.GetComponent<BossLeg>() != null)
+        {
+            bar.fillAmount = health / 200;
+        }
+        else
+        {
+            bar.fillAmount = health / 100;
+        }
         
     }
 }
