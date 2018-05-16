@@ -29,11 +29,11 @@ public class BossTarget : MonoBehaviour {
         Vector3 newpos = transform.position;
         if (right)
         {
-            newpos.x = Random.Range(2, 8);
+            newpos.x = Random.Range(2, 10);
         }
         else if (left)
         {
-            newpos.x = Random.Range(-8, -2);
+            newpos.x = Random.Range(-10, -2);
         }
         else
         {

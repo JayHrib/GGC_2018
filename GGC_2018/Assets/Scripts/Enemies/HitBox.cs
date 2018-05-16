@@ -25,9 +25,13 @@ public class HitBox : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             other.GetComponent<PlayerHealthSystem>().currentHealth = other.GetComponent<PlayerHealthSystem>().currentHealth - 20;
+        }
+        if(other.CompareTag("Spell"))
+        {
+            Destroy(gameObject);
         }
     }
 }

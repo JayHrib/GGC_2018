@@ -20,7 +20,7 @@ public class BossAI : MonoBehaviour {
         timer++;
         if (timer > 119)
         {
-            int tempo = Random.Range(-30, 30);
+            int tempo = Random.Range(-60, 60);
             newrot = Quaternion.Euler(0, 0, tempo);
             timer = 0;
         }

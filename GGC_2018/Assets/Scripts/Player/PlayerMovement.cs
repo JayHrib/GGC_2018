@@ -18,15 +18,23 @@ public class PlayerMovement : MonoBehaviour {
         {
             Vector3 pos = transform.position;
 
-            Vector3 velocity = new Vector3(Input.GetAxis("Horizontal") * (movementSpeed * Time.deltaTime * GameConfig.gameSpeed), 0, 0);
+            Vector3 velocity = new Vector3(Input.GetAxis("Horizontal") * (movementSpeed * Time.deltaTime * GameConfig.gameSpeed), Input.GetAxis("Vertical") * (movementSpeed * Time.deltaTime * GameConfig.gameSpeed), 0);
             pos += velocity;
-            if (pos.x > 7)
+            if (pos.x > 8.5f)
             {
-                pos.x = 7;
+                pos.x = 8.5f;
             }
-            else if (pos.x < -7)
+            else if (pos.x < -8.5f)
             {
-                pos.x = -7;
+                pos.x = -8.5f;
+            }
+            if (pos.y > -2)
+            {
+                pos.y = -2;
+            }
+            else if (pos.y < -5)
+            {
+                pos.y = -5;
             }
             transform.position = pos;
         }

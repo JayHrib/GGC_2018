@@ -7,6 +7,8 @@ public class BossLasor : MonoBehaviour {
 
     public float hue = 0;
     public Color color;
+    public bool damaging;
+    public float sat;
 
 	// Use this for initialization
 	void Start () {
@@ -20,16 +22,16 @@ public class BossLasor : MonoBehaviour {
             hue = 0;
         }
         color = Color.HSVToRGB(hue, 1, 1);
-        color.a = 0.5f;
+        color.a = sat;
         gameObject.GetComponent<SpriteRenderer>().color = color;
 
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player") && damaging)
         {
-            other.GetComponent<PlayerHealthSystem>().currentHealth = other.GetComponent<PlayerHealthSystem>().currentHealth - 0.3f;
+            other.GetComponent<PlayerHealthSystem>().currentHealth = other.GetComponent<PlayerHealthSystem>().currentHealth - 0.7f;
         }
     }
 }

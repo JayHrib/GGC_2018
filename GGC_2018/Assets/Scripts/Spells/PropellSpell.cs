@@ -36,7 +36,7 @@ public class PropellSpell : MonoBehaviour {
         }
 
         collider = GetComponent<Collider2D>();
-        collider.enabled = false;
+        //collider.enabled = false;
     }
 
     void OnEnable()
@@ -90,17 +90,18 @@ public class PropellSpell : MonoBehaviour {
 
                 /*Checks if the spell is close enough to the target.
                 Enable the collider if spell is close enough*/
-                if (Vector3.Distance(transform.position, target.transform.position) <= desiredDistance)
-                {
-                    collider.enabled = true;
-                }
+                //if (Vector3.Distance(transform.position, target.transform.position) <= desiredDistance)
+                //{
+                //    collider.enabled = true;
+                //}
             }
         }
 	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Enemy") || other.CompareTag("Boss"))
+        Debug.Log(other.tag);
+        if (other.CompareTag("Enemy"))
         {
             if (ableToCollide)
             {
@@ -108,6 +109,11 @@ public class PropellSpell : MonoBehaviour {
                 targeting.SetMarked();
                 gameObject.SetActive(false);
             }
+        }
+        else if (other.CompareTag("Boss")){
+            Instantiate(ripple, transform.position, Quaternion.identity);
+            targeting.SetMarked();
+            gameObject.SetActive(false);
         }
     }
 

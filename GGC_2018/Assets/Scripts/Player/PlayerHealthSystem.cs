@@ -14,6 +14,15 @@ public class PlayerHealthSystem : MonoBehaviour {
         currentHealth = GetComponent<PlayerStats>().maxHealth;
 	}
 
+    void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            gameObject.SetActive(false);
+            SceneManager.LoadScene(0);
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
