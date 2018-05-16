@@ -45368,7 +45368,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hue: 0
   color: {r: 0, g: 0, b: 0, a: 0}
-  damaging: 0
+  damaging: 1
   sat: 0.5
 --- !u!212 &1389966434
 SpriteRenderer:
@@ -58356,12 +58356,17 @@ Prefab:
     - target: {fileID: 61056568761732554, guid: b50e332627add2b48aa13901e04f282f,
         type: 2}
       propertyPath: m_Offset.y
-      value: 0.32174182
+      value: 0.8680131
       objectReference: {fileID: 0}
     - target: {fileID: 61056568761732554, guid: b50e332627add2b48aa13901e04f282f,
         type: 2}
       propertyPath: m_Size.y
-      value: 1.2868726
+      value: 1.1875504
+      objectReference: {fileID: 0}
+    - target: {fileID: 114188003065628076, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: maxHealth
+      value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}
@@ -63333,7 +63338,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -974756570
+  randomSeed: -1517901644
   InitialModule:
     serializedVersion: 3
     enabled: 1

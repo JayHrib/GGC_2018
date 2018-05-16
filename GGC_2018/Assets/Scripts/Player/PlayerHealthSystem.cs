@@ -35,6 +35,10 @@ public class PlayerHealthSystem : MonoBehaviour {
         {
             TakeDamage();
         }
+        if (other.CompareTag("Bullet"))
+        {
+            TakeDamage();
+        }
     }
 
     void TakeDamage()

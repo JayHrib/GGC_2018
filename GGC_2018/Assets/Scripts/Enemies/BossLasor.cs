@@ -16,7 +16,14 @@ public class BossLasor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        hue = hue + 0.03f;
+        if (damaging)
+        {
+            hue = hue + 0.03f;
+        }
+        else
+        {
+            hue = hue + 0.06f;
+        }
         if(hue >= 1)
         {
             hue = 0;
@@ -24,6 +31,11 @@ public class BossLasor : MonoBehaviour {
         color = Color.HSVToRGB(hue, 1, 1);
         color.a = sat;
         gameObject.GetComponent<SpriteRenderer>().color = color;
+
+        if(transform.position.x > 30 || transform.position.x < -30 || transform.position.y > 30 || transform.position.y < -30)
+        {
+            Destroy(gameObject);
+        }
 
     }
 

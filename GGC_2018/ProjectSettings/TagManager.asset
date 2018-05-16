@@ -13,6 +13,7 @@ TagManager:
   - Marker
   - SpawnPoint
   - Hitbox
+  - Bullet
   layers:
   - Default
   - TransparentFX
