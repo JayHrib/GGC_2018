@@ -16492,7 +16492,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 151547170}
   isTwoPlayers: 0
-  spawnTimer: 0
+  maxAmountOfEnemies: 2
+  timeToSpawn: 2
   pressEscape: 27
   enemy: {fileID: 1106084595894072, guid: d4964d6d7a652af4f8eceffc7975eb9c, type: 2}
   enemySprites:
@@ -32850,7 +32851,6 @@ MonoBehaviour:
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
   devMode: 0
-  usingMoveController: 0
 --- !u!81 &1053117067
 AudioListener:
   m_ObjectHideFlags: 0
@@ -43249,6 +43249,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 150
+  marked: 0
 --- !u!114 &1361107122
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -43347,7 +43348,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1258652389
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 03ca5a344dbaf7f4598d7f608cd2c053, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -63970,7 +63971,8 @@ Prefab:
       propertyPath: m_Size.x
       value: 0.92100716
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 114288130624181750, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_IsPrefabParent: 0
 --- !u!4 &2061668475 stripped
@@ -63983,6 +63985,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4036923423492486, guid: b50e332627add2b48aa13901e04f282f,
     type: 2}
   m_PrefabInternal: {fileID: 2061668474}
+--- !u!1 &2061668477 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1859346237307474, guid: b50e332627add2b48aa13901e04f282f,
+    type: 2}
+  m_PrefabInternal: {fileID: 2061668474}
+--- !u!114 &2061668478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2061668477}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c1d1aba5792e6f14bb68d7c66ad98bd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  movementSpeed: 5
+  usingKeys: 1
 --- !u!1 &2067198028
 GameObject:
   m_ObjectHideFlags: 0

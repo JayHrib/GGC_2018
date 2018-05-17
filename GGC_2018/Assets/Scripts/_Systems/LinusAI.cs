@@ -289,12 +289,6 @@ public class LinusAI : MonoBehaviour
 
     #region Obstacles
 
-    private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
-    {
-        Debug.Log("Keyword: " + args.text);
-        keywordActions[args.text].Invoke();
-    }
-
     private void MoveMarkedObject()
     {
         ToogleMovementOfVisibleObstaclesWithTag("Log");
