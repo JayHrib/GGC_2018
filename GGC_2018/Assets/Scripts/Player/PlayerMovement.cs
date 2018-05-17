@@ -54,6 +54,21 @@ public class PlayerMovement : MonoBehaviour {
         #region Click
         else
         {
+            // drag controls start
+            if (Input.GetMouseButton(0) && marked)
+            {
+                targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                destination.position = targetPos;
+            }
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                marked = false;
+            }
+            // drag controls end
+
+
+
             if (Input.GetMouseButtonDown(0))
             {
                 //Use mouse clicks if keys aren't being used
@@ -73,22 +88,25 @@ public class PlayerMovement : MonoBehaviour {
                     }
                 }
 
-                if (hit.collider == null && marked)
-                {
-                    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                    destination.position = targetPos;
-                    marked = false;
-                }
-                else if(hit.collider != null && marked)
-                {
-                    //Debug.Log(hit.collider.gameObject.tag);
-                    if (!hit.collider.gameObject.CompareTag("ClickBox"))
-                    {
-                        targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                        destination.position = targetPos;
-                        marked = false;
-                    }
-                }
+
+                // click controls start
+                //if (hit.collider == null && marked)
+                //{
+                //    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                //    destination.position = targetPos;
+                //    marked = false;
+                //}
+                //else if(hit.collider != null && marked)
+                //{
+                //    //Debug.Log(hit.collider.gameObject.tag);
+                //    if (!hit.collider.gameObject.CompareTag("ClickBox"))
+                //    {
+                //        targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                //        destination.position = targetPos;
+                //        marked = false;
+                //    }
+                //}
+                // click controls end
             }
 
             //Cancel move command if drawing window is opened

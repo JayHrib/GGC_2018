@@ -30,7 +30,7 @@ public class BossControler : MonoBehaviour {
     public GameObject bulletspawner;
     public GameObject flash;
     private int timer = 0;
-    private int limit = 120;
+    private int limit = 640;
 
     // Use this for initialization
     void Start () {

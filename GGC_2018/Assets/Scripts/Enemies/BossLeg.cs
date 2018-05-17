@@ -45,7 +45,7 @@ public class BossLeg : MonoBehaviour {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
             timer = 0;
             attacking = true;
-            limit = Random.Range(120, 240);
+            limit = Random.Range(60, 240);
         }
 
         if (active && preped)

@@ -9,6 +9,14 @@ public class BulletScript : MonoBehaviour {
     public Color color;
     public float sat;
 
+    private GameObject clickbox;
+
+    void Start()
+    {
+        clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
+        Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
+    }
+
     void Update () {
         hue = hue + 0.06f;
         if (hue >= 1)
