@@ -9,6 +9,7 @@ public class Shockscript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        Debug.Log("ripple");
         rend = GetComponent<Renderer>();
         rend.material.shader = Shader.Find("Unlit/shockwave");
         uutela = new Vector3(0,0,0);
@@ -20,7 +21,8 @@ public class Shockscript : MonoBehaviour {
         uutela = transform.localScale;
         if (uutela.x > 9)
         {
-            uutela = new Vector3(0,0,0);
+            //uutela = new Vector3(0,0,0);
+            Destroy(gameObject);
         }
         else if (uutela.x > 4)
         {

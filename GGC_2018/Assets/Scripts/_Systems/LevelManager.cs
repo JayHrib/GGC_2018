@@ -20,8 +20,10 @@ public class LevelManager : MonoBehaviour {
     public static bool active = false;
     public bool isTwoPlayers = false;
     public static int deaths = 0;
+    public int maxAmountOfEnemies = 2;
     private int toll = 0;
-    public int spawnTimer = 0;
+    private float spawnTimer = 0f;
+    public float timeToSpawn = 2f;
     public KeyCode pressEscape;
     private GameObject background;
 
@@ -49,6 +51,7 @@ public class LevelManager : MonoBehaviour {
         }
 
         objectPool = ObjectPooler.instance;
+
     }
 
     void FixedUpdate()
@@ -62,14 +65,18 @@ public class LevelManager : MonoBehaviour {
         if (active == true)
         {
             spawnTimer++;
-            if (spawnTimer >= 5)
+            if (spawnTimer >= timeToSpawn)
             {
                 spawnTimer = 0;
                 int rand = Random.Range(0, upperLimit);
                 int lane = Random.Range(1,6);
                 Spawn(rand, lane);
                 toll++;
-                active = false;
+
+                if (toll >= maxAmountOfEnemies)
+                {
+                    active = false;
+                }
             }
         }
         else if (deaths >= toll)

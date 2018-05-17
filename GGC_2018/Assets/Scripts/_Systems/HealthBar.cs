@@ -5,45 +5,46 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour {
 
-    private GameObject senpai;
+    private GameObject target;
     private Image bar;
 
     private float health;
 
-	// Use this for initialization
-	void Start () {
-        senpai = gameObject.transform.parent.parent.gameObject;
+    // Use this for initialization
+    void Start() {
+
+        target = gameObject.transform.parent.parent.gameObject;
         bar = gameObject.GetComponent<Image>();
-		if(senpai.GetComponent<PlayerStats>() != null)
-        {
-            if(senpai.GetComponent<PlayerStats>().playerIdentifier == 1)
-            {
-                gameObject.GetComponent<Image>().color = new Color(0, 0.6f, 1, 1);
-            }
-            else
-            {
-                gameObject.GetComponent<Image>().color = new Color(0, 1, 0, 1);
-            }
-        }
-        else
-        {
-            gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
-        }
-	}
+        gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
+
+    }
 
 	void FixedUpdate () {
-        Vector3 newpos = senpai.transform.position;
-        if (senpai.GetComponent<PlayerStats>() != null)
+        
+        Vector3 newpos = target.transform.position;
+        if (target.GetComponent<PlayerStats>() != null)
         {
             newpos.y = newpos.y + 2;
-            health = senpai.GetComponent<PlayerHealthSystem>().currentHealth;
+            health = target.GetComponent<PlayerHealthSystem>().currentHealth;
         }
         else
         {
             newpos.y = newpos.y - 1.5f;
-            health = senpai.GetComponent<EnemyHealth>().currentHealth;
+            health = target.GetComponent<EnemyHealth>().currentHealth;
         }
         transform.position = newpos;
-        bar.fillAmount = health / 100;
+        if(target.GetComponent<BossScript>() != null)
+        {
+            bar.fillAmount = health / 800;
+        }
+        else if(target.GetComponent<BossLeg>() != null)
+        {
+            bar.fillAmount = health / 200;
+        }
+        else
+        {
+            bar.fillAmount = health / 100;
+        }
+        
     }
 }

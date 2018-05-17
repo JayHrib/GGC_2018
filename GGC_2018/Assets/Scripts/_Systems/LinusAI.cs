@@ -7,12 +7,14 @@ using System;
 using System.Text;
 using UnityEngine.SceneManagement;
 
+[RequireComponent(typeof(SpellOutlineHandler))]
 public class LinusAI : MonoBehaviour
 {
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
     private DictationRecognizer dictationRecognizer;
     private CastSpell spellSpawner;
+    private SpellOutlineHandler outlineHandler;
     private float obstaclesMove = -2;
 
     public BgScroller bgScroller;
@@ -20,17 +22,6 @@ public class LinusAI : MonoBehaviour
     void Start()
     {
         /*spellSpawner = FindObjectOfType<CastSpell>();
-
-       
-        keywordActions.Add("I'll hit you where the sun don't shine", Dark);
-        keywordActions.Add("empty quotes kills the man", Earth);
-        keywordActions.Add("silent but deadly", Air);
-        keywordActions.Add("Praise the sun", Light);
-        keywordActions.Add("why dont you make like a leaf and blow away", Nature);
-        keywordActions.Add("Thunder bolt", Electricity);
-        keywordActions.Add("How much does a polar bear weigh", Ice);
-        keywordActions.Add("would you like to get moist my friend", Water);
-        keywordActions.Add("i am about to drop my mixtape", Fire);
         keywordActions.Add("test", Test);
         keywordActions.Add("teddy", Left);
         keywordActions.Add("in send dio", Right);
@@ -45,9 +36,22 @@ public class LinusAI : MonoBehaviour
         keywordActions.Add("turn blue", Blue);
         keywordActions.Add("turn red", Red);
         keywordActions.Add("turn green", Green);
+
+        spellSpawner = FindObjectOfType<CastSpell>();
+        outlineHandler = FindObjectOfType<SpellOutlineHandler>();
+
+        keywordActions.Add("display fire", DisplayOutlineFire);
+        keywordActions.Add("display water", DisplayOutlineWater);
+        keywordActions.Add("display nature", DisplayOutlineNature);
+        keywordActions.Add("display ice", DisplayOutlineIce);
+        keywordActions.Add("display electricity", DisplayOutlineElectricity);
+        keywordActions.Add("display air", DisplayOutlineAir);
+        keywordActions.Add("display light", DisplayOutlineLight);
+        keywordActions.Add("display dark", DisplayOutlineDark);
+        keywordActions.Add("display earth", DisplayOutlineEarth);
+
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
-       
         keywordRecognizer.Start();*/
 
 
@@ -71,6 +75,8 @@ public class LinusAI : MonoBehaviour
         Debug.Log("testing dictationHypothesis(get text ):" + text);
     }*/
 
+    #region Voice Commands
+
     private void DictationRecognizer_DictationResult(string text, ConfidenceLevel confidence)
     {
         Debug.Log("testing dictationResult (get text after each pause): " + text + " \nConfidenceLevel: "+confidence.ToString());
@@ -92,28 +98,7 @@ public class LinusAI : MonoBehaviour
             }
         }       
     }
-    
 
-    private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
-    {
-        Debug.Log("Keyword: " + args.text);
-        keywordActions[args.text].Invoke();
-    }
-
-    private void Test()
-    {
-        print("You said TEST, hopefully it went well");
-    }
-
-    private void Left()
-    {
-        transform.position = new Vector3(transform.position.x - 1, transform.position.y);
-    }
-
-    private void Right()
-    {
-        transform.position = new Vector3(transform.position.x + 1, transform.position.y);
-    }
 
     private void Forward()
     {
@@ -155,64 +140,159 @@ public class LinusAI : MonoBehaviour
         gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
     }
 
-    private void Blue()
+    private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 1, 1);
+        Debug.Log("Keyword: " + args.text);
+        keywordActions[args.text].Invoke();
     }
 
-    private void Red()
+    private void Test()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        print("You said TEST, hopefully it went well");
     }
 
-    private void Green()
+    private void Left()
     {
-        gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 1, 0, 1);
+        transform.position = new Vector3(transform.position.x - 1, transform.position.y);
     }
 
-    private void Fire()
+    private void Right()
     {
-        spellSpawner.FireSpell("Fire");
+        transform.position = new Vector3(transform.position.x + 1, transform.position.y);
     }
 
-    private void Water()
+
+
+    #endregion
+
+
+    #region Outlines
+
+    private void DisplayOutlineFire()
     {
-        spellSpawner.FireSpell("Water");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Fire");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Fire");
+        }
     }
 
-    private void Ice()
+    private void DisplayOutlineWater()
     {
-        spellSpawner.FireSpell("Ice");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Water");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Water");
+        }
     }
 
-    private void Electricity()
+    private void DisplayOutlineIce()
     {
-        spellSpawner.FireSpell("Electricity");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Ice");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Ice");
+        }
     }
 
-    private void Nature()
+    private void DisplayOutlineNature()
     {
-        spellSpawner.FireSpell("Nature");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Nature");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Nature");
+        }
     }
 
-    private void Light()
+    private void DisplayOutlineElectricity()
     {
-        spellSpawner.FireSpell("Light");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Electricity");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Electricity");
+        }
     }
 
-    private void Air()
+    private void DisplayOutlineEarth()
     {
-        spellSpawner.FireSpell("Air");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Earth");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Earth");
+        }
     }
 
-    private void Earth()
+    private void DisplayOutlineLight()
     {
-        spellSpawner.FireSpell("Earth");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Light");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Light");
+        }
     }
 
-    private void Dark()
+    private void DisplayOutlineDark()
     {
-        spellSpawner.FireSpell("Dark");
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Dark");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Dark");
+        }
+    }
+
+    private void DisplayOutlineAir()
+    {
+        if (outlineHandler.BeingDisplayed() <= 0)
+        {
+            outlineHandler.DisplayOutline("Air");
+        }
+        else
+        {
+            outlineHandler.HideOutline();
+            outlineHandler.DisplayOutline("Air");
+        }
+    }
+
+    #endregion
+
+    #region Obstacles
+
+    private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
+    {
+        Debug.Log("Keyword: " + args.text);
+        keywordActions[args.text].Invoke();
     }
 
     private void MoveMarkedObject()
@@ -256,5 +336,5 @@ public class LinusAI : MonoBehaviour
     }
     //test end
 
-
+    #endregion
 }

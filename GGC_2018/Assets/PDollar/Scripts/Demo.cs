@@ -8,27 +8,27 @@ using PDollarGestureRecognizer;
 
 public class Demo : MonoBehaviour {
 
-	public Transform gestureOnScreenPrefab;
+    public Transform gestureOnScreenPrefab;
     public bool devMode = false;
 
-	private List<Gesture> trainingSet = new List<Gesture>();
+    private List<Gesture> trainingSet = new List<Gesture>();
 
-	private List<Point> points = new List<Point>();
-	private int strokeId = -1;
+    private List<Point> points = new List<Point>();
+    private int strokeId = -1;
 
-	private Vector3 virtualKeyPosition = Vector2.zero;
-	private Rect drawArea;
+    private Vector3 virtualKeyPosition = Vector2.zero;
+    private Rect drawArea;
 
-	private RuntimePlatform platform;
-	private int vertexCount = 0;
+    private RuntimePlatform platform;
+    private int vertexCount = 0;
 
-	private List<LineRenderer> gestureLinesRenderer = new List<LineRenderer>();
-	private LineRenderer currentGestureLineRenderer;
+    private List<LineRenderer> gestureLinesRenderer = new List<LineRenderer>();
+    private LineRenderer currentGestureLineRenderer;
 
-	//GUI
-	private string message;
-	private bool recognized;
-	private string newGestureName = "";
+    //GUI
+    private string message;
+    private bool recognized;
+    private string newGestureName = "";
 
     //Custom 
     private CastSpell spellSpawner;
@@ -36,262 +36,158 @@ public class Demo : MonoBehaviour {
     private bool displayDrawing = false;
     private bool drawnWellEnough = false;
     private bool drawing = false;
-    public bool usingMoveController = false;
-    private bool pressSeparator = true;
 
     private const float REQUIRED_SCORE = 0.5f;
     private GameObject spellCheck;
+    private ManaBar mana;
 
-    private VRCursorController cursorController;
-    private PSMoveController moveController;
+    private bool ductTape = false;
+    private CastingManager castManager;
 
-	void Start () {
+    void Start() {
         spellSpawner = FindObjectOfType<CastSpell>();
+        mana = FindObjectOfType<ManaBar>();
+        castManager = FindObjectOfType<CastingManager>();
 
         //Create platform of which to draw on
         platform = Application.platform;
 
-        //Find scripts used by the PS Move controllers if controllers are in use
-        if (usingMoveController)
-        {
-            cursorController = FindObjectOfType<VRCursorController>();
-            moveController = FindObjectOfType<PSMoveController>();
-        }
-
         //Load gesture templates
         TextAsset[] filePaths = Resources.LoadAll<TextAsset>("CustomGestureSet/");
-		foreach (TextAsset filePath in filePaths)
-		trainingSet.Add(GestureIO.ReadGestureFromXML(filePath.text));
-	}
+        foreach (TextAsset filePath in filePaths)
+            trainingSet.Add(GestureIO.ReadGestureFromXML(filePath.text));
+    }
 
-	void Update () {
+    void Update() {
 
-        #region MoveIsUsed
-        if (usingMoveController)
+        //Create draw area
+        if (Input.GetMouseButtonDown(1))
         {
-            //Create draw area
-            if (moveController.IsTriggerButtonDown)
-            {
-                if (!displayDrawing)
-                {
-                    displayDrawing = true;
-                }
+            displayDrawing = true;
 
-                drawArea = new Rect(0, 0, Screen.width, Screen.height);
-                GameConfig.gameSpeed /= 3;
-            }
-
-            //Destroy draw area
-            if (moveController.IsTriggerButtonReleased)
-            {
-                if (displayDrawing)
-                {
-                    displayDrawing = false;
-                }
-
-                if (drawing)
-                {
-                    recognized = true;
-
-                    Gesture candidate = new Gesture(points.ToArray());
-                    Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
-
-                    message = gestureResult.GestureClass + " " + gestureResult.Score;
-                    if (gestureResult.Score > REQUIRED_SCORE)
-                    {
-                        if (!drawnWellEnough)
-                        {
-                            drawnWellEnough = true;
-                        }
-
-                        spellSpawner.FireSpell(gestureResult.GestureClass);
-                    }
-                    else
-                    {
-                        Debug.Log("Too poorly drawn");
-                        if (drawnWellEnough)
-                        {
-                            drawnWellEnough = false;
-                        }
-                    }
-
-                    drawing = false;
-                }
-
-
-
-                //Use to remove area
-                drawArea = new Rect(0, 0, 0, 0);
-                GameConfig.gameSpeed *= 3;
-            }
+            drawArea = new Rect(0, 0, Screen.width, Screen.height);
         }
-        #endregion
 
-        #region MouseIsUsed
-        else
+        if (Input.GetMouseButton(1))
         {
-            //Create draw area
-            if (Input.GetMouseButtonDown(1))
+            if (ManaBar.mana > 50)
             {
-                if (!displayDrawing)
-                {
-                    displayDrawing = true;
-                }
-
-                drawArea = new Rect(0, 0, Screen.width, Screen.height);
-                GameConfig.gameSpeed /= 3;
+                ductTape = true;
             }
-
-            //Destroy draw area
-            if (Input.GetMouseButtonUp(1))
+            if (ductTape)
             {
-                if (displayDrawing)
-                {
-                    displayDrawing = false;
-                }
-
-                if (drawing)
-                {
-                    recognized = true;
-
-                    Gesture candidate = new Gesture(points.ToArray());
-                    Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
-
-                    message = gestureResult.GestureClass + " " + gestureResult.Score;
-                    if (gestureResult.Score > REQUIRED_SCORE)
-                    {
-                        if (!drawnWellEnough)
-                        {
-                            drawnWellEnough = true;
-                        }
-
-                        spellSpawner.FireSpell(gestureResult.GestureClass);
-                    }
-                    else
-                    {
-                        Debug.Log("Too poorly drawn");
-                        if (drawnWellEnough)
-                        {
-                            drawnWellEnough = false;
-                        }
-                    }
-
-                    drawing = false;
-                }
-
-
-
-                //Use to remove area
-                drawArea = new Rect(0, 0, 0, 0);
-                GameConfig.gameSpeed *= 3;
-            }
-
-        }
-        #endregion
-        #region DetermineInputDevicePos
-
-        if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer) {
-			if (Input.touchCount > 0) {
-				virtualKeyPosition = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
-			}
-		} else {
-            if (usingMoveController)
-            {
-                if (moveController.IsMoveButtonDown)
-                {
-                    virtualKeyPosition = new Vector3((cursorController.GetCursorPosition().x * 10), (cursorController.GetCursorPosition().y * 10));
-                }
+                ManaBar.mana -= 0.6f;
+                GameConfig.gameSpeed = 0.25f;
             }
             else
             {
-                if (Input.GetMouseButton(0))
-                {
-                    virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
-                }
+                GameConfig.gameSpeed = 1;
             }
-			    
-		}
+
+            if (ManaBar.mana < 1f)
+            {
+                GameConfig.gameSpeed = 1f;
+                ductTape = false;
+            }
+        }
+
+        //Destroy draw area
+        if (Input.GetMouseButtonUp(1))
+        {
+            GameConfig.gameSpeed = 1f;
+            ductTape = false;
+
+            displayDrawing = false;
+
+            if (drawing)
+            {
+                recognized = true;
+
+                Gesture candidate = new Gesture(points.ToArray());
+                Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
+
+                message = gestureResult.GestureClass + " " + gestureResult.Score;
+                if (gestureResult.Score > REQUIRED_SCORE)
+                {
+                    if (!drawnWellEnough)
+                    {
+                        drawnWellEnough = true;
+                    }
+                    if (castManager.activeSpells < 1)
+                    {
+                        spellSpawner.FireSpell(gestureResult.GestureClass);
+                        castManager.activeSpells++;
+                    }
+                }
+                else
+                {
+                    Debug.Log("Too poorly drawn");
+                    if (drawnWellEnough)
+                    {
+                        drawnWellEnough = false;
+                    }
+                }
+
+                drawing = false;
+            }
+
+
+
+            //Use to remove area
+            drawArea = new Rect(0, 0, 0, 0);
+        }
+
+
+        #region DetermineInputDevicePos
+
+        if (platform == RuntimePlatform.Android || platform == RuntimePlatform.IPhonePlayer) {
+            if (Input.touchCount > 0) {
+                virtualKeyPosition = new Vector3(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+            }
+        } else {
+
+            if (Input.GetMouseButton(0))
+            {
+                virtualKeyPosition = new Vector3(Input.mousePosition.x, Input.mousePosition.y);
+            }
+        }
         #endregion
 
-        #region Drawing
         #region MouseIsUsed
         //Checks if the mouse is within the draw area 
         if (drawArea.Contains(virtualKeyPosition)) {
 
-            if (!usingMoveController)
+            if (Input.GetMouseButtonDown(0))
             {
-                if (Input.GetMouseButtonDown(0))
-                { 
-                    ++strokeId;
+                ++strokeId;
 
-                    Transform tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
-                    currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
+                Transform tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
+                currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
 
-                    gestureLinesRenderer.Add(currentGestureLineRenderer);
+                gestureLinesRenderer.Add(currentGestureLineRenderer);
 
-                    vertexCount = 0;
-                }
-
-                if (Input.GetMouseButton(0))
-                {
-                    if (!drawing)
-                    {
-                        drawing = true;
-                    }
-
-                    points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
-
-                    currentGestureLineRenderer.SetVertexCount(++vertexCount);
-                    currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
-                }
+                vertexCount = 0;
             }
+
+            if (Input.GetMouseButton(0))
+            {
+                if (!drawing)
+                {
+                    drawing = true;
+                }
+
+                points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
+
+                currentGestureLineRenderer.SetVertexCount(++vertexCount);
+                currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
+            }
+
             #endregion
-
-            #region MoveIsUsed
-            else
-            {
-                if (moveController.IsMoveButtonDown)
-                {
-                    if (pressSeparator)
-                    {
-                        ++strokeId;
-
-                        Transform tmpGesture;
-                        tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
-                        currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
-
-                        gestureLinesRenderer.Add(currentGestureLineRenderer);
-
-                        vertexCount = 0;
-                        pressSeparator = false;
-                    }
-
-                    if (!drawing)
-                    {
-                        drawing = true;
-                    }
-
-                    points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
-
-                    currentGestureLineRenderer.SetVertexCount(++vertexCount);
-                    currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
-                }
-
-                else if (moveController.IsMoveButtonReleased)
-                {
-                    if (!pressSeparator)
-                    {
-                        pressSeparator = true;
-                    }
-                }
-            }
         }
-        #endregion
 
         //Compare and clean drawings when drawing area is removed
         if (!displayDrawing)
         {
-
             recognized = false;
             strokeId = -1;
 
@@ -299,19 +195,17 @@ public class Demo : MonoBehaviour {
 
             foreach (LineRenderer lineRenderer in gestureLinesRenderer)
             {
-
                 lineRenderer.SetVertexCount(0);
                 Destroy(lineRenderer.gameObject);
             }
 
             gestureLinesRenderer.Clear();
         }
-        #endregion
     }
 
 
     void OnGUI() {
-       
+
         GUI.Box(drawArea, " ");
 
         if (devMode)
@@ -335,18 +229,7 @@ public class Demo : MonoBehaviour {
                         drawnWellEnough = true;
                     }
 
-                    if (gestureResult.GestureClass == "Water")
-                    {
-                        Debug.Log("Water spell cast!");
-                    }
-                    if (gestureResult.GestureClass == "Fire")
-                    {
-                        Debug.Log("Fire spell cast!");
-                    }
-                    if (gestureResult.GestureClass == "Ice")
-                    {
-                        Debug.Log("Ice spell cast!");
-                    }
+                    Debug.Log(gestureResult.GestureClass + " spell has been cast!");
                 }
                 else
                 {
@@ -357,13 +240,6 @@ public class Demo : MonoBehaviour {
                     }
                 }
             }
-        }
-
-        //Checking positioning of curson for debug purposes
-        if (usingMoveController)
-        {
-            GUI.Label(new Rect(10, 10, 500, 50), cursorController.GetCursorPosition().x.ToString() + cursorController.GetCursorPosition().ToString());
-            GUI.Label(new Rect(10, 30, 500, 50), virtualKeyPosition.x.ToString() + virtualKeyPosition.y.ToString());
         }
 
         if (devMode)
@@ -385,5 +261,6 @@ public class Demo : MonoBehaviour {
                 newGestureName = "";
             }
         }
-	}
+    }
 }
+

@@ -7,6 +7,7 @@ public class EnemyHealth : MonoBehaviour {
 
     public float currentHealth;
     private string myElement;
+    public bool marked = false;
   
     private float baseDamage = 50f;
     private float modifier;
@@ -26,6 +27,10 @@ public class EnemyHealth : MonoBehaviour {
     void OnEnable()
     {
         myElement = gameObject.GetComponent<EnemyStats>().element;
+        if (marked == true)
+        {
+            marked = false;
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -33,7 +38,6 @@ public class EnemyHealth : MonoBehaviour {
         if (other.gameObject.CompareTag("Spell"))
         {
             TakeDamage(other.gameObject);
-            other.gameObject.SetActive(false);
         }
     }
 

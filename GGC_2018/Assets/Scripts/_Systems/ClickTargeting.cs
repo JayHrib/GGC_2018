@@ -5,8 +5,11 @@ using UnityEngine;
 public class ClickTargeting : MonoBehaviour {
 
     private GameObject target;
+    private GameObject PrevClickedObject;
+    private bool somethingIsMarked = false;
     public bool isBeingUsed = true;
     public GameObject targetMarker;
+    GameObject marker;
 
     void Start()
     {
@@ -23,10 +26,25 @@ public class ClickTargeting : MonoBehaviour {
             if (hit.collider != null)
             {
                 //Make sure that the clicked object is either a hazard or an enemy
-                if (hit.collider.gameObject.CompareTag("Enemy"))
+                if (hit.collider.gameObject.CompareTag("Enemy") || hit.collider.gameObject.CompareTag("Boss"))
                 {
                     target = hit.collider.gameObject;
-                    MarkTarget(target);
+                    if (!somethingIsMarked)
+                    {
+                        if (!target.GetComponent<EnemyHealth>().marked)
+                        {
+                            MarkTarget(target);
+                        }
+                    }
+                    else if (somethingIsMarked && target != PrevClickedObject)
+                    {
+                        DeMarkTarget(PrevClickedObject);
+                        MarkTarget(target);
+                    }
+                    else if(somethingIsMarked && target == PrevClickedObject)
+                    {
+                        ReMarkTarget();
+                    }
                 }
                 else
                 {
@@ -50,10 +68,45 @@ public class ClickTargeting : MonoBehaviour {
         return target;
     } 
 
+    public void SetMarked()
+    {
+        if (!somethingIsMarked)
+        {
+            somethingIsMarked = true;
+        }
+    }
+
     private void MarkTarget(GameObject target)
     {
-        GameObject marker;
+        PrevClickedObject = target;
         marker = Instantiate(targetMarker, target.transform.position, target.transform.rotation);
         marker.GetComponent<Marker>().SetTarget(target);
+        target.GetComponent<EnemyHealth>().marked = true;
+        somethingIsMarked = true;
+    }
+
+    private void DeMarkTarget(GameObject target)
+    {
+        PrevClickedObject = null;
+        if (marker != null)
+        {
+            Destroy(marker);
+        }
+
+        target.GetComponent<EnemyHealth>().marked = false;
+        somethingIsMarked = false;
+    }
+
+    private void ReMarkTarget()
+    {
+        PrevClickedObject = null;
+
+        target.GetComponent<EnemyHealth>().marked = false;
+        somethingIsMarked = false;
+
+        PrevClickedObject = target;
+     
+        target.GetComponent<EnemyHealth>().marked = true;
+        somethingIsMarked = true;
     }
 }

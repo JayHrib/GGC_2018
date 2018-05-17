@@ -48,7 +48,7 @@ public class SpellHandler : MonoBehaviour {
     {
         for (int i = 0; i < spellEffectPool.Count; i++)
         {
-            if (spellElementList[i] == element)
+            if (spellElementList[i] == element && !spellEffectPool[i].activeInHierarchy)
             {
                 toReturn = spellEffectPool[i];
 

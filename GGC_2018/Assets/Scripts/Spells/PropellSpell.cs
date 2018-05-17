@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class PropellSpell : MonoBehaviour {
 
+    public GameObject ripple;
+
     public float lifeTime = 4f;
     public float moveSpeed = 5.0f;
     private bool isActive = false;
+    private bool ableToCollide = false;
     private float desiredDistance = 3.0f;
     private Collider2D collider;
+    private Transform spawnPoint;
 
     private LevelManager levelManager;
+    private CastingManager castManager;
 
     GameObject target;
     private bool isUsingLanes = false;
     private ClickTargeting targeting;
 
+    private bool initialIterationDone = false;
+
     void Start()
     {
+        castManager = FindObjectOfType<CastingManager>();
         if (targeting.isBeingUsed)
         {
             isUsingLanes = false;
@@ -28,22 +36,26 @@ public class PropellSpell : MonoBehaviour {
         }
 
         collider = GetComponent<Collider2D>();
-        collider.enabled = false;
+        //collider.enabled = false;
     }
 
     void OnEnable()
     {
         levelManager = FindObjectOfType<LevelManager>();
         targeting = FindObjectOfType<ClickTargeting>();
+        spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint").transform;
         
         /*Deactivate the collider until it's close enough to it's target.
          Used to make sure that only the clicked target can get hurt by the spell*/
 
-        Invoke("Destroy", lifeTime);
         target = GetTarget();
         if (!isActive)
         {
             isActive = true;
+        }
+        if (ableToCollide)
+        {
+            ableToCollide = false;
         }
         //Dynamically makes sure that the sorting layer of each particle system is correct
         for (int i = 0; i < gameObject.transform.childCount; i++)
@@ -60,6 +72,7 @@ public class PropellSpell : MonoBehaviour {
             if (target == null)
             {
                 target = GetTarget();
+                transform.position = spawnPoint.position;
             }
 
             if (target != null && !target.activeInHierarchy)
@@ -68,17 +81,41 @@ public class PropellSpell : MonoBehaviour {
             }
             else if (target != null && target.activeInHierarchy)
             {
+                if (!ableToCollide)
+                {
+                    ableToCollide = true;
+                }
+
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (moveSpeed * Time.deltaTime));
 
                 /*Checks if the spell is close enough to the target.
                 Enable the collider if spell is close enough*/
-                if (Vector3.Distance(transform.position, target.transform.position) <= desiredDistance)
-                {
-                    collider.enabled = true;
-                }
+                //if (Vector3.Distance(transform.position, target.transform.position) <= desiredDistance)
+                //{
+                //    collider.enabled = true;
+                //}
             }
         }
 	}
+
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        Debug.Log(other.tag);
+        if (other.CompareTag("Enemy"))
+        {
+            if (ableToCollide)
+            {
+                Instantiate(ripple, transform.position, Quaternion.identity);
+                targeting.SetMarked();
+                gameObject.SetActive(false);
+            }
+        }
+        else if (other.CompareTag("Boss")){
+            Instantiate(ripple, transform.position, Quaternion.identity);
+            targeting.SetMarked();
+            gameObject.SetActive(false);
+        }
+    }
 
     void Destroy()
     {
@@ -104,7 +141,18 @@ public class PropellSpell : MonoBehaviour {
         {
             isActive = false;
         }
-        CancelInvoke();
+        if (!initialIterationDone)
+        {
+            initialIterationDone = true;
+        }
+
+        if (initialIterationDone)
+        {
+            if (castManager.activeSpells != 0)
+            {
+                castManager.activeSpells = 0;
+            }
+        }
     }
 
     GameObject GetTarget()
@@ -122,5 +170,10 @@ public class PropellSpell : MonoBehaviour {
         }
 
         return toReturn;
+    }
+
+    public bool GetActivite()
+    {
+        return ableToCollide;
     }
 }
