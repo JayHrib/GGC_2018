@@ -4,13 +4,24 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public Transform destination;
+    public float desiredDistance;
+    private const float LOCKED_Z = -10f;
+
     public float movementSpeed;
     public bool usingKeys = true;
     private bool marked = false;
 
-    private Vector3 targetPosX;
-    private Vector3 newPos;
+    private Vector3 targetPos;
 
+
+    void Start()
+    {
+        if (destination == null)
+        {
+            Debug.LogWarning("PlayerMovement: No destination marker was found!");
+        }
+    }
     // Update is called once per frame
     void Update () {
         #region Keys
@@ -54,8 +65,9 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     if (!marked)
                     {
-                        if (hit.collider.gameObject.CompareTag("Player"))
+                        if (hit.collider.gameObject.CompareTag("ClickBox"))
                         {
+                            Debug.Log(hit.collider.gameObject.tag);
                             marked = true;
                         }
                     }
@@ -63,24 +75,35 @@ public class PlayerMovement : MonoBehaviour {
 
                 if (hit.collider == null && marked)
                 {
-                    targetPosX = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, -3f, 0f));
-
-                    newPos = targetPosX;
-                    Debug.Log(newPos.x);
+                    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                    destination.position = targetPos;
                     marked = false;
+                }
+                else if(hit.collider != null && marked)
+                {
+                    //Debug.Log(hit.collider.gameObject.tag);
+                    if (!hit.collider.gameObject.CompareTag("ClickBox"))
+                    {
+                        targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                        destination.position = targetPos;
+                        marked = false;
+                    }
                 }
             }
 
-            if (newPos != gameObject.transform.position)
+            //Cancel move command if drawing window is opened
+            if (Input.GetMouseButtonDown(1) && marked)
             {
-                if (Vector3.Distance(gameObject.transform.position, newPos) > 0.2f)
-                {
-                    Vector2.MoveTowards(gameObject.transform.position, newPos, (movementSpeed * Time.deltaTime));
-                }
-                else
-                {
-                    newPos = gameObject.transform.position;
-                }
+                marked = false;
+            }
+            
+            if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
+            }
+            else
+            {
+                destination.position = transform.position;
             }
         }
         #endregion

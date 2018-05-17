@@ -14,6 +14,7 @@ TagManager:
   - SpawnPoint
   - Hitbox
   - Bullet
+  - ClickBox
   layers:
   - Default
   - TransparentFX
