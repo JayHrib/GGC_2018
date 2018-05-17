@@ -6,10 +6,9 @@ public class PlayerStats : MonoBehaviour {
 
     public float maxHealth = 100f;
     public int playerIdentifier;
-   
-	// Use this for initialization
-	void Start () {
 
+    // Use this for initialization
+    void Start () {
         if (playerIdentifier < 1)
         {
             playerIdentifier = 1;
@@ -19,4 +18,5 @@ public class PlayerStats : MonoBehaviour {
             playerIdentifier = 2;
         }
 	}
+
 }

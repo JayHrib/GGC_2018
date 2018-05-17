@@ -11,16 +11,17 @@ public class LinusAI : MonoBehaviour
 {
     private Dictionary<string, Action> keywordActions = new Dictionary<string, Action>();
     private KeywordRecognizer keywordRecognizer;
+    private DictationRecognizer dictationRecognizer;
     private CastSpell spellSpawner;
     private float obstaclesMove = -2;
 
     public BgScroller bgScroller;
-
+    private String[] ObstacleList; 
     void Start()
     {
-        spellSpawner = FindObjectOfType<CastSpell>();
+        /*spellSpawner = FindObjectOfType<CastSpell>();
 
-        keywordActions.Add("");
+       
         keywordActions.Add("I'll hit you where the sun don't shine", Dark);
         keywordActions.Add("empty quotes kills the man", Earth);
         keywordActions.Add("silent but deadly", Air);
@@ -46,8 +47,52 @@ public class LinusAI : MonoBehaviour
         keywordActions.Add("turn green", Green);
         keywordRecognizer = new KeywordRecognizer(keywordActions.Keys.ToArray());
         keywordRecognizer.OnPhraseRecognized += OnKeywordsRecognized;
-        keywordRecognizer.Start();
+       
+        keywordRecognizer.Start();*/
+
+
+        //test dictationRecognizer
+        dictationRecognizer = new DictationRecognizer();
+        dictationRecognizer.DictationResult += DictationRecognizer_DictationResult;
+        //dictationRecognizer.DictationHypothesis += DictationRecognizer_DictationHypothesis;
+        //dictationRecognizer.DictationError += DictationRecognizer_DictationError;
+        dictationRecognizer.Start();
+        ObstacleList = new string[]{"tree","log"};
     }
+
+    /*private void DictationRecognizer_DictationError(string error, int hresult)
+    {
+        Debug.Log("dictation error:" + error + " hresult: " + hresult);
+    }
+
+    private void DictationRecognizer_DictationHypothesis(string text)
+    {
+        
+        Debug.Log("testing dictationHypothesis(get text ):" + text);
+    }*/
+
+    private void DictationRecognizer_DictationResult(string text, ConfidenceLevel confidence)
+    {
+        Debug.Log("testing dictationResult (get text after each pause): " + text + " \nConfidenceLevel: "+confidence.ToString());
+        if(text.Contains("move"))
+        {
+
+            //check if the is an obstacle in the text
+            foreach (string obstacle in ObstacleList)
+            {
+                foreach (string word in text.Split(' '))
+                {           
+                    if (word == obstacle)
+                    {
+                        Debug.Log("word= " + word);
+                        ToogleMovementOfVisibleObstaclesWithTag(obstacle);
+                        return;
+                    }
+                }
+            }
+        }       
+    }
+    
 
     private void OnKeywordsRecognized(PhraseRecognizedEventArgs args)
     {
@@ -194,10 +239,15 @@ public class LinusAI : MonoBehaviour
 
     private void ToogleMovementOfVisibleObstaclesWithTag(string tag)
     {
+        //uppercase the first letter
+        char[] tagCharArr = tag.ToCharArray();
+        tagCharArr[0] = Char.ToUpper(tagCharArr[0]);
+
+        //find and move obstacle
         obstaclesMove *= -1;
         foreach (GameObject visibleObs in GetAllVisibleObstacles())
         {
-            if (visibleObs.CompareTag(tag))
+            if (visibleObs.CompareTag(new string(tagCharArr)))
             {
                 Debug.Log("visible obstacle with tag " + tag + " found!");
                 visibleObs.transform.position += new Vector3(obstaclesMove, 0, 0);

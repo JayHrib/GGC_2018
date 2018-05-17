@@ -22,6 +22,7 @@ public class PlayerHealthSystem : MonoBehaviour {
             LevelManager.deaths++;
             other.gameObject.SetActive(false);
         }
+        
         if (other.CompareTag("Hazard"))
         {
             TakeDamage();

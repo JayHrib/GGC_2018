@@ -11,6 +11,15 @@ TagManager:
   - Hazard
   - Transition
   - Marker
+  - Obstacles
+  - Log
+  - Tree
+  - Road
+  - Flower
+  - FlowerHead
+  - FlowerHeadDown
+  - FlowerWhole
+  - Dandelion
   layers:
   - Default
   - TransparentFX
@@ -26,7 +35,7 @@ TagManager:
   - Drawing
   - Spell
   - Hazard
-  - 
+  - Ground
   - 
   - 
   - 

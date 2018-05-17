@@ -3,7 +3,10 @@ guid: 869fe3762c7662140b2249c31ad45441
 timeCreated: 1523955339
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: dandelion II asset_0
+    21300002: dandelion II asset_1
+    21300004: dandelion II asset_2
   externalObjects: {}
   serializedVersion: 4
   mipmaps:
@@ -40,13 +43,14 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 600}
+  spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -66,10 +70,70 @@ TextureImporter:
     allowsAlphaSplitting: 0
     overridden: 0
     androidETC2FallbackOverride: 0
+  - buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
-    outline: []
+    sprites:
+    - serializedVersion: 2
+      name: dandelion II asset_0
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 837
+        width: 373
+        height: 249
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dandelion II asset_1
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 417
+        width: 377
+        height: 424
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: dandelion II asset_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2
+        width: 1052
+        height: 1435
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+    outline:
+    - - {x: -157.08014, y: 145.9035}
+      - {x: -157.08014, y: 358.4397}
+      - {x: 52.18622, y: 358.4397}
+      - {x: 52.18622, y: 145.9035}
+    - - {x: -184.5296, y: -304.95956}
+      - {x: -184.5296, y: 145.68115}
+      - {x: 188.41443, y: 145.68115}
+      - {x: 188.41443, y: -304.95956}
     physicsShape: []
   spritePackingTag: 
   userData: 
