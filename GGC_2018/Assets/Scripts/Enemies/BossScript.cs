@@ -8,6 +8,8 @@ public class BossScript : MonoBehaviour {
     public GameObject obj2;
     public GameObject obj3;
     public GameObject obj4;
+    public GameObject eye1;
+    public GameObject eye2;
 
     private int timer = 0;
     private int limit = 240;
@@ -15,7 +17,6 @@ public class BossScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
 	}
 	
 	// Update is called once per frame
@@ -32,7 +33,18 @@ public class BossScript : MonoBehaviour {
             obj2.GetComponent<BoxCollider2D>().enabled = false;
             obj3.GetComponent<ParticleSystem>().GetComponent<Renderer>().enabled = false;
         }
-	}
+
+        if (timer > (limit - 30))
+        {
+            eye1.GetComponent<ParticleSystem>().GetComponent<Renderer>().enabled = true;
+            eye2.GetComponent<ParticleSystem>().GetComponent<Renderer>().enabled = true;
+        }
+        else
+        {
+            eye1.GetComponent<ParticleSystem>().GetComponent<Renderer>().enabled = false;
+            eye2.GetComponent<ParticleSystem>().GetComponent<Renderer>().enabled = false;
+        }
+    }
 
     void FireLasor()
     {

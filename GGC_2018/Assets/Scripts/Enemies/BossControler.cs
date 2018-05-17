@@ -28,6 +28,7 @@ public class BossControler : MonoBehaviour {
     public int rightkills = 0;
 
     public GameObject bulletspawner;
+    public GameObject flash;
     private int timer = 0;
     private int limit = 120;
 
@@ -42,27 +43,50 @@ public class BossControler : MonoBehaviour {
         if(leftkills > 3 && rightkills > 3)
         {
             gameObject.GetComponentInChildren<BossAI>().vulnerable = true;
-            bulletspawner.GetComponent<BulletSpawner>().active = true;
             timer++;
+            if (timer == (limit - 15) && bulletspawner.GetComponent<BulletSpawner>().active == false)
+            {
+                Instantiate(flash, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
+            }
+
             if (timer > limit)
             {
                 timer = 0;
-                limit = Random.Range(90, 480);
-                if (bulletspawner.GetComponent<BulletSpawner>().direction == 1)
+                limit = Random.Range(30, 240);
+                if (bulletspawner.GetComponent<BulletSpawner>().active)
                 {
-                    bulletspawner.GetComponent<BulletSpawner>().direction = -1;
-                    bulletspawner.GetComponent<BulletSpawner>().discord = 3;
+                    bulletspawner.GetComponent<BulletSpawner>().active = false;
                 }
                 else
                 {
-                    bulletspawner.GetComponent<BulletSpawner>().direction = 1;
-                    bulletspawner.GetComponent<BulletSpawner>().discord = 1;
+                    bulletspawner.GetComponent<BulletSpawner>().active = true;
+                    int temp1 = Random.Range(-1, 4);
+                    if (temp1 > 1)
+                    {
+                        temp1 = 1;
+                    }
+                    int temp2 = temp1;
+                    if (temp1 == 0)
+                    {
+                        temp2 = 1;
+                    }
+                    if (temp2 <= 0)
+                    {
+                        temp2 = 2;
+                    }
+                    bulletspawner.GetComponent<BulletSpawner>().direction = temp1;
+                    bulletspawner.GetComponent<BulletSpawner>().discord = temp2 * 3;
                 }
             }
         }
         else
         {
             timer++;
+            if (timer == (limit - 15) && bulletspawner.GetComponent<BulletSpawner>().active == false)
+            {
+                Instantiate(flash, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
+            }
+
             if (timer > limit)
             {
                 timer = 0;
@@ -74,7 +98,7 @@ public class BossControler : MonoBehaviour {
                 else
                 {
                     bulletspawner.GetComponent<BulletSpawner>().active = true;
-                    int temp1 = Random.Range(-1, 2);
+                    int temp1 = Random.Range(-1, 4);
                     if(temp1 > 1)
                     {
                         temp1 = 1;

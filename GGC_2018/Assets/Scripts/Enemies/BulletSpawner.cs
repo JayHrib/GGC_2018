@@ -26,9 +26,9 @@ public class BulletSpawner : MonoBehaviour {
             transform.rotation = Quaternion.Slerp(transform.rotation, newrot, 100 * Time.deltaTime);
 
             timer++;
-            if (timer > discord)
+            if (timer > (discord * 2.5))
             {
-                rotation = rotation + 2;
+                rotation = rotation + 6;
                 timer = 0;
                 GameObject go = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
                 go.GetComponent<Rigidbody2D>().velocity = go.transform.up * -5;

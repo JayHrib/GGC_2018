@@ -35,8 +35,14 @@ public class BossLeg : MonoBehaviour {
         transform.position = newpos;
 
 
+        if(timer > (limit - 30) && timer < limit)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+        }
+
         if(timer > limit)
         {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
             timer = 0;
             attacking = true;
             limit = Random.Range(120, 240);
