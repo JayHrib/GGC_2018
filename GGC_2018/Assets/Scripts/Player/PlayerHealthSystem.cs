@@ -31,23 +31,35 @@ public class PlayerHealthSystem : MonoBehaviour {
     {
         if (other.CompareTag("Enemy"))
         {
-            TakeDamage();
+            TakeDamage(1);
             LevelManager.deaths++;
             other.gameObject.SetActive(false);
         }
         if (other.CompareTag("Hazard"))
         {
-            TakeDamage();
+            TakeDamage(1);
         }
         if (other.CompareTag("Bullet"))
         {
-            TakeDamage();
+            TakeDamage(0.5f);
+        }
+        if (other.CompareTag("Hitbox"))
+        {
+            TakeDamage(0.5f);
         }
     }
 
-    void TakeDamage()
+    void OnTriggerStay2D(Collider2D other)
     {
-        currentHealth -= baseDamage;
+        if (other.CompareTag("Lasor"))
+        {
+            TakeDamage(0.005f);
+        }
+    }
+
+    void TakeDamage(float strenght)
+    {
+        currentHealth -= (baseDamage * strenght);
 
         SetHealth(CalculateHealth(currentHealth));
         if (currentHealth <= 0)

@@ -15,6 +15,7 @@ TagManager:
   - Hitbox
   - Bullet
   - ClickBox
+  - Lasor
   layers:
   - Default
   - TransparentFX
