@@ -3,38 +3,77 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(PlayerStats))]
 public class ManaBar : MonoBehaviour
 {
+    public Image manaBar;
 
-    private GameObject target;
-    private Image bar;
-
-    public static float mana;
+    public static float currentMana;
+    private float maxMana;
+    public float drainRate = 0.6f;
+    public float refillRate = 1f;
+    private Demo drawingMode;
 
     // Use this for initialization
     void Start()
     {
+        drawingMode = FindObjectOfType<Demo>();
+        currentMana = 0f;
+        maxMana = GetComponent<PlayerStats>().maxMana;
 
-        target = gameObject.transform.parent.parent.gameObject;
-        bar = gameObject.GetComponent<Image>();
-        gameObject.GetComponent<Image>().color = new Color(0, 0, 1, 1);
-        mana = 0;
     }
 
     void Update()
     {
-        Vector3 newpos = target.transform.position;
-        if (target.GetComponent<PlayerStats>() != null)
+        if (currentMana <= 0f)
         {
-            newpos.y = newpos.y + 2.1f;
+            currentMana = 0;
         }
-        transform.position = newpos;
-        mana = mana + 0.3f;
-        if (mana > 100)
-        {
-            mana = 100;
-        }
-        bar.fillAmount = mana / 100;
 
+        if (drawingMode.GetSlowMoActive())
+        {
+            DrainMana(drainRate);
+        }
+        else
+        {
+            RefillMana(refillRate);
+        }
+
+        SetMana(CalculateMana(currentMana));
+    }
+
+    public float CalculateMana(float myMana)
+    {
+        float toReturn;
+        toReturn = myMana / maxMana;
+        return toReturn;
+    }
+
+    public void SetMana(float myMana)
+    {
+        manaBar.fillAmount = myMana;
+    }
+
+    public float GetMana()
+    {
+        return currentMana;
+    }
+
+    private void DrainMana(float amount)
+    {
+        currentMana -= amount;
+        if (currentMana <= 0)
+        {
+            currentMana = 0;
+        }
+    }
+
+    private void RefillMana(float amount)
+    {
+        currentMana += (amount * Time.deltaTime);
+        if (currentMana >= maxMana)
+        {
+            currentMana = maxMana;
+        }
     }
 }

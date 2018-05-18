@@ -2,24 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 [RequireComponent(typeof(PlayerStats))]
 public class PlayerHealthSystem : MonoBehaviour {
 
+    private float maxHealth;
     public float currentHealth;
     public float baseDamage = 20f;
+    public Image healthBar;
 
 	// Use this for initialization
 	void Start () {
         currentHealth = GetComponent<PlayerStats>().maxHealth;
-	}
+        maxHealth = GetComponent<PlayerStats>().maxHealth;
+    }
 
     void Update()
     {
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
-            SceneManager.LoadScene(0);
+            TriggerLoss();
         }
     }
 
@@ -45,10 +49,28 @@ public class PlayerHealthSystem : MonoBehaviour {
     {
         currentHealth -= baseDamage;
 
+        SetHealth(CalculateHealth(currentHealth));
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
             SceneManager.LoadScene(0);
         }
+    }
+
+    private float CalculateHealth(float health)
+    {
+        float toReturn;
+        toReturn = health / maxHealth;
+        return toReturn;
+    }
+
+    void SetHealth(float myHealth)
+    {
+        healthBar.fillAmount = myHealth;
+    }
+
+    void TriggerLoss()
+    {
+        SceneManager.LoadScene(0);
     }
 }

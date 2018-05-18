@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerStats : MonoBehaviour {
 
     public float maxHealth = 100f;
+    public float maxMana = 100f;
     public int playerIdentifier;
    
 	// Use this for initialization

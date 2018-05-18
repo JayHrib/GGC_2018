@@ -70,13 +70,12 @@ public class Demo : MonoBehaviour {
 
         if (Input.GetMouseButton(1))
         {
-            if (ManaBar.mana > 50)
+            if (mana.GetMana() > 50)
             {
                 ductTape = true;
             }
             if (ductTape)
             {
-                ManaBar.mana -= 0.6f;
                 GameConfig.gameSpeed = 0.25f;
             }
             else
@@ -84,7 +83,7 @@ public class Demo : MonoBehaviour {
                 GameConfig.gameSpeed = 1;
             }
 
-            if (ManaBar.mana < 1f)
+            if (mana.GetMana() < 1f)
             {
                 GameConfig.gameSpeed = 1f;
                 ductTape = false;
@@ -261,6 +260,11 @@ public class Demo : MonoBehaviour {
                 newGestureName = "";
             }
         }
+    }
+
+    public bool GetSlowMoActive()
+    {
+        return ductTape;
     }
 }
 
