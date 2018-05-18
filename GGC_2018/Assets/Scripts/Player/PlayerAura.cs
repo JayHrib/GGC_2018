@@ -14,7 +14,7 @@ public class PlayerAura : MonoBehaviour {
 
             if (collision.CompareTag("Dandelion"))
             {
-                Debug.Log("60 degrees angle");
+                //Debug.Log("60 degrees angle");
                 collision.transform.eulerAngles = new Vector3(60, 0, 10);
             }
         }
@@ -25,7 +25,7 @@ public class PlayerAura : MonoBehaviour {
                 foreach (SpriteRenderer sr in collision.GetComponentsInChildren<SpriteRenderer>())
                 {
                     sr.color = Color.gray;
-                    Debug.Log("in coll");
+                    //Debug.Log("in coll");
                     if (sr.CompareTag("FlowerHead"))
                     {
                         sr.transform.localPosition = new Vector3(sr.transform.localPosition.x, sr.transform.localPosition.y -2, 0);
@@ -36,6 +36,11 @@ public class PlayerAura : MonoBehaviour {
                     {
                         //Debug.Log("original = "+sr.sprite.name + "replaced = " + sr.sprite.name.Replace('0', '1'));
                         //sr.transform.localScale = new Vector3(1.1f, 1.1f, 1);
+                    }
+                    if (collision.CompareTag("Dandelion"))
+                    {
+                        //Debug.Log("60 degrees angle");
+                        collision.transform.eulerAngles = new Vector3(60, 0, 10);
                     }
                     sr.transform.eulerAngles = new Vector3(40, 0, 10);
 

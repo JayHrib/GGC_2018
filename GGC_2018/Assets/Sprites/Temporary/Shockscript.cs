@@ -9,7 +9,7 @@ public class Shockscript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        Debug.Log("ripple");
+        //Debug.Log("ripple");
         rend = GetComponent<Renderer>();
         rend.material.shader = Shader.Find("Unlit/shockwave");
         uutela = new Vector3(0,0,0);

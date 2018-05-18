@@ -12,6 +12,20 @@ TagManager:
   - Marker
   - Transition
   - Boss
+  - Dandelion
+  - Flower
+  - FlowerWhole
+  - FlowerHead
+  - Road
+  - Tree
+  - Log
+  - Obstacles
+  - Hazard
+  - Movepointer
+  - Background
+  - Ground
+  - Drawing
+  - FlowerHeadDown
   layers:
   - Default
   - TransparentFX
@@ -21,8 +35,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Ground
+  - Player
   - 
   - 
   - 
@@ -48,4 +62,13 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Player
+    uniqueID: 2410217223
+    locked: 0
+  - name: Ground
+    uniqueID: 4153903617
+    locked: 0
+  - name: Background
+    uniqueID: 815674263
     locked: 0

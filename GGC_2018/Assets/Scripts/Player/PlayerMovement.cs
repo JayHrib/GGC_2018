@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour {
                     targetPosX = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, -3f, 0f));
 
                     newPos = targetPosX;
-                    Debug.Log(newPos.x);
+                    //Debug.Log(newPos.x);
                     marked = false;
                 }
             }
