@@ -10,6 +10,7 @@ public class Demo : MonoBehaviour {
 
     public Transform gestureOnScreenPrefab;
     public bool devMode = false;
+    private string _spell = "";
 
     private List<Gesture> trainingSet = new List<Gesture>();
 
@@ -59,6 +60,8 @@ public class Demo : MonoBehaviour {
     }
 
     void Update() {
+
+
 
         //Create draw area
         if (Input.GetMouseButtonDown(1))
@@ -265,6 +268,16 @@ public class Demo : MonoBehaviour {
     public bool GetSlowMoActive()
     {
         return ductTape;
+    }
+
+    public void SetSpell(string name)
+    {
+        _spell = name;
+    }
+
+    private void ActivateSpell(string spell)
+    {
+
     }
 }
 
