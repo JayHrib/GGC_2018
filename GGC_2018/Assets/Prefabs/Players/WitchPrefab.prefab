@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114553827785081634}
   - component: {fileID: 95708944101430714}
   - component: {fileID: 114288130624181750}
-  - component: {fileID: 114352215797307374}
+  - component: {fileID: 114980366695134896}
   m_Layer: 9
   m_Name: WitchPrefab
   m_TagString: Player
@@ -138,7 +138,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.12643623, y: 0.8680131}
+  m_Offset: {x: 0.09199512, y: 0.75301194}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -149,7 +149,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.830256, y: 1.1875504}
+  m_Size: {x: 1.2103128, y: 0.95754814}
   m_EdgeRadius: 0
 --- !u!61 &61183011139351396
 BoxCollider2D:
@@ -220,22 +220,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   destination: {fileID: 0}
   desiredDistance: 0.2
-  movementSpeed: 4
+  movementSpeed: 9
   usingKeys: 0
---- !u!114 &114352215797307374
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1859346237307474}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6dba9a6ba44a2c7499d15a6e2e3bb87a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  manaBar: {fileID: 0}
-  drainRate: 0.6
-  refillRate: 5
 --- !u!114 &114553827785081634
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -250,6 +236,20 @@ MonoBehaviour:
   currentHealth: 0
   baseDamage: 20
   healthBar: {fileID: 0}
+--- !u!114 &114980366695134896
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1859346237307474}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6dba9a6ba44a2c7499d15a6e2e3bb87a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manaBar: {fileID: 0}
+  drainRate: 0.6
+  refillRate: 1
 --- !u!212 &212822324723519432
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -281,8 +281,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -683256189
-  m_SortingLayer: 3
+  m_SortingLayerID: -877673739
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e36cddbb9a2157745b0aee99b8ab8530, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

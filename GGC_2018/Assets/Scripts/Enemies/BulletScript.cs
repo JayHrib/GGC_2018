@@ -11,7 +11,7 @@ public class BulletScript : MonoBehaviour {
 
     private GameObject clickbox;
 
-    void Start()
+    void OnEnable()
     {
         clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
         Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());

@@ -8,7 +8,15 @@ public class BossLasor : MonoBehaviour {
     public float hue = 0;
     public Color color;
     public float sat;
-	
+
+    private GameObject clickbox;
+
+    void Start()
+    {
+        clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
+        Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
+    }
+
 	// Update is called once per frame
 	void Update () {
         hue = hue + 0.03f;

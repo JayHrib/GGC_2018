@@ -159,7 +159,7 @@ public class Demo : MonoBehaviour {
         //Checks if the mouse is within the draw area 
         if (drawArea.Contains(virtualKeyPosition)) {
 
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(1))
             {
                 ++strokeId;
 
@@ -171,7 +171,7 @@ public class Demo : MonoBehaviour {
                 vertexCount = 0;
             }
 
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(1))
             {
                 if (!drawing)
                 {

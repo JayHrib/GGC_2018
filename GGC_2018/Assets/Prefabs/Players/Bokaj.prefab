@@ -186,6 +186,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   baseDamage: 20
+  healthBar: {fileID: 0}
 --- !u!114 &114195261978158524
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -209,6 +210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  maxMana: 100
   playerIdentifier: 2
 --- !u!114 &114632857105621430
 MonoBehaviour:
@@ -305,7 +307,7 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -683256189
+  m_SortingLayerID: -877673739
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: bd198793a68b61d4c9c38f52dd77a94b, type: 3}

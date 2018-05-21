@@ -18,14 +18,20 @@ public class EnemyAI : MonoBehaviour {
     private int min_rand;
     private int max_rand;
 
+    private GameObject clickbox;
+
 
     void Start () {
         speed = gameObject.GetComponent<EnemyStats>().movementSpeed;
         twoPlayer = FindObjectOfType<LevelManager>().isTwoPlayers;
+        
     }
 
     void OnEnable()
     {
+        clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
+        Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
+
         int enemyLane = gameObject.GetComponent<EnemyStats>().lane;
         switch (enemyLane)
         {
