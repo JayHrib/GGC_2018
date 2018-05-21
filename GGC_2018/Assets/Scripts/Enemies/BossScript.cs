@@ -10,35 +10,13 @@ public class BossScript : MonoBehaviour {
     public GameObject obj4;
     public GameObject eye1;
     public GameObject eye2;
-    public GameObject animations;
 
-    private Animator animator;
     private int timer = 0;
     private int limit = 240;
     private int fire;
-
-	// Use this for initialization
-	void Start () {
-        animator = animations.GetComponent<Animator>();
-	}
 	
 	// Update is called once per frame
-	void Update () {
-        if(timer == 15)
-        {
-            animator.SetInteger("linus", 4);
-        }
-
-        if (timer == (limit - 60))
-        {
-            animator.SetInteger("linus", 1);
-        }
-
-        if (timer == (limit - 15))
-        {
-            animator.SetInteger("linus", 2);
-        }
-
+	void FixedUpdate () {
         if (timer > limit)
         {
             FireLasor();
@@ -81,7 +59,6 @@ public class BossScript : MonoBehaviour {
 
         if (timer > fire)
         {
-            animator.SetInteger("linus", 3);
             fire = 0;
             timer = 0;
             if(obj4.GetComponent<BossControler>().leftkills > 3 || obj4.GetComponent<BossControler>().rightkills > 3)

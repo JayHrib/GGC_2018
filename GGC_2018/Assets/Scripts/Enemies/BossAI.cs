@@ -15,7 +15,7 @@ public class BossAI : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
 
         timer++;
         if (timer > 119)
@@ -42,7 +42,7 @@ public class BossAI : MonoBehaviour {
         if(Vector3.Distance(transform.position, target.position) > 1)
         {
             Vector3 newpos = new Vector3(target.position.x, transform.position.y, 1);
-            transform.position = Vector3.MoveTowards(transform.position, newpos, 0.05f);
+            transform.position = Vector3.MoveTowards(transform.position, newpos, 0.05f * Time.deltaTime);
         }
 
         if (vulnerable)

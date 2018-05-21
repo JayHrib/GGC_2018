@@ -32,33 +32,49 @@ public class BossControler : MonoBehaviour {
     private int timer = 0;
     private int limit = 640;
 
+    public GameObject animations;
+    private Animator animator;
+
     // Use this for initialization
     void Start () {
         ChooseLegLeft();
         ChooseLegRight();
-	}
+        animator = animations.GetComponent<Animator>();
+        animator.SetInteger("linus", 4);
+    }
 	
 	// Update is called once per frame
-	void Update () {
-        if(leftkills > 3 && rightkills > 3)
+	void FixedUpdate () {
+
+        if (leftkills > 3 && rightkills > 3)
         {
-            gameObject.GetComponentInChildren<BossAI>().vulnerable = true;
             timer++;
+            gameObject.GetComponentInChildren<BossAI>().vulnerable = true;
             if (timer == (limit - 15) && bulletspawner.GetComponent<BulletSpawner>().active == false)
             {
+                if (bulletspawner.GetComponent<BulletSpawner>().active)
+                {
+                    animator.SetInteger("linus", 1);
+                }
+                else
+                {
+                    animator.SetInteger("linus", 4);
+                }
                 Instantiate(flash, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
             }
 
-            if (timer > limit)
+            else if (timer > limit)
             {
                 timer = 0;
                 limit = Random.Range(30, 240);
                 if (bulletspawner.GetComponent<BulletSpawner>().active)
                 {
                     bulletspawner.GetComponent<BulletSpawner>().active = false;
+                    animator.SetInteger("linus", 4);
                 }
                 else
                 {
+                    animator.SetInteger("linus", 2);
                     bulletspawner.GetComponent<BulletSpawner>().active = true;
                     int temp1 = Random.Range(-1, 4);
                     if (temp1 > 1)
@@ -84,19 +100,29 @@ public class BossControler : MonoBehaviour {
             timer++;
             if (timer == (limit - 15) && bulletspawner.GetComponent<BulletSpawner>().active == false)
             {
+                if (bulletspawner.GetComponent<BulletSpawner>().active)
+                {
+                    animator.SetInteger("linus", 1);
+                }
+                else
+                {
+                    animator.SetInteger("linus", 4);
+                }
                 Instantiate(flash, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
             }
 
-            if (timer > limit)
+            else if (timer > limit)
             {
                 timer = 0;
                 limit = Random.Range(90, 480);
                 if (bulletspawner.GetComponent<BulletSpawner>().active)
                 {
+                    animator.SetInteger("linus", 4);
                     bulletspawner.GetComponent<BulletSpawner>().active = false;
                 }
                 else
                 {
+                    animator.SetInteger("linus", 2);
                     bulletspawner.GetComponent<BulletSpawner>().active = true;
                     int temp1 = Random.Range(-1, 4);
                     if(temp1 > 1)

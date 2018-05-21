@@ -19,6 +19,7 @@ public class BookScript : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        PlayerPrefs.SetFloat("health", 100);
 		if (books == null)
         {
             Debug.LogError("BookScript: Something went wrong, 'books' array is empty!");

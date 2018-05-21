@@ -9,17 +9,25 @@ public class PlayerHealthSystem : MonoBehaviour {
 
     private float maxHealth;
     public float currentHealth;
+    public float lastFrameHealth;
     public float baseDamage = 20f;
     public Image healthBar;
 
 	// Use this for initialization
 	void Start () {
-        currentHealth = GetComponent<PlayerStats>().maxHealth;
+        //currentHealth = GetComponent<PlayerStats>().maxHealth;
+        currentHealth = PlayerPrefs.GetFloat("health");
+        lastFrameHealth = currentHealth;
         maxHealth = GetComponent<PlayerStats>().maxHealth;
     }
 
     void Update()
     {
+        if (currentHealth < lastFrameHealth)
+        {
+            PlayerPrefs.SetFloat("health", currentHealth);
+        }
+        lastFrameHealth = currentHealth;
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);

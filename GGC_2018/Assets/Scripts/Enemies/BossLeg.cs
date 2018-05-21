@@ -21,7 +21,7 @@ public class BossLeg : MonoBehaviour {
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 newpos = transform.position;
         if (transform.position.x < (target.position.x - 0.5))
