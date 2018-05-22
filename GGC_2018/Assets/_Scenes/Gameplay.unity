@@ -622,11 +622,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -13770,7 +13770,7 @@ GameObject:
   - component: {fileID: 437818295}
   - component: {fileID: 437818294}
   m_Layer: 5
-  m_Name: DebugButton
+  m_Name: XDebugButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13807,7 +13807,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue:
-    name: Erio
+    name: Bokaj
     sentences:
     - 'I''m Bokaj!
 
@@ -20453,7 +20453,6 @@ GameObject:
   - component: {fileID: 595100817}
   - component: {fileID: 595100816}
   - component: {fileID: 595100815}
-  - component: {fileID: 595100814}
   m_Layer: 5
   m_Name: DebugButton (1)
   m_TagString: Untagged
@@ -20480,25 +20479,6 @@ RectTransform:
   m_AnchoredPosition: {x: 176, y: -70}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &595100814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 595100812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue:
-    name: Bokaj
-    sentences:
-    - 'I''m Bokaj!
-
-      I''m here to test the dialogue system!'
-    - It seems to be working fine so far, Erio.
-    - Don't really have anything more to say...
 --- !u!114 &595100815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35561,7 +35541,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7179f1c44460f74394d3c359bd63ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 266310716}
+  nameText: {fileID: 1393954216}
   dialogueText: {fileID: 13115452}
   animator: {fileID: 2112300701}
 --- !u!114 &1039017301
@@ -35593,7 +35573,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1039017298}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1a42eb5e6ddac8148a836bd14cec5609, type: 3}
   m_Name: 
@@ -35749,7 +35729,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1264302986}
-  isTwoPlayers: 0
   maxAmountOfEnemies: 1
   timeToSpawn: 50
   pressEscape: 27
@@ -49646,11 +49625,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -70535,7 +70514,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -877673739
-  m_SortingLayer: 2
+  m_SortingLayer: 5
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: e36cddbb9a2157745b0aee99b8ab8530, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

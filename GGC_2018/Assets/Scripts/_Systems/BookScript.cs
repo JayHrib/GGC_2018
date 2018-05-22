@@ -17,6 +17,15 @@ public class BookScript : MonoBehaviour {
 
     private string currentBook = "";
 
+    void Awake()
+    {
+        if (PlayerPrefs.HasKey("Character"))
+        {
+            PlayerPrefs.DeleteKey("Character");
+            PlayerPrefs.DeleteKey("NotPicked");
+        }
+    }
+
 	// Use this for initialization
 	void Start () {
         PlayerPrefs.SetFloat("health", 100);
@@ -104,26 +113,46 @@ public class BookScript : MonoBehaviour {
 
     }
 
-    public void SetCharacter(string character)
+    public void SetCharacter(string character, string notPicked)
     {
         if (PlayerPrefs.HasKey("Character"))
         {
             PlayerPrefs.DeleteKey("Character");
             PlayerPrefs.SetString("Character", character);
+
+            if (PlayerPrefs.HasKey("NotPicked"))
+            {
+                PlayerPrefs.DeleteKey("NotPicked");
+                PlayerPrefs.SetString("NotPicked", notPicked);
+            }
+            else
+            {
+                PlayerPrefs.SetString("NotPicked", notPicked);
+            }
         }
         else
         {
             PlayerPrefs.SetString("Character", character);
+
+            if (PlayerPrefs.HasKey("NotPicked"))
+            {
+                PlayerPrefs.DeleteKey("NotPicked");
+                PlayerPrefs.SetString("NotPicked", notPicked);
+            }
+            else
+            {
+                PlayerPrefs.SetString("NotPicked", notPicked);
+            }
         }
     }
 
     public void PickedErio()
     {
-        SetCharacter("Erio");
+        SetCharacter("Erio", "Bokaj");
     }
 
     public void PickedBokaj()
     {
-        SetCharacter("Bokaj");
+        SetCharacter("Bokaj", "Erio");
     }
 }
