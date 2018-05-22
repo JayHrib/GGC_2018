@@ -72,14 +72,15 @@ public class EnemyAI : MonoBehaviour {
         {
             targetDistance = Vector3.Distance(target.transform.position, transform.position);
 
-            if (targetDistance > GOAL_DISTANCE && transform.localPosition.y < 0)
+            if (transform.localPosition.y < 0)
             {
                 if (!positionReached)
                 {
                     positionReached = true;
                 }
             }
-            else
+
+            if(!positionReached)
             {
                 float tempPos = transform.localPosition.y - (speed * 0.02f * GameConfig.gameSpeed);
                 transform.localPosition = new Vector3(lane, tempPos, 0);
