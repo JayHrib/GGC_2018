@@ -27,7 +27,7 @@ public class HitBox : MonoBehaviour {
     {
         if(other.CompareTag("Player"))
         {
-            other.GetComponent<PlayerHealthSystem>().currentHealth = other.GetComponent<PlayerHealthSystem>().currentHealth - 20;
+            //other.GetComponent<PlayerHealthSystem>().currentHealth = other.GetComponent<PlayerHealthSystem>().currentHealth - 5;
         }
         if(other.CompareTag("Spell"))
         {

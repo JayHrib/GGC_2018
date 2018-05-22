@@ -29,6 +29,7 @@ public class BossControler : MonoBehaviour {
 
     public GameObject bulletspawner;
     public GameObject flash;
+    public GameObject ripple;
     private int timer = 0;
     private int limit = 640;
 
@@ -60,11 +61,12 @@ public class BossControler : MonoBehaviour {
                 {
                     animator.SetInteger("linus", 4);
                 }
-                Instantiate(flash, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
+                Instantiate(flash, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
             }
 
             else if (timer > limit)
             {
+                Instantiate(ripple, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
                 timer = 0;
                 limit = Random.Range(30, 240);
                 if (bulletspawner.GetComponent<BulletSpawner>().active)
@@ -108,11 +110,12 @@ public class BossControler : MonoBehaviour {
                 {
                     animator.SetInteger("linus", 4);
                 }
-                Instantiate(flash, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), transform.rotation);
+                Instantiate(flash, new Vector3(transform.position.x, transform.position.y + 1.5f, transform.position.z), Quaternion.identity);
             }
 
             else if (timer > limit)
             {
+                Instantiate(ripple, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
                 timer = 0;
                 limit = Random.Range(90, 480);
                 if (bulletspawner.GetComponent<BulletSpawner>().active)

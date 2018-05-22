@@ -49,7 +49,7 @@ public class PlayerHealthSystem : MonoBehaviour {
         }
         if (other.CompareTag("Hitbox"))
         {
-            TakeDamage(0.5f);
+            TakeDamage(0.1f);
         }
     }
 
