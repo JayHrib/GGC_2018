@@ -35516,6 +35516,7 @@ GameObject:
   - component: {fileID: 1039017301}
   - component: {fileID: 1039017300}
   - component: {fileID: 1039017299}
+  - component: {fileID: 1039017311}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -35580,11 +35581,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab11d41f7e75f80419ccd6b85aff3f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fire: 0
-  water: 0
-  earth: 0
-  wind: 0
-  enabledElement: 
 --- !u!114 &1039017303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35795,6 +35791,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1039017311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1039017298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df5c420bc3dafdf46bbacd2fe5369fd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2061668477}
+  erio: {fileID: 9100000, guid: fee62a8811110bb4aa859b02c9faec62, type: 2}
+  bokaj: {fileID: 9100000, guid: 35577ee1c2097ec45b38b2a48721a957, type: 2}
+  _erio: {fileID: 21300000, guid: e36cddbb9a2157745b0aee99b8ab8530, type: 3}
+  _bokaj: {fileID: 21300000, guid: bd198793a68b61d4c9c38f52dd77a94b, type: 3}
 --- !u!1 &1042843133
 GameObject:
   m_ObjectHideFlags: 0
@@ -48644,6 +48656,34 @@ Transform:
   m_Father: {fileID: 123105808}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1364070364
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1364070365}
+  m_Layer: 0
+  m_Name: CharacterSpawnPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: -982381405332843317, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1364070365
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1364070364}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1, y: -2.77, z: 0.13992965}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364919554
 GameObject:
   m_ObjectHideFlags: 0
@@ -50534,12 +50574,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 4.463544, y: 4.942833}
   m_EdgeRadius: 0
---- !u!114 &1433190064 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114745246357664014, guid: 2056e4026eea36f47947727a784adfa4,
-    type: 2}
-  m_PrefabInternal: {fileID: 868160048}
-  m_Script: {fileID: -765806418, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1438027089
 GameObject:
   m_ObjectHideFlags: 0
@@ -70373,7 +70407,7 @@ GameObject:
   - component: {fileID: 2061668478}
   - component: {fileID: 2061668485}
   m_Layer: 9
-  m_Name: Erio
+  m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70404,7 +70438,7 @@ Animator:
   m_GameObject: {fileID: 2061668477}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: fee62a8811110bb4aa859b02c9faec62, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -70425,8 +70459,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentHealth: 100
+  lastFrameHealth: 0
   baseDamage: 5
-  healthBar: {fileID: 1433190064}
 --- !u!114 &2061668481
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,11 +11,11 @@ public class PlayerHealthSystem : MonoBehaviour {
     public float currentHealth;
     public float lastFrameHealth;
     public float baseDamage = 20f;
-    public Image healthBar;
+    private Image healthBar;
 
 	// Use this for initialization
 	void Start () {
-        //currentHealth = GetComponent<PlayerStats>().maxHealth;
+
         currentHealth = PlayerPrefs.GetFloat("health");
         lastFrameHealth = currentHealth;
         maxHealth = GetComponent<PlayerStats>().maxHealth;

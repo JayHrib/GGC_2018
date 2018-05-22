@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour {
 
     private GameObject target;
-    private string _target = "";
 
     private float targetDistance;
     public const float GOAL_DISTANCE = 1f;
@@ -24,7 +23,6 @@ public class EnemyAI : MonoBehaviour {
 
     void Start () {
         speed = gameObject.GetComponent<EnemyStats>().movementSpeed;
-        _target = PlayerPrefs.GetString("character");
     }
 
     void OnEnable()
@@ -58,14 +56,14 @@ public class EnemyAI : MonoBehaviour {
                 break;
         }
 
-        target = GameObject.Find(_target);
+        target = GameObject.Find("Player");
     }
 
 	void FixedUpdate () {
 
         if (target == null)
         {
-            target = GameObject.Find(_target);
+            target = GameObject.Find("Player");
         }
 
         else

@@ -106,7 +106,15 @@ public class BookScript : MonoBehaviour {
 
     public void SetCharacter(string character)
     {
-        PlayerPrefs.SetString("character", character);
+        if (PlayerPrefs.HasKey("Character"))
+        {
+            PlayerPrefs.DeleteKey("Character");
+            PlayerPrefs.SetString("Character", character);
+        }
+        else
+        {
+            PlayerPrefs.SetString("Character", character);
+        }
     }
 
     public void PickedErio()
