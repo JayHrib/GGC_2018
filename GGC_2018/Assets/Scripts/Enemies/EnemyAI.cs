@@ -6,11 +6,10 @@ using UnityEngine;
 public class EnemyAI : MonoBehaviour {
 
     private GameObject target;
+    private string _target = "";
 
     private float targetDistance;
     public const float GOAL_DISTANCE = 1f;
-
-    private bool twoPlayer;
 
     private float speed;
     private int rand;
@@ -18,81 +17,55 @@ public class EnemyAI : MonoBehaviour {
     private int min_rand;
     private int max_rand;
 
+    private bool positionReached = false;
+
     private GameObject clickbox;
 
 
     void Start () {
         speed = gameObject.GetComponent<EnemyStats>().movementSpeed;
-        twoPlayer = FindObjectOfType<LevelManager>().isTwoPlayers;
-        
+        _target = PlayerPrefs.GetString("character");
     }
 
     void OnEnable()
     {
         clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
         Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
+        positionReached = false;
 
         int enemyLane = gameObject.GetComponent<EnemyStats>().lane;
         switch (enemyLane)
         {
             case 1:
                 lane = -7.5f;
-                if (twoPlayer)
-                {
-                    target = GameObject.Find(ChooseTarget(1));
-                }
                 break;
             case 2:
                 lane = -4.5f;
-                if (twoPlayer)
-                {
-                    target = GameObject.Find(ChooseTarget(1));
-                }
                 break;
             case 3:
                 lane = -1.5f;
-                if (twoPlayer)
-                {
-                    target = GameObject.Find(ChooseTarget(1));
-                }
                 break;
             case 4:
                 lane = 1.5f;
-                if (twoPlayer)
-                {
-                    target = GameObject.Find(ChooseTarget(2));
-                }
                 break;
             case 5:
                 lane = 4.5f;
-                if (twoPlayer)
-                {
-                    target = GameObject.Find(ChooseTarget(2));
-                }
                 break;
             case 6:
                 lane = 7.5f;
-                if (twoPlayer)
-                {
-                    target = GameObject.Find(ChooseTarget(2));
-                }
                 break;
             default:
                 break;
         }
 
-        if (!twoPlayer)
-        {
-            target = GameObject.Find("WitchPrefab");
-        }
+        target = GameObject.Find(_target);
     }
 
 	void FixedUpdate () {
 
         if (target == null)
         {
-            rand = Random.Range(0, 3);
-            target = GameObject.Find(ChooseTarget(rand));
+            target = GameObject.Find(_target);
         }
 
         else
@@ -101,29 +74,21 @@ public class EnemyAI : MonoBehaviour {
 
             if (targetDistance > GOAL_DISTANCE && transform.localPosition.y < 0)
             {
-                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (speed * GameConfig.gameSpeed * Time.deltaTime));
+                if (!positionReached)
+                {
+                    positionReached = true;
+                }
             }
             else
             {
                 float tempPos = transform.localPosition.y - (speed * 0.02f * GameConfig.gameSpeed);
                 transform.localPosition = new Vector3(lane, tempPos, 0);
             }
+
+            if (positionReached)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (speed * GameConfig.gameSpeed * Time.deltaTime));
+            }
         }
 	}
-
-    private string ChooseTarget(int index)
-    {
-        string toReturn = "";
-
-        if (index == 1)
-        {
-            toReturn = "Erio";
-        }
-        if (index == 2)
-        {
-            toReturn = "Bokaj";
-        }
-
-        return toReturn;
-    }
 }

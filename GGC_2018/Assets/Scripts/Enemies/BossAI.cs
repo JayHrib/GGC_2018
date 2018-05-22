@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BossAI : MonoBehaviour {
 
+    public float movementSpeed = 0.5f;
+
     public Transform target;
     public bool vulnerable = false;
 
@@ -24,7 +26,7 @@ public class BossAI : MonoBehaviour {
             newrot = Quaternion.Euler(0, 0, tempo);
             timer = 0;
         }
-        transform.rotation = Quaternion.Slerp(transform.rotation, newrot, 0.5f * Time.deltaTime);
+        transform.rotation = Quaternion.Slerp(transform.rotation, newrot, movementSpeed * Time.deltaTime);
 
         //if (transform.position.x < target.position.x)
         //{
@@ -42,7 +44,7 @@ public class BossAI : MonoBehaviour {
         if(Vector3.Distance(transform.position, target.position) > 1)
         {
             Vector3 newpos = new Vector3(target.position.x, transform.position.y, 1);
-            transform.position = Vector3.MoveTowards(transform.position, newpos, 0.05f * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, newpos, movementSpeed * Time.deltaTime);
         }
 
         if (vulnerable)

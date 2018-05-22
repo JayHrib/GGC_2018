@@ -103,4 +103,19 @@ public class BookScript : MonoBehaviour {
     {
 
     }
+
+    public void SetCharacter(string character)
+    {
+        PlayerPrefs.SetString("character", character);
+    }
+
+    public void PickedErio()
+    {
+        SetCharacter("Erio");
+    }
+
+    public void PickedBokaj()
+    {
+        SetCharacter("Bokaj");
+    }
 }
