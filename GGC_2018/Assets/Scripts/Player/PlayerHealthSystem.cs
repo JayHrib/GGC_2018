@@ -11,7 +11,7 @@ public class PlayerHealthSystem : MonoBehaviour {
     public float currentHealth;
     public float lastFrameHealth;
     public float baseDamage = 20f;
-    private Image healthBar;
+    public Image healthBar;
 
 	// Use this for initialization
 	void Start () {
