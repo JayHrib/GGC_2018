@@ -49,13 +49,27 @@ public class DialogueSetup : MonoBehaviour {
             }
         }
 
-        SetupDialogue(_character);
+        SetCharacters(_character, otherChar);
 	}
 
-    void SetupDialogue(string chosenChar)
+    void SetCharacters(string chosenChar, string otherChar)
     {
+        for (int i = 0; i < characters.Length; i++)
+        {
+            if (characters[i].name == chosenChar)
+            {
+                //Set chosen character
+                break;
+            }
+        }
 
+        for (int j = 0; j < characters.Length; j++)
+        {
+            if (characters[j].name == otherChar)
+            {
+                //Set other character 
+                break;
+            }
+        }
     }
-	
-
 }

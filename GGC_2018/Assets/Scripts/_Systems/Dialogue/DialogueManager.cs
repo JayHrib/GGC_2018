@@ -6,10 +6,10 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    public TextMeshProUGUI nameText;
-    public TextMeshProUGUI dialogueText;
+    private TextMeshProUGUI nameText;
+    private TextMeshProUGUI dialogueText;
 
-    public Animator animator;
+    private Animator animator;
 
     private Queue<string> sentences;
 
@@ -61,5 +61,12 @@ public class DialogueManager : MonoBehaviour
     void EndDialogue()
     {
         animator.SetBool("IsOpen", false);
+    }
+
+    public void SetDialogueInfo(Animator _animator, TextMeshProUGUI _name, TextMeshProUGUI _dialogueText)
+    {
+        animator = _animator;
+        nameText = _name;
+        dialogueText = _dialogueText;
     }
 }

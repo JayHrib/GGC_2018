@@ -622,11 +622,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -13806,6 +13806,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
   dialogue:
     name: Bokaj
     sentences:
@@ -35503,6 +35506,7 @@ GameObject:
   - component: {fileID: 1039017300}
   - component: {fileID: 1039017299}
   - component: {fileID: 1039017311}
+  - component: {fileID: 1039017312}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -35541,9 +35545,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7179f1c44460f74394d3c359bd63ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 1393954216}
-  dialogueText: {fileID: 13115452}
-  animator: {fileID: 2112300701}
 --- !u!114 &1039017301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35792,6 +35793,17 @@ MonoBehaviour:
   bokaj: {fileID: 9100000, guid: 35577ee1c2097ec45b38b2a48721a957, type: 2}
   _erio: {fileID: 21300000, guid: e36cddbb9a2157745b0aee99b8ab8530, type: 3}
   _bokaj: {fileID: 21300000, guid: bd198793a68b61d4c9c38f52dd77a94b, type: 3}
+--- !u!114 &1039017312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1039017298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f75bd08231f94cb5030bb4a3e476e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1042843133
 GameObject:
   m_ObjectHideFlags: 0
@@ -49625,11 +49637,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 1
+  m_havePropertiesChanged: 0
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 1
+  m_isInputParsingRequired: 0
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -51166,6 +51178,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
   dialogue:
     name: Bokaj
     sentences:
@@ -64560,7 +64575,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1864977173
 MonoBehaviour:
   m_ObjectHideFlags: 0
