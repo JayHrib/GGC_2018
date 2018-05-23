@@ -64,14 +64,16 @@ public class Demo : MonoBehaviour {
 
 
         //Create draw area
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
             displayDrawing = true;
 
             drawArea = new Rect(0, 0, Screen.width, Screen.height);
+
+            
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             if (mana.GetMana() > 50)
             {
@@ -94,7 +96,7 @@ public class Demo : MonoBehaviour {
         }
 
         //Destroy draw area
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(0))
         {
             GameConfig.gameSpeed = 1f;
             ductTape = false;
@@ -159,7 +161,7 @@ public class Demo : MonoBehaviour {
         //Checks if the mouse is within the draw area 
         if (drawArea.Contains(virtualKeyPosition)) {
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                 ++strokeId;
 
@@ -171,7 +173,7 @@ public class Demo : MonoBehaviour {
                 vertexCount = 0;
             }
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(0))
             {
                 if (!drawing)
                 {
@@ -208,7 +210,9 @@ public class Demo : MonoBehaviour {
 
     void OnGUI() {
 
+        GUI.color = new Color(0, 0, 0, 0);
         GUI.Box(drawArea, " ");
+
 
         if (devMode)
         {
