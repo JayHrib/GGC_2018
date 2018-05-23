@@ -91,26 +91,6 @@ public class PlayerMovement : MonoBehaviour {
                         }
                     }
                 }
-
-
-                // click controls start
-                //if (hit.collider == null && marked)
-                //{
-                //    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                //    destination.position = targetPos;
-                //    marked = false;
-                //}
-                //else if(hit.collider != null && marked)
-                //{
-                //    //Debug.Log(hit.collider.gameObject.tag);
-                //    if (!hit.collider.gameObject.CompareTag("ClickBox"))
-                //    {
-                //        targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                //        destination.position = targetPos;
-                //        marked = false;
-                //    }
-                //}
-                // click controls end
             }
 
             //Cancel move command if drawing window is opened

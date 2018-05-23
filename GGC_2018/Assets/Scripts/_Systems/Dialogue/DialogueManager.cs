@@ -13,14 +13,37 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> sentences;
 
+    private bool isActive = false;
+    public float dialogueTimer;
+    private float timeLeft;
+
     // Use this for initialization
     void Start()
     {
         sentences = new Queue<string>();
+        timeLeft = dialogueTimer;
+    }
+
+    void Update()
+    {
+        if (isActive)
+        {
+            timeLeft -= Time.deltaTime;
+            if (timeLeft <= 0)
+            {
+                DisplayNextSentence();
+                timeLeft = dialogueTimer;
+            }
+        }
+        else
+        {
+            timeLeft = dialogueTimer;
+        }
     }
 
     public void StartDialogue(Dialogue dialogue)
     {
+        isActive = true;
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
 
@@ -60,6 +83,7 @@ public class DialogueManager : MonoBehaviour
 
     void EndDialogue()
     {
+        isActive = false;
         animator.SetBool("IsOpen", false);
     }
 
