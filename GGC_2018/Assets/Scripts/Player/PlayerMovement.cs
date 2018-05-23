@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public bool usingDragMovement = false;
+
     public Transform destination;
     public float desiredDistance;
     private const float LOCKED_Z = -10f;
@@ -13,10 +15,12 @@ public class PlayerMovement : MonoBehaviour {
     private bool marked = false;
 
     private Vector3 targetPos;
+    private ClickListener clickListener;
 
 
     void Start()
     {
+        clickListener = FindObjectOfType<ClickListener>();
         if (destination == null)
         {
             Debug.LogWarning("PlayerMovement: No destination marker was found!");
@@ -51,8 +55,8 @@ public class PlayerMovement : MonoBehaviour {
         }
         #endregion
 
-        #region Click
-        else
+        #region Drag
+        if (usingDragMovement)
         {
             // drag controls start
             if (Input.GetMouseButton(0) && marked)
@@ -114,7 +118,7 @@ public class PlayerMovement : MonoBehaviour {
             {
                 marked = false;
             }
-            
+
             if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
@@ -126,5 +130,33 @@ public class PlayerMovement : MonoBehaviour {
         }
         #endregion
 
+        #region DoubleClick
+        else
+        {
+            if (clickListener.IsClickedTwice())
+            {
+                targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                destination.position = targetPos;
+                clickListener.SetBoolTwice();
+            }
+
+            if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
+            }
+            else
+            {
+                destination.position = transform.position;
+            }
+
+        }
+        if (clickListener.IsClickedTwice())
+        {
+            targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+            destination.position = targetPos;
+            clickListener.SetBoolTwice();
+        }
+        
     }
+    #endregion
 }

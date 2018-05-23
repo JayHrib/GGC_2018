@@ -70396,6 +70396,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d1aba5792e6f14bb68d7c66ad98bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usingDragMovement: 0
   destination: {fileID: 1835470510}
   desiredDistance: 0
   movementSpeed: 5
@@ -70410,7 +70411,7 @@ Animator:
   m_GameObject: {fileID: 2061668477}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: fee62a8811110bb4aa859b02c9faec62, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

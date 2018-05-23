@@ -5,11 +5,26 @@ using UnityEngine;
 public class ClickListener : MonoBehaviour {
 
     private float doubleClickTimeLimit = 0.25f;
+    private bool clickedOnce = false;
+    private bool clickedTwice = false;
+    private bool loop = false;
 
 	// Use this for initialization
 	void Start () {
         StartCoroutine(InputListener());
 	}
+
+    void Update()
+    {
+        if (clickedOnce)
+        {
+            if (Input.GetMouseButtonUp(0))
+            {
+                clickedOnce = !clickedOnce;
+                Debug.Log(clickedOnce);
+            }
+        }
+    }
 
     private IEnumerator InputListener()
     {
@@ -46,11 +61,33 @@ public class ClickListener : MonoBehaviour {
 
     private void DoubleClick()
     {
-        Debug.Log("Double click");
+        clickedTwice = !clickedTwice;
+        Debug.Log(clickedTwice);
     }
 
     private void SingleClick()
     {
-        Debug.Log("Signle click");
+        clickedOnce = !clickedOnce;
+        Debug.Log(clickedOnce);
+    }
+
+    public void SetBoolOnce()
+    {
+        clickedOnce = !clickedOnce;
+    }
+
+    public void SetBoolTwice()
+    {
+        clickedTwice = !clickedTwice;
+    }
+
+    public bool IsClickedOnce()
+    {
+        return clickedOnce;
+    }
+
+    public bool IsClickedTwice()
+    {
+        return clickedTwice;
     }
 }
