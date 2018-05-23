@@ -8,9 +8,9 @@ using PDollarGestureRecognizer;
 
 public class Demo : MonoBehaviour {
 
-    public Transform gestureOnScreenPrefab;
     public bool devMode = false;
-    private string _spell = "";
+
+    public Transform gestureOnScreenPrefab;
 
     private List<Gesture> trainingSet = new List<Gesture>();
 
@@ -44,11 +44,13 @@ public class Demo : MonoBehaviour {
 
     private bool ductTape = false;
     private CastingManager castManager;
+    private ClickListener clickListener;
 
     void Start() {
         spellSpawner = FindObjectOfType<CastSpell>();
         mana = FindObjectOfType<ManaBar>();
         castManager = FindObjectOfType<CastingManager>();
+        clickListener = FindObjectOfType<ClickListener>();
 
         //Create platform of which to draw on
         platform = Application.platform;
@@ -66,11 +68,12 @@ public class Demo : MonoBehaviour {
         //Create draw area
         if (Input.GetMouseButtonDown(0))
         {
-            displayDrawing = true;
+            if (!clickListener.IsClickedTwice())
+            {
+                displayDrawing = true;
 
-            drawArea = new Rect(0, 0, Screen.width, Screen.height);
-
-            
+                drawArea = new Rect(0, 0, Screen.width, Screen.height);
+            }    
         }
 
         if (Input.GetMouseButton(0))
@@ -272,16 +275,6 @@ public class Demo : MonoBehaviour {
     public bool GetSlowMoActive()
     {
         return ductTape;
-    }
-
-    public void SetSpell(string name)
-    {
-        _spell = name;
-    }
-
-    private void ActivateSpell(string spell)
-    {
-
     }
 }
 

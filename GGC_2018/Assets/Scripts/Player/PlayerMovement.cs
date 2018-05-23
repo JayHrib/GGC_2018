@@ -113,30 +113,26 @@ public class PlayerMovement : MonoBehaviour {
         #region DoubleClick
         else
         {
+            //Check for double clicks
             if (clickListener.IsClickedTwice())
             {
+                //Set target position based on the clicked location
                 targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
                 destination.position = targetPos;
                 clickListener.SetBoolTwice();
             }
 
+            //Move towards target point if it's not close enough
             if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
             }
+            //Reset target position to player position if target has been reached 
             else
             {
                 destination.position = transform.position;
             }
-
-        }
-        if (clickListener.IsClickedTwice())
-        {
-            targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-            destination.position = targetPos;
-            clickListener.SetBoolTwice();
-        }
-        
+        } 
     }
     #endregion
 }

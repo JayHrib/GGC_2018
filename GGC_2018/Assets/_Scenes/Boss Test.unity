@@ -70840,6 +70840,7 @@ GameObject:
   - component: {fileID: 1976220544}
   - component: {fileID: 1976220543}
   - component: {fileID: 1976220540}
+  - component: {fileID: 1976220545}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -70874,7 +70875,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 2006988541}
-  isTwoPlayers: 0
   maxAmountOfEnemies: 2
   timeToSpawn: 50
   pressEscape: 27
@@ -71080,6 +71080,17 @@ MonoBehaviour:
     outline: {fileID: 532281733}
   - spellName: Light
     outline: {fileID: 1012662766}
+--- !u!114 &1976220545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1976220534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f75bd08231f94cb5030bb4a3e476e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1977912870
 GameObject:
   m_ObjectHideFlags: 0

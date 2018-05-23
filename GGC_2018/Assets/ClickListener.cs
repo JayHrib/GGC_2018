@@ -14,18 +14,6 @@ public class ClickListener : MonoBehaviour {
         StartCoroutine(InputListener());
 	}
 
-    void Update()
-    {
-        if (clickedOnce)
-        {
-            if (Input.GetMouseButtonUp(0))
-            {
-                clickedOnce = !clickedOnce;
-                Debug.Log(clickedOnce);
-            }
-        }
-    }
-
     private IEnumerator InputListener()
     {
         while (enabled)
