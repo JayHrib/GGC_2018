@@ -14,6 +14,7 @@ public class DialogueManager : MonoBehaviour
     private Queue<string> sentences;
 
     private bool isActive = false;
+    private bool startNext = false;
     public float dialogueTimer;
     private float timeLeft;
 
@@ -44,6 +45,7 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue)
     {
         isActive = true;
+        startNext = false;
         animator.SetBool("IsOpen", true);
         nameText.text = dialogue.name;
 
@@ -85,6 +87,7 @@ public class DialogueManager : MonoBehaviour
     {
         isActive = false;
         animator.SetBool("IsOpen", false);
+        startNext = !startNext;
     }
 
     public void SetDialogueInfo(Animator _animator, TextMeshProUGUI _name, TextMeshProUGUI _dialogueText)
@@ -92,5 +95,10 @@ public class DialogueManager : MonoBehaviour
         animator = _animator;
         nameText = _name;
         dialogueText = _dialogueText;
+    }
+
+    public bool GetBool()
+    {
+        return startNext;
     }
 }
