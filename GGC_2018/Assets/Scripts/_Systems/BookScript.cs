@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*This script is used to switch between different pages in the main menu*/
+
+//NOTE!
+//This script will most likely be heavily edited when the new menu is implemented
+
 [System.Serializable]
 public class Book
 {
@@ -22,7 +27,6 @@ public class BookScript : MonoBehaviour {
         if (PlayerPrefs.HasKey("Character"))
         {
             PlayerPrefs.DeleteKey("Character");
-            PlayerPrefs.DeleteKey("NotPicked");
         }
     }
 
@@ -108,51 +112,26 @@ public class BookScript : MonoBehaviour {
         }
     }
 
-    private void PlayAnimation(string direction)
-    {
-
-    }
-
-    public void SetCharacter(string character, string notPicked)
+    public void SetCharacter(string character)
     {
         if (PlayerPrefs.HasKey("Character"))
         {
             PlayerPrefs.DeleteKey("Character");
             PlayerPrefs.SetString("Character", character);
-
-            if (PlayerPrefs.HasKey("NotPicked"))
-            {
-                PlayerPrefs.DeleteKey("NotPicked");
-                PlayerPrefs.SetString("NotPicked", notPicked);
-            }
-            else
-            {
-                PlayerPrefs.SetString("NotPicked", notPicked);
-            }
         }
         else
         {
             PlayerPrefs.SetString("Character", character);
-
-            if (PlayerPrefs.HasKey("NotPicked"))
-            {
-                PlayerPrefs.DeleteKey("NotPicked");
-                PlayerPrefs.SetString("NotPicked", notPicked);
-            }
-            else
-            {
-                PlayerPrefs.SetString("NotPicked", notPicked);
-            }
         }
     }
 
-    public void PickedErio()
+    public void PickedBartholomew()
     {
-        SetCharacter("Erio", "Bokaj");
+        SetCharacter("Bartholomew");
     }
 
     public void PickedBokaj()
     {
-        SetCharacter("Bokaj", "Erio");
+        SetCharacter("Bokaj");
     }
 }
