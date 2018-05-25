@@ -14,15 +14,34 @@ public class BossScript : MonoBehaviour {
     private int timer = 0;
     private int limit = 240;
     private int fire;
-	
-	// Update is called once per frame
-	void FixedUpdate () {
+
+    //lasor sound
+    private AudioSource laserAudio;
+
+    private void Start()
+    {
+        laserAudio = GetComponent<AudioSource>();
+    }
+
+
+    // Update is called once per frame
+    void FixedUpdate () {
         if (timer > limit)
         {
             FireLasor();
+            if(!laserAudio.isPlaying)
+            {
+                laserAudio.Play();
+            }
+            
         }
         else
         {
+            if(laserAudio.isPlaying)
+            {
+                laserAudio.Stop();
+            }
+
             timer++;
             obj1.GetComponent<SpriteRenderer>().enabled = false;
             obj2.GetComponent<SpriteRenderer>().enabled = false;

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +10,7 @@ public class EnemySprite
     public string name;
     public Sprite sprite;
     public RuntimeAnimatorController animController;
+    public AudioClip enemySpawnSound;
 }
 
 [RequireComponent(typeof(EnvironmentManager))]
@@ -51,7 +53,6 @@ public class LevelManager : MonoBehaviour {
         }
 
         objectPool = ObjectPooler.instance;
-
     }
 
     void FixedUpdate()
@@ -68,8 +69,8 @@ public class LevelManager : MonoBehaviour {
             if (spawnTimer >= timeToSpawn)
             {
                 spawnTimer = 0;
-                int rand = Random.Range(0, upperLimit);
-                int lane = Random.Range(1,6);
+                int rand = UnityEngine.Random.Range(0, upperLimit);
+                int lane = UnityEngine.Random.Range(1,6);
                 Spawn(rand, lane);
                 toll++;
 
@@ -113,11 +114,30 @@ public class LevelManager : MonoBehaviour {
 
             SetSprite(go.GetComponent<EnemyStats>().element, go);
             SetAnimController(go.GetComponent<EnemyStats>().element, go);
+            SetSpawnAudio(go.GetComponent<EnemyStats>().element, go);
             go.transform.position = spawnPoint.position;
             go.GetComponent<EnemyHealth>().currentHealth = 100f;
-
+        
             go.SetActive(true);
             enemyList.Add(go);
+        }
+    }
+
+    private void SetSpawnAudio(string element, GameObject enemy)
+    {
+        AudioSource audioSource = enemy.GetComponent<AudioSource>();
+
+        for (int i = 0; i < enemySprites.Length; i++)
+        {
+            if (enemySprites[i].name == element)
+            {
+                if(enemySprites[i].enemySpawnSound != null)
+                {
+                    audioSource.clip = enemySprites[i].enemySpawnSound;
+                }
+
+                return;
+            }
         }
     }
 
@@ -150,6 +170,8 @@ public class LevelManager : MonoBehaviour {
             }
         }
     }
+
+
 
     public GameObject GetEnemy(int lane)
     {

@@ -12,13 +12,23 @@ public class PlayerHealthSystem : MonoBehaviour {
     public float lastFrameHealth;
     public float baseDamage = 20f;
     public Image healthBar;
+    private AudioSource damageSound;
+    
+    [SerializeField]
+    public AudioClip[] playerDamageSounds;
 
-	// Use this for initialization
-	void Start () {
+    public AudioClip playerBumpSound;
+    // Use this for initialization
+    void Start () {
 
         currentHealth = PlayerPrefs.GetFloat("health");
         lastFrameHealth = currentHealth;
         maxHealth = GetComponent<PlayerStats>().maxHealth;
+        damageSound = gameObject.AddComponent<AudioSource>();
+        /*if(playerSounds != null)
+        {
+            damageSound.clip = playerSounds[0];
+        }*/
     }
 
     void Update()
@@ -63,6 +73,7 @@ public class PlayerHealthSystem : MonoBehaviour {
 
     void TakeDamage(float strenght)
     {
+        PlayDamageSound();
         currentHealth -= (baseDamage * strenght);
 
         SetHealth(CalculateHealth(currentHealth));
@@ -88,5 +99,27 @@ public class PlayerHealthSystem : MonoBehaviour {
     void TriggerLoss()
     {
         SceneManager.LoadScene(0);
+    }
+
+    private void PlayDamageSound()
+    {    
+        if(playerDamageSounds != null || playerDamageSounds.Length > 0)
+        {
+            damageSound.clip = playerDamageSounds[Random.Range(0, 2)];
+            damageSound.Play();
+        }
+        else
+        {
+            Debug.LogError("The AudioClip list \"playerDamageSounds\" is empty");
+        }
+        
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+       
+            damageSound.clip = playerBumpSound;
+            damageSound.Play();
+          
     }
 }

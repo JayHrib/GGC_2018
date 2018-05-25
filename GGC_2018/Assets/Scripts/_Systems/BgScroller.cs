@@ -48,25 +48,6 @@ public class BgScroller : MonoBehaviour {
                 speed = movementSpeedBoost;
             }
 
-            /*if (hit.collider.CompareTag("Flower"))
-            {
-                GameObject hitObject = hit.collider.gameObject;
-
-                if (hitObject.GetComponent<SpriteRenderer>() != null)
-                {
-                    hitObject.GetComponent<SpriteRenderer>().color = Color.gray;
-                }
-                else
-                {
-                    foreach (SpriteRenderer sr in hitObject.GetComponentsInChildren<SpriteRenderer>())
-                    {
-                        sr.color = Color.gray;
-                    }
-                }
-                
-            }          */
-            //Debug.Log("hit: " + hit.collider.tag);//write HIT
-
         }
         else
         {
