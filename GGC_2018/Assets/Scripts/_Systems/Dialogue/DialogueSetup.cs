@@ -4,32 +4,34 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-[System.Serializable]
-public class Character
-{
-    public string name;
-    public Image dialogueBox;
-
-    public TextMeshProUGUI _name;
-    public TextMeshProUGUI dialogue;
-}
-
 public class DialogueSetup : MonoBehaviour {
 
-    [SerializeField]
-    public Character[] characters;
+    private string _character;
 
-    private Image dialogueImage; 
+    public GameObject BartIsMain;
+    public GameObject BokajIsMain;
+
+    void Awake()
+    {
+        _character = PlayerPrefs.GetString("Character");
+    }
 
     // Use this for initialization
     void Start () {
-
-        if (characters == null)
-        {
-            Debug.LogWarning("DialogueSetup: No character entries found!");
-        }
-       
+        DetermineCharacter();
 	}
-	
 
+    void DetermineCharacter()
+    {
+        if (_character == "Bartholomew")
+        {
+            //Activate corresponding dialogue chain
+            BartIsMain.gameObject.SetActive(true);
+        }else if(_character == "Bokaj")
+        {
+            //Activate corresponding dialogue chain
+            BokajIsMain.gameObject.SetActive(true);
+        }
+    }
+ 
 }

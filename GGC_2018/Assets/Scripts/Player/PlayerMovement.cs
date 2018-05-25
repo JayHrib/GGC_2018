@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
+    public bool usingDragMovement = false;
+
     public Transform destination;
     public float desiredDistance;
     private const float LOCKED_Z = -10f;
@@ -13,10 +15,12 @@ public class PlayerMovement : MonoBehaviour {
     private bool marked = false;
 
     private Vector3 targetPos;
+    private ClickListener clickListener;
 
 
     void Start()
     {
+        clickListener = FindObjectOfType<ClickListener>();
         if (destination == null)
         {
             Debug.LogWarning("PlayerMovement: No destination marker was found!");
@@ -51,8 +55,8 @@ public class PlayerMovement : MonoBehaviour {
         }
         #endregion
 
-        #region Click
-        else
+        #region Drag
+        if (usingDragMovement)
         {
             // drag controls start
             if (Input.GetMouseButton(0) && marked)
@@ -87,26 +91,6 @@ public class PlayerMovement : MonoBehaviour {
                         }
                     }
                 }
-
-
-                // click controls start
-                //if (hit.collider == null && marked)
-                //{
-                //    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                //    destination.position = targetPos;
-                //    marked = false;
-                //}
-                //else if(hit.collider != null && marked)
-                //{
-                //    //Debug.Log(hit.collider.gameObject.tag);
-                //    if (!hit.collider.gameObject.CompareTag("ClickBox"))
-                //    {
-                //        targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                //        destination.position = targetPos;
-                //        marked = false;
-                //    }
-                //}
-                // click controls end
             }
 
             //Cancel move command if drawing window is opened
@@ -114,7 +98,7 @@ public class PlayerMovement : MonoBehaviour {
             {
                 marked = false;
             }
-            
+
             if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
             {
                 transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
@@ -126,5 +110,29 @@ public class PlayerMovement : MonoBehaviour {
         }
         #endregion
 
+        #region DoubleClick
+        else
+        {
+            //Check for double clicks
+            if (clickListener.IsClickedTwice())
+            {
+                //Set target position based on the clicked location
+                targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                destination.position = targetPos;
+                clickListener.SetBoolTwice();
+            }
+
+            //Move towards target point if it's not close enough
+            if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
+            }
+            //Reset target position to player position if target has been reached 
+            else
+            {
+                destination.position = transform.position;
+            }
+        } 
     }
+    #endregion
 }

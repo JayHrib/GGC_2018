@@ -17,7 +17,6 @@ public class PlayerSetup : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
         character = PlayerPrefs.GetString("Character");
-        Debug.Log(character);
         Setup(character);
 	}
 

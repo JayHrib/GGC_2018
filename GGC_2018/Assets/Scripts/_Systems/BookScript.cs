@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/*This script is used to switch between different pages in the main menu*/
+
+//NOTE!
+//This script will most likely be heavily edited when the new menu is implemented
+
 [System.Serializable]
 public class Book
 {
@@ -16,6 +21,14 @@ public class BookScript : MonoBehaviour {
     Book[] books;
 
     private string currentBook = "";
+
+    void Awake()
+    {
+        if (PlayerPrefs.HasKey("Character"))
+        {
+            PlayerPrefs.DeleteKey("Character");
+        }
+    }
 
 	// Use this for initialization
 	void Start () {
@@ -99,11 +112,6 @@ public class BookScript : MonoBehaviour {
         }
     }
 
-    private void PlayAnimation(string direction)
-    {
-
-    }
-
     public void SetCharacter(string character)
     {
         if (PlayerPrefs.HasKey("Character"))
@@ -117,9 +125,9 @@ public class BookScript : MonoBehaviour {
         }
     }
 
-    public void PickedErio()
+    public void PickedBartholomew()
     {
-        SetCharacter("Erio");
+        SetCharacter("Bartholomew");
     }
 
     public void PickedBokaj()

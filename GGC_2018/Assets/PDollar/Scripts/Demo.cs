@@ -8,9 +8,9 @@ using PDollarGestureRecognizer;
 
 public class Demo : MonoBehaviour {
 
-    public Transform gestureOnScreenPrefab;
     public bool devMode = false;
-    private string _spell = "";
+
+    public Transform gestureOnScreenPrefab;
 
     private List<Gesture> trainingSet = new List<Gesture>();
 
@@ -38,17 +38,19 @@ public class Demo : MonoBehaviour {
     private bool drawnWellEnough = false;
     private bool drawing = false;
 
-    private const float REQUIRED_SCORE = 0.6f;
+    private const float REQUIRED_SCORE = 0.2f;
     private GameObject spellCheck;
     private ManaBar mana;
 
     private bool ductTape = false;
     private CastingManager castManager;
+    private ClickListener clickListener;
 
     void Start() {
         spellSpawner = FindObjectOfType<CastSpell>();
         mana = FindObjectOfType<ManaBar>();
         castManager = FindObjectOfType<CastingManager>();
+        clickListener = FindObjectOfType<ClickListener>();
 
         //Create platform of which to draw on
         platform = Application.platform;
@@ -64,14 +66,17 @@ public class Demo : MonoBehaviour {
 
 
         //Create draw area
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(0))
         {
-            displayDrawing = true;
+            if (!clickListener.IsClickedTwice())
+            {
+                displayDrawing = true;
 
-            drawArea = new Rect(0, 0, Screen.width, Screen.height);
+                drawArea = new Rect(0, 0, Screen.width, Screen.height);
+            }    
         }
 
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButton(0))
         {
             if (mana.GetMana() > 50)
             {
@@ -94,7 +99,7 @@ public class Demo : MonoBehaviour {
         }
 
         //Destroy draw area
-        if (Input.GetMouseButtonUp(1))
+        if (Input.GetMouseButtonUp(0))
         {
             GameConfig.gameSpeed = 1f;
             ductTape = false;
@@ -109,6 +114,8 @@ public class Demo : MonoBehaviour {
                 Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
 
                 message = gestureResult.GestureClass + " " + gestureResult.Score;
+                Debug.Log(gestureResult.Score);
+                Debug.Log(gestureResult.GestureClass);
                 if (gestureResult.Score > REQUIRED_SCORE)
                 {
                     if (!drawnWellEnough)
@@ -159,7 +166,7 @@ public class Demo : MonoBehaviour {
         //Checks if the mouse is within the draw area 
         if (drawArea.Contains(virtualKeyPosition)) {
 
-            if (Input.GetMouseButtonDown(1))
+            if (Input.GetMouseButtonDown(0))
             {
                 ++strokeId;
 
@@ -171,7 +178,7 @@ public class Demo : MonoBehaviour {
                 vertexCount = 0;
             }
 
-            if (Input.GetMouseButton(1))
+            if (Input.GetMouseButton(0))
             {
                 if (!drawing)
                 {
@@ -208,7 +215,10 @@ public class Demo : MonoBehaviour {
 
     void OnGUI() {
 
+        GUI.color = new Color(0, 0, 0, 0);
         GUI.Box(drawArea, " ");
+        GUI.color = new Color(1, 1, 1, 1);
+
 
         if (devMode)
         {
@@ -268,16 +278,6 @@ public class Demo : MonoBehaviour {
     public bool GetSlowMoActive()
     {
         return ductTape;
-    }
-
-    public void SetSpell(string name)
-    {
-        _spell = name;
-    }
-
-    private void ActivateSpell(string spell)
-    {
-
     }
 }
 

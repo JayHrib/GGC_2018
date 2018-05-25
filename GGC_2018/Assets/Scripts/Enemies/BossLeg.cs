@@ -37,10 +37,30 @@ public class BossLeg : MonoBehaviour {
 
         if(timer > (limit - 30) && timer < limit)
         {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        }
+        if (timer > (limit - 25) && timer < limit)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+        }
+        if (timer > (limit - 20) && timer < limit)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        }
+        if (timer > (limit - 15) && timer < limit)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
+        }
+        if (timer > (limit - 10) && timer < limit)
+        {
+            gameObject.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        }
+        if (timer > (limit - 5) && timer < limit)
+        {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, 1);
         }
 
-        if(timer > limit)
+        if (timer > limit)
         {
             gameObject.GetComponent<SpriteRenderer>().color = new Color(1,1,1,1);
             timer = 0;
@@ -55,10 +75,13 @@ public class BossLeg : MonoBehaviour {
                 timer = 0;
                 newpos = new Vector3(transform.position.x, -4, 1);
                 transform.position = Vector3.MoveTowards(transform.position, newpos, 0.3f);
+                if(Vector3.Distance(transform.position, newpos) < 2 && Vector3.Distance(transform.position, newpos) > 1)
+                {
+                    Instantiate(hitbox, transform.position, transform.rotation);
+                }
                 if (transform.position.y < -3)
                 {
                     attacking = false;
-                    Instantiate(hitbox, transform.position, transform.rotation);
                 }
             }
             else
