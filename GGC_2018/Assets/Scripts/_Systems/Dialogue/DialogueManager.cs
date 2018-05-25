@@ -84,8 +84,11 @@ public class DialogueManager : MonoBehaviour
         //End dialogue if there's no more sentences in the queue
         if (sentences.Count == 0)
         {
-            EndDialogue();
-            return;
+            if (timeLeft <= 0)
+            {
+                EndDialogue();
+                return;
+            }
         }
 
         string sentence = sentences.Dequeue();
@@ -113,7 +116,7 @@ public class DialogueManager : MonoBehaviour
         animator.SetBool("IsOpen", false);
 
         //Tell give potentially queued sentences the greenlight
-        startNext = !startNext;
+        SwitchBool();
     }
 
     /*Used to give more control to the user of this system
@@ -127,8 +130,13 @@ public class DialogueManager : MonoBehaviour
     }
 
     //Used by chained dialogues to know when they have gotten the greenlight
-    public bool GetBool()
+    public bool GetGreenlight()
     {
         return startNext;
+    }
+
+    public void SwitchBool()
+    {
+        startNext = !startNext;
     }
 }

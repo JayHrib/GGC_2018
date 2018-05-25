@@ -20,7 +20,7 @@ public class DialogueTrigger : MonoBehaviour
         //lockAutoChange is used when ChainDialogue alters the startChain bool just to make sure that it doesn't change back to it's previous state
         if (!lockAutoChange)
         {
-            startChain = FindObjectOfType<DialogueManager>().GetBool();
+            startChain = FindObjectOfType<DialogueManager>().GetGreenlight();
         }
     }
 
@@ -47,7 +47,10 @@ public class DialogueTrigger : MonoBehaviour
     //Used to switch the greenlight from ChainDialogue
     public void SetBool()
     {
+        LockBool();
         startChain = !startChain;
+        FindObjectOfType<DialogueManager>().SwitchBool();
+        LockBool();
     }
 
     //Used to lock the automatic update of the greenlight in DialogueManager

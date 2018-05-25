@@ -5,6 +5,7 @@ using UnityEngine;
 //This scrip is used to chain dialogue
 public class ChainDialogue : MonoBehaviour {
 
+    private bool testLock = false;
     //The previous dialogue 
     public DialogueTrigger previousDialogue;
 
@@ -14,16 +15,14 @@ public class ChainDialogue : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //Check if the previous dialogue has ended
-		if (previousDialogue.StartNext())
+		if (previousDialogue.StartNext() && !testLock)
         {
-            //Trigger next dialogue
-            nextDialogue.TriggerCharDialogue();
-            
-            //Lock the communication bool in previous dialogue
-            previousDialogue.LockBool();
-
+            testLock = !testLock;
             //Switch the bool after locking it
             previousDialogue.SetBool();
+
+            //Trigger next dialogue
+            nextDialogue.TriggerCharDialogue();
         }
 	}
 }
