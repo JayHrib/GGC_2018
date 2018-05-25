@@ -62,89 +62,175 @@ public class Demo : MonoBehaviour {
     }
 
     void Update() {
-
-
-
-        //Create draw area
-        if (Input.GetMouseButtonDown(0))
+        #region GamePlay
+        if (!devMode)
         {
-            if (!clickListener.IsClickedTwice())
+            //Create draw area
+            if (Input.GetMouseButtonDown(0))
             {
-                displayDrawing = true;
-
-                drawArea = new Rect(0, 0, Screen.width, Screen.height);
-            }    
-        }
-
-        if (Input.GetMouseButton(0))
-        {
-            if (mana.GetMana() > 50)
-            {
-                ductTape = true;
-            }
-            if (ductTape)
-            {
-                GameConfig.gameSpeed = 0.25f;
-            }
-            else
-            {
-                GameConfig.gameSpeed = 1;
-            }
-
-            if (mana.GetMana() < 1f)
-            {
-                GameConfig.gameSpeed = 1f;
-                ductTape = false;
-            }
-        }
-
-        //Destroy draw area
-        if (Input.GetMouseButtonUp(0))
-        {
-            GameConfig.gameSpeed = 1f;
-            ductTape = false;
-
-            displayDrawing = false;
-
-            if (drawing)
-            {
-                recognized = true;
-
-                Gesture candidate = new Gesture(points.ToArray());
-                Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
-
-                message = gestureResult.GestureClass + " " + gestureResult.Score;
-                Debug.Log(gestureResult.Score);
-                Debug.Log(gestureResult.GestureClass);
-                if (gestureResult.Score > REQUIRED_SCORE)
+                if (!clickListener.IsClickedTwice())
                 {
-                    if (!drawnWellEnough)
-                    {
-                        drawnWellEnough = true;
-                    }
-                    if (castManager.activeSpells < 1)
-                    {
-                        spellSpawner.FireSpell(gestureResult.GestureClass);
-                        castManager.activeSpells++;
-                    }
+                    displayDrawing = true;
+
+                    drawArea = new Rect(0, 0, Screen.width, Screen.height);
+                }
+            }
+
+            if (Input.GetMouseButton(0))
+            {
+                if (mana.GetMana() > 50)
+                {
+                    ductTape = true;
+                }
+                if (ductTape)
+                {
+                    GameConfig.gameSpeed = 0.25f;
                 }
                 else
                 {
-                    Debug.Log("Too poorly drawn");
-                    if (drawnWellEnough)
-                    {
-                        drawnWellEnough = false;
-                    }
+                    GameConfig.gameSpeed = 1;
                 }
 
-                drawing = false;
+                if (mana.GetMana() < 1f)
+                {
+                    GameConfig.gameSpeed = 1f;
+                    ductTape = false;
+                }
             }
 
+            //Destroy draw area
+            if (Input.GetMouseButtonUp(0))
+            {
+                GameConfig.gameSpeed = 1f;
+                ductTape = false;
+
+                displayDrawing = false;
+
+                if (drawing)
+                {
+                    recognized = true;
+
+                    Gesture candidate = new Gesture(points.ToArray());
+                    Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
+
+                    message = gestureResult.GestureClass + " " + gestureResult.Score;
+                    Debug.Log(gestureResult.Score);
+                    Debug.Log(gestureResult.GestureClass);
+                    if (gestureResult.Score > REQUIRED_SCORE)
+                    {
+                        if (!drawnWellEnough)
+                        {
+                            drawnWellEnough = true;
+                        }
+                        if (castManager.activeSpells < 1)
+                        {
+                            spellSpawner.FireSpell(gestureResult.GestureClass);
+                            castManager.activeSpells++;
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Too poorly drawn");
+                        if (drawnWellEnough)
+                        {
+                            drawnWellEnough = false;
+                        }
+                    }
+
+                    drawing = false;
+                }
 
 
-            //Use to remove area
-            drawArea = new Rect(0, 0, 0, 0);
+
+                //Use to remove area
+                drawArea = new Rect(0, 0, 0, 0);
+            }
         }
+        #endregion
+
+        #region DevMode
+        else
+        {
+            //Create draw area
+            if (Input.GetMouseButtonDown(1))
+            {
+                if (!clickListener.IsClickedTwice())
+                {
+                    displayDrawing = true;
+
+                    drawArea = new Rect(0, 0, Screen.width, Screen.height);
+                }
+            }
+
+            if (Input.GetMouseButton(1))
+            {
+                if (mana.GetMana() > 50)
+                {
+                    ductTape = true;
+                }
+                if (ductTape)
+                {
+                    GameConfig.gameSpeed = 0.25f;
+                }
+                else
+                {
+                    GameConfig.gameSpeed = 1;
+                }
+
+                if (mana.GetMana() < 1f)
+                {
+                    GameConfig.gameSpeed = 1f;
+                    ductTape = false;
+                }
+            }
+
+            //Destroy draw area
+            if (Input.GetMouseButtonUp(1))
+            {
+                GameConfig.gameSpeed = 1f;
+                ductTape = false;
+
+                displayDrawing = false;
+
+                if (drawing)
+                {
+                    recognized = true;
+
+                    Gesture candidate = new Gesture(points.ToArray());
+                    Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
+
+                    message = gestureResult.GestureClass + " " + gestureResult.Score;
+                    Debug.Log(gestureResult.Score);
+                    Debug.Log(gestureResult.GestureClass);
+                    if (gestureResult.Score > REQUIRED_SCORE)
+                    {
+                        if (!drawnWellEnough)
+                        {
+                            drawnWellEnough = true;
+                        }
+                        if (castManager.activeSpells < 1)
+                        {
+                            spellSpawner.FireSpell(gestureResult.GestureClass);
+                            castManager.activeSpells++;
+                        }
+                    }
+                    else
+                    {
+                        Debug.Log("Too poorly drawn");
+                        if (drawnWellEnough)
+                        {
+                            drawnWellEnough = false;
+                        }
+                    }
+
+                    drawing = false;
+                }
+
+                //Use to remove area
+                drawArea = new Rect(0, 0, 0, 0);
+            }
+        }
+        #endregion
 
 
         #region DetermineInputDevicePos
@@ -214,11 +300,15 @@ public class Demo : MonoBehaviour {
 
 
     void OnGUI() {
-
-        GUI.color = new Color(0, 0, 0, 0);
+        if (devMode)
+        {
+            GUI.color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            GUI.color = new Color(0, 0, 0, 0);
+        }
         GUI.Box(drawArea, " ");
-        GUI.color = new Color(1, 1, 1, 1);
-
 
         if (devMode)
         {

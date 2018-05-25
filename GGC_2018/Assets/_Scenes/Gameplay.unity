@@ -13807,6 +13807,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
   dialogue:
     name: Erio
     sentences:
@@ -20540,6 +20543,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
   dialogue:
     name: Bokaj
     sentences:
@@ -35696,6 +35702,7 @@ GameObject:
   - component: {fileID: 1039017300}
   - component: {fileID: 1039017299}
   - component: {fileID: 1039017311}
+  - component: {fileID: 1039017312}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -35714,15 +35721,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fbd554071131def42a29ab39deceff29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characters:
-  - name: Bokaj
-    dialogueBox: {fileID: 0}
-    _name: {fileID: 0}
-    dialogue: {fileID: 0}
-  - name: Erio
-    dialogueBox: {fileID: 0}
-    _name: {fileID: 0}
-    dialogue: {fileID: 0}
+  BartIsMain: {fileID: 0}
+  BokajIsMain: {fileID: 0}
 --- !u!114 &1039017300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35734,9 +35734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7179f1c44460f74394d3c359bd63ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 266310716}
-  dialogueText: {fileID: 13115452}
-  animator: {fileID: 2112300701}
+  dialogueTimer: 3.5
 --- !u!114 &1039017301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35922,7 +35920,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: {fileID: 1264302986}
-  isTwoPlayers: 0
   maxAmountOfEnemies: 1
   timeToSpawn: 50
   pressEscape: 27
@@ -35995,6 +35992,17 @@ MonoBehaviour:
   bokaj: {fileID: 9100000, guid: 35577ee1c2097ec45b38b2a48721a957, type: 2}
   _erio: {fileID: 21300000, guid: e36cddbb9a2157745b0aee99b8ab8530, type: 3}
   _bokaj: {fileID: 21300000, guid: bd198793a68b61d4c9c38f52dd77a94b, type: 3}
+--- !u!114 &1039017312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1039017298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc9f75bd08231f94cb5030bb4a3e476e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1042843133
 GameObject:
   m_ObjectHideFlags: 0
@@ -36693,9 +36701,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63465958d7bcc403e89a14826c19f7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  devMode: 1
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
-  devMode: 0
 --- !u!81 &1053117067
 AudioListener:
   m_ObjectHideFlags: 0
@@ -51368,6 +51376,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
   dialogue:
     name: Bokaj
     sentences:
@@ -70647,6 +70658,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c1d1aba5792e6f14bb68d7c66ad98bd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  usingDragMovement: 0
   destination: {fileID: 1835470510}
   desiredDistance: 0
   movementSpeed: 5
