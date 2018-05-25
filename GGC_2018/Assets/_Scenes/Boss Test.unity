@@ -13520,7 +13520,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &406594154
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17185,9 +17185,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63465958d7bcc403e89a14826c19f7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  devMode: 0
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
-  devMode: 0
 --- !u!81 &486211600
 AudioListener:
   m_ObjectHideFlags: 0

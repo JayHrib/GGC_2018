@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour {
         #endregion
 
         #region DoubleClick
-        else
+        else if(!usingDragMovement)
         {
             //Check for double clicks
             if (clickListener.IsClickedTwice())

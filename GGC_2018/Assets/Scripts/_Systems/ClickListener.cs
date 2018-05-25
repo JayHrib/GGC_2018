@@ -50,13 +50,11 @@ public class ClickListener : MonoBehaviour {
     private void DoubleClick()
     {
         clickedTwice = !clickedTwice;
-        Debug.Log(clickedTwice);
     }
 
     private void SingleClick()
     {
         clickedOnce = !clickedOnce;
-        Debug.Log(clickedOnce);
     }
 
     public void SetBoolOnce()
