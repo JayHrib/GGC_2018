@@ -38,7 +38,7 @@ public class Demo : MonoBehaviour {
     private bool drawnWellEnough = false;
     private bool drawing = false;
 
-    private const float REQUIRED_SCORE = 0.6f;
+    private const float REQUIRED_SCORE = 0.2f;
     private GameObject spellCheck;
     private ManaBar mana;
 
@@ -114,6 +114,8 @@ public class Demo : MonoBehaviour {
                 Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
 
                 message = gestureResult.GestureClass + " " + gestureResult.Score;
+                Debug.Log(gestureResult.Score);
+                Debug.Log(gestureResult.GestureClass);
                 if (gestureResult.Score > REQUIRED_SCORE)
                 {
                     if (!drawnWellEnough)
@@ -215,6 +217,7 @@ public class Demo : MonoBehaviour {
 
         GUI.color = new Color(0, 0, 0, 0);
         GUI.Box(drawArea, " ");
+        GUI.color = new Color(1, 1, 1, 1);
 
 
         if (devMode)

@@ -7,7 +7,7 @@ public class MenuScript : MonoBehaviour {
 
     public void StartGame()
     {
-        if (PlayerPrefs.GetString("Character") == "Erio" || PlayerPrefs.GetString("Character") == "Bokaj")
+        if (PlayerPrefs.GetString("Character") == "Bartholomew" || PlayerPrefs.GetString("Character") == "Bokaj")
         {
             SceneManager.LoadScene(1);
         }
