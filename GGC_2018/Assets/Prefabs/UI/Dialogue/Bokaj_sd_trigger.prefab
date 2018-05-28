@@ -1,0 +1,173 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1126237275405006}
+  m_IsPrefabParent: 1
+--- !u!1 &1126237275405006
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4729938620510452}
+  - component: {fileID: 61946576076095238}
+  - component: {fileID: 114401418597831264}
+  - component: {fileID: 114448488199878272}
+  - component: {fileID: 114763587355244452}
+  - component: {fileID: 114436046779420966}
+  - component: {fileID: 114904531850811960}
+  - component: {fileID: 114909525731971084}
+  m_Layer: 0
+  m_Name: Bokaj_sd_trigger
+  m_TagString: Untagged
+  m_Icon: {fileID: -5765324120231101433, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4729938620510452
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -124, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61946576076095238
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.027826548, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 14.0787945, y: 1}
+  m_EdgeRadius: 0
+--- !u!114 &114401418597831264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1435bfa6619ba754486042dd959e3023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114436046779420966
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
+  dialogue:
+    name: Bokaj
+    sentences:
+    - '... *sigh*
+
+      Suppose I will just have to walk home then...'
+    - Hope the grimoire I brought with me include some hints -
+    - on how to defeat any straight-laced goody two shoes in my path...
+--- !u!114 &114448488199878272
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
+  dialogue:
+    name: Bokaj
+    sentences:
+    - "Blast it, foiled again! \nJust you wait, Cherubic Knights!"
+    - Once we get back home and come up with a more supperior evil scheme
+    - your days are numbered!
+--- !u!114 &114763587355244452
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db21f84f4e5987468326023077e074f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousDialogue: {fileID: 114448488199878272}
+  nextDialogue: {fileID: 114909525731971084}
+--- !u!114 &114904531850811960
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7db21f84f4e5987468326023077e074f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  previousDialogue: {fileID: 114909525731971084}
+  nextDialogue: {fileID: 114436046779420966}
+--- !u!114 &114909525731971084
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1126237275405006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  _name: {fileID: 0}
+  _dialogue: {fileID: 0}
+  dialogue:
+    name: Bartholomew
+    sentences:
+    - Right, just our luck that we both forgot to bring the last travel spell grimoire
+    - Fortunately for me, I remembered to bring the speed run spell
+    - Unfortunately for you, it is only viable for one person
+    - Guess I'll just run home and prepare the afternoon tea, see ya!

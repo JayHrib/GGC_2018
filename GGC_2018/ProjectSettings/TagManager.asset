@@ -24,6 +24,7 @@ TagManager:
   - Obstacles
   - LevelManager
   - FlowerHeadDown
+  - NotChosen
   layers:
   - Default
   - TransparentFX

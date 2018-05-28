@@ -27,6 +27,7 @@ public class LevelManager : MonoBehaviour {
     public float timeToSpawn = 2f;
     public KeyCode pressEscape;
     private GameObject background;
+    private GameConfig gameCon;
 
     public GameObject enemy;
 
@@ -52,6 +53,7 @@ public class LevelManager : MonoBehaviour {
         }
 
         objectPool = ObjectPooler.instance;
+        gameCon = FindObjectOfType<GameConfig>();
     }
 
     void FixedUpdate()
@@ -62,7 +64,7 @@ public class LevelManager : MonoBehaviour {
         {
             SceneManager.LoadScene(0);
         }
-        if (active == true)
+        if (active == true && gameCon.GamePlayIsActive())
         {
             spawnTimer++;
             if (spawnTimer >= timeToSpawn)

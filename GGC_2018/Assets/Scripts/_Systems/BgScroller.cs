@@ -12,10 +12,12 @@ public class BgScroller : MonoBehaviour {
     public float boost;
     private float movementSpeedBoost;
     private float originalSpeed;
+    private GameConfig gameCon;
 
     void Start()
     {
-        active = true;
+        gameCon = FindObjectOfType<GameConfig>();
+        active = gameCon.GamePlayIsActive();
         movementSpeedBoost = speed * boost;
         originalSpeed = speed;
         layerMask = LayerMask.GetMask("Ground");
@@ -24,6 +26,10 @@ public class BgScroller : MonoBehaviour {
 
     void FixedUpdate()
     {
+        if (active != gameCon.GamePlayIsActive())
+        {
+            active = gameCon.GamePlayIsActive();
+        }
         if (active == true)
         {
             Vector3 newpos = new Vector3(transform.position.x, transform.position.y - (0.05f * GameConfig.gameSpeed * (speed * Time.deltaTime)));
