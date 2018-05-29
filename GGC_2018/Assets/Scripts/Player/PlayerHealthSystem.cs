@@ -27,7 +27,7 @@ public class PlayerHealthSystem : MonoBehaviour {
         currentScene = SceneManager.GetActiveScene();
 
         maxHealth = GetComponent<PlayerStats>().maxHealth;
-        Debug.Log(SceneManager.GetActiveScene().ToString());
+    
         if (currentScene.name == "Gameplay")
         {
             currentHealth = maxHealth;

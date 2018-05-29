@@ -10,7 +10,6 @@ public class DialogueTrigger : MonoBehaviour
     public TextMeshProUGUI _dialogue;
     public Dialogue dialogue;
     private bool startChain = false;
-    private bool lockAutoChange = false;
 
     /*Used to automatically determine when the greenlight to start 
      the chained conversation is given*/
@@ -18,10 +17,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         //Automatically receive the greenlight to start chain dialogue
         //lockAutoChange is used when ChainDialogue alters the startChain bool just to make sure that it doesn't change back to it's previous state
-        if (!lockAutoChange)
-        {
-            startChain = FindObjectOfType<DialogueManager>().GetGreenlight();
-        }
+       
+        startChain = FindObjectOfType<DialogueManager>().GetGreenlight();
+        
     }
 
     //Used to trigger the dialogue
@@ -46,16 +44,8 @@ public class DialogueTrigger : MonoBehaviour
 
     //Used to switch the greenlight from ChainDialogue
     public void SetBool()
-    {
-        LockBool();
+    { 
         startChain = !startChain;
         FindObjectOfType<DialogueManager>().SwitchBool();
-        LockBool();
-    }
-
-    //Used to lock the automatic update of the greenlight in DialogueManager
-    public void LockBool()
-    {
-        lockAutoChange = !lockAutoChange;
     }
 }

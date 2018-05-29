@@ -19,6 +19,7 @@ public class StartDialogue : MonoBehaviour {
             if (triggerTag == "NotChosen")
             {
                 other.gameObject.SetActive(false);
+                dialogue.TriggerCharDialogue();
             }
             //Switch the trigger bool to make sure that dialogue can't trigger again
             triggered = !triggered;

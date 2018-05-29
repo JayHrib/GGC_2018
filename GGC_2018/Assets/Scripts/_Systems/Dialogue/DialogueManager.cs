@@ -21,6 +21,7 @@ public class DialogueManager : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        startNext = false;
         //Instantiate queue for sentences
         sentences = new Queue<string>();
 
@@ -53,11 +54,12 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-        //Set dialogue as active
-        isActive = true;
 
         //Make sure that next dialogue isn't readied
         startNext = false;
+
+        //Set dialogue as active
+        isActive = true;
 
         //Open dialogue box
         animator.SetBool("IsOpen", true);

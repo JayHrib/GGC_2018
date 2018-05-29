@@ -17,15 +17,16 @@ public class GameplayInteraction : MonoBehaviour {
             Debug.LogError("GameplayInteraction: No GameConfig found in scene!");
         }
 	}
-	
+
     void Update()
     {
+        Debug.Log("Req: StartNext() = true, activated = false. Current: StartNext() = " + dialogue.StartNext() + ", activated = " + activated);
         if (dialogue.StartNext() && !activated)
         {
+            Debug.Log("Triggered!");
             activated = !activated;
 
             gameCon.SetGameplay();
         }
     }
-	
 }

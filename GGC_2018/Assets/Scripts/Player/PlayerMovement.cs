@@ -16,10 +16,12 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector3 targetPos;
     private ClickListener clickListener;
+    private GameConfig gameCon;
 
 
     void Start()
     {
+        gameCon = FindObjectOfType<GameConfig>();
         clickListener = FindObjectOfType<ClickListener>();
         if (destination == null)
         {
@@ -111,7 +113,7 @@ public class PlayerMovement : MonoBehaviour {
         #endregion
 
         #region DoubleClick
-        else if(!usingDragMovement)
+        else if(!usingDragMovement && gameCon.GamePlayIsActive())
         {
             //Check for double clicks
             if (clickListener.IsClickedTwice())
