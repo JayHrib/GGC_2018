@@ -6,9 +6,13 @@ using UnityEngine;
 //This script is used as a hitbox trigger for dialogue
 public class StartDialogue : MonoBehaviour {
 
-    private bool triggered = false;
-    public DialogueTrigger dialogue;
+    private bool triggered;
     public string triggerTag = "";
+
+    void Start()
+    {
+        triggered = false;
+    }
 
     //Check if the dialogue was triggered by the player,
     //and make sure that the dialogue has not been triggered before
@@ -19,14 +23,15 @@ public class StartDialogue : MonoBehaviour {
             if (triggerTag == "NotChosen")
             {
                 other.gameObject.SetActive(false);
-                dialogue.TriggerCharDialogue();
+                GetComponent<DialogueTrigger>().TriggerCharDialogue();
+                //dialogue.TriggerCharDialogue();
             }
             //Switch the trigger bool to make sure that dialogue can't trigger again
             triggered = !triggered;
 
             //Trigger desired dialogue
-            //GetComponent<DialogueTrigger>().TriggerCharDialogue();
-            dialogue.TriggerCharDialogue();
+            GetComponent<DialogueTrigger>().TriggerCharDialogue();
+            triggered = !triggered;
         }
     }
 

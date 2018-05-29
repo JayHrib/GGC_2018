@@ -54,7 +54,7 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Dialogue dialogue)
     {
-
+        timeLeft = dialogueTimer;
         //Make sure that next dialogue isn't readied
         startNext = false;
 

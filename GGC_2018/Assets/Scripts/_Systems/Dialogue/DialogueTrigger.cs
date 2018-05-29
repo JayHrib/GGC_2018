@@ -5,6 +5,7 @@ using TMPro;
 
 public class DialogueTrigger : MonoBehaviour
 {
+    public DialogueManager manager;
     public Animator animator;
     public TextMeshProUGUI _name;
     public TextMeshProUGUI _dialogue;
@@ -16,24 +17,22 @@ public class DialogueTrigger : MonoBehaviour
     void Update()
     {
         //Automatically receive the greenlight to start chain dialogue
-        //lockAutoChange is used when ChainDialogue alters the startChain bool just to make sure that it doesn't change back to it's previous state
        
-        startChain = FindObjectOfType<DialogueManager>().GetGreenlight();
-        
+        startChain = manager.GetGreenlight();
     }
 
     //Used to trigger the dialogue
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        manager.StartDialogue(dialogue);
     }
 
     //Used to trigger specific dialogue where a specific box, name text, and dialogue text needs to be used
     //Example: when there's multiple characters talking in a scene
     public void TriggerCharDialogue()
     {
-        FindObjectOfType<DialogueManager>().SetDialogueInfo(animator, _name, _dialogue);
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        manager.SetDialogueInfo(animator, _name, _dialogue);
+        manager.StartDialogue(dialogue);
     }
 
     //Used to pass the greenlight to the chained dialogue
@@ -46,6 +45,6 @@ public class DialogueTrigger : MonoBehaviour
     public void SetBool()
     { 
         startChain = !startChain;
-        FindObjectOfType<DialogueManager>().SwitchBool();
+        manager.SwitchBool();
     }
 }
