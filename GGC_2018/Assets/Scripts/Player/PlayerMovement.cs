@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public bool usingDragMovement = false;
+    public bool inBossScene = false;
 
     public Transform destination;
     public float desiredDistance;
@@ -17,10 +18,13 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 targetPos;
     private ClickListener clickListener;
     private GameConfig gameCon;
+    private Animator animator;
+    private bool locked = false;
 
 
     void Start()
     {
+        animator = GetComponent<Animator>();
         gameCon = FindObjectOfType<GameConfig>();
         clickListener = FindObjectOfType<ClickListener>();
         if (destination == null)
@@ -30,6 +34,12 @@ public class PlayerMovement : MonoBehaviour {
     }
     // Update is called once per frame
     void Update () {
+        if (gameCon.PlayerCanWalk() && !locked)
+        {
+            locked = !locked;
+            animator.SetBool("Walking", true);
+        }
+
         #region Keys
         if (usingKeys)
         {
@@ -127,11 +137,19 @@ public class PlayerMovement : MonoBehaviour {
             //Move towards target point if it's not close enough
             if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
             {
+                if (inBossScene)
+                {
+                    animator.SetBool("Walking", true);
+                }
                 transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
             }
             //Reset target position to player position if target has been reached 
             else
             {
+                if (inBossScene)
+                {
+                    animator.SetBool("Walking", false);
+                }
                 destination.position = transform.position;
             }
         } 
