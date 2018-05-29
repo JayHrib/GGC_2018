@@ -253,7 +253,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &664310610
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -476,11 +476,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 432768324}
+      objectReference: {fileID: 432768322}
     - target: {fileID: 114064635920650656, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: FlipToStory
       objectReference: {fileID: 0}
     - target: {fileID: 114064635920650656, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -501,11 +501,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 432768324}
+      objectReference: {fileID: 432768322}
     - target: {fileID: 114161671509220336, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: FlipToStory
       objectReference: {fileID: 0}
     - target: {fileID: 114161671509220336, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -822,11 +822,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 432768324}
+      objectReference: {fileID: 432768322}
     - target: {fileID: 114064635920650656, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: FlipToStory
       objectReference: {fileID: 0}
     - target: {fileID: 114064635920650656, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -847,11 +847,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 432768324}
+      objectReference: {fileID: 432768322}
     - target: {fileID: 114161671509220336, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: FlipToStory
       objectReference: {fileID: 0}
     - target: {fileID: 114161671509220336, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -1044,7 +1044,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1190258608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1676,7 +1676,7 @@ Prefab:
     - target: {fileID: 114913487140794586, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FlipToControls
+      value: PickedBartholomew
       objectReference: {fileID: 0}
     - target: {fileID: 114913487140794586, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -1686,7 +1686,7 @@ Prefab:
     - target: {fileID: 114250011184749018, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FlipToControls
+      value: PickedBartholomew
       objectReference: {fileID: 0}
     - target: {fileID: 114250011184749018, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -1726,7 +1726,7 @@ Prefab:
     - target: {fileID: 114106109137684072, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FlipToCredits
+      value: PickedBokaj
       objectReference: {fileID: 0}
     - target: {fileID: 114106109137684072, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -1736,7 +1736,7 @@ Prefab:
     - target: {fileID: 114546878460790132, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: FlipToCredits
+      value: PickedBokaj
       objectReference: {fileID: 0}
     - target: {fileID: 114546878460790132, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -1892,11 +1892,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 432768324}
+      objectReference: {fileID: 432768322}
     - target: {fileID: 114064635920650656, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: FlipToStory
       objectReference: {fileID: 0}
     - target: {fileID: 114064635920650656, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
@@ -1917,11 +1917,11 @@ Prefab:
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 432768324}
+      objectReference: {fileID: 432768322}
     - target: {fileID: 114161671509220336, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: StartGame
+      value: FlipToStory
       objectReference: {fileID: 0}
     - target: {fileID: 114161671509220336, guid: a862e8d5bce90364cb5c8cf671e7ec71,
         type: 2}
