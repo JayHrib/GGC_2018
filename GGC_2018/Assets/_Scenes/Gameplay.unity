@@ -5011,18 +5011,6 @@ MonoBehaviour:
     type: 2}
   m_PrefabInternal: {fileID: 619137047}
   m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
---- !u!114 &213028990
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 213028985}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a109a33f9b4bd8449e90282ddb3c39e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogue: {fileID: 0}
 --- !u!114 &213028994
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35553,8 +35541,6 @@ GameObject:
   - component: {fileID: 1039017306}
   - component: {fileID: 1039017305}
   - component: {fileID: 1039017304}
-  - component: {fileID: 1039017303}
-  - component: {fileID: 1039017302}
   - component: {fileID: 1039017301}
   - component: {fileID: 1039017300}
   - component: {fileID: 1039017299}
@@ -35604,41 +35590,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   activeSpells: 0
---- !u!114 &1039017302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1039017298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab11d41f7e75f80419ccd6b85aff3f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &1039017303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1039017298}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a42eb5e6ddac8148a836bd14cec5609, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spellOutlines:
-  - spellName: Fire
-    outline: {fileID: 0}
-  - spellName: Water
-    outline: {fileID: 0}
-  - spellName: Nature
-    outline: {fileID: 0}
-  - spellName: Ice
-    outline: {fileID: 0}
-  - spellName: Electricity
-    outline: {fileID: 0}
-  - spellName: Light
-    outline: {fileID: 0}
 --- !u!114 &1039017304
 MonoBehaviour:
   m_ObjectHideFlags: 0
