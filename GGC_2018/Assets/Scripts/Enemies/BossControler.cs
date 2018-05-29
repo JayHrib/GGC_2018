@@ -36,6 +36,8 @@ public class BossControler : MonoBehaviour {
     public GameObject animations;
     private Animator animator;
 
+    public GameObject ender;
+
     // Use this for initialization
     void Start () {
         ChooseLegLeft();
@@ -190,5 +192,10 @@ public class BossControler : MonoBehaviour {
         {
             RightList[temp].leg.GetComponent<BossLeg>().active = true;
         }
+    }
+
+    void OnDisable()
+    {
+        Instantiate(ender, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
     }
 }

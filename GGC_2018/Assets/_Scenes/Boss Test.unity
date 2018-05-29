@@ -29816,6 +29816,7 @@ MonoBehaviour:
   flash: {fileID: 1781428897700302, guid: 998855429caf5bd469ed5d00385db986, type: 2}
   ripple: {fileID: 1227968556759370, guid: 2294ff31c246d1b469b96b46292ccbea, type: 2}
   animations: {fileID: 289581526}
+  ender: {fileID: 1787592414024438, guid: ef130c9a4f8c00540ae7f8dd2212eb96, type: 2}
 --- !u!1 &764542944
 GameObject:
   m_ObjectHideFlags: 0

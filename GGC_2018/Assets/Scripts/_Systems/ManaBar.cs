@@ -42,6 +42,11 @@ public class ManaBar : MonoBehaviour
         SetMana(CalculateMana(currentMana));
     }
 
+    public void PickUpMana()
+    {
+        currentMana += 50;
+    }
+
     public float CalculateMana(float myMana)
     {
         float toReturn;

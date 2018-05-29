@@ -25,6 +25,7 @@ TagManager:
   - LevelManager
   - FlowerHeadDown
   - NotChosen
+  - PickUp
   layers:
   - Default
   - TransparentFX

@@ -104,7 +104,7 @@ public class PlayerHealthSystem : MonoBehaviour {
         }
     }
 
-    void TakeDamage(float strenght)
+    public void TakeDamage(float strenght)
     {
         //PlayDamageSound();
         Debug.Log("Test 1: " + currentHealth);

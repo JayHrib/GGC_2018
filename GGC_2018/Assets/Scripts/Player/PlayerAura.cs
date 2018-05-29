@@ -13,7 +13,7 @@ public class PlayerAura : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if(!collision.gameObject.CompareTag("Enemy"))
+        if(!collision.gameObject.CompareTag("Enemy") && !collision.gameObject.CompareTag("PickUp"))
         {
             if (!collision.gameObject.CompareTag("NotChosen"))
             {
