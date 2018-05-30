@@ -36,8 +36,6 @@ public class BossControler : MonoBehaviour {
     public GameObject animations;
     private Animator animator;
 
-    public GameObject ender;
-
     // Use this for initialization
     void Start () {
         ChooseLegLeft();
@@ -48,15 +46,10 @@ public class BossControler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void FixedUpdate () {
-
         if (leftkills > 3 && rightkills > 3)
         {
             timer++;
             gameObject.GetComponentInChildren<BossAI>().vulnerable = true;
-            if (gameObject.GetComponentInChildren<EnemyHealth>().currentHealth <= 0)
-            {
-                Instantiate(ender, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
-            }
             if (timer == (limit - 15) && bulletspawner.GetComponent<BulletSpawner>().active == false)
             {
                 if (bulletspawner.GetComponent<BulletSpawner>().active)

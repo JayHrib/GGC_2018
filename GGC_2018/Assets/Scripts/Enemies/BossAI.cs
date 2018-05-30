@@ -12,12 +12,22 @@ public class BossAI : MonoBehaviour {
     private int timer;
     private Quaternion newrot = Quaternion.Euler(0,0,0);
 
+    public GameObject ender;
+    private bool pimp = true;
+
 	// Use this for initialization
 	void Start () {
 	}
 	
 	// Update is called once per frame
 	void FixedUpdate () {
+
+        if (gameObject.GetComponent<EnemyHealth>().currentHealth <= 100 && pimp)
+        {
+            Instantiate(ender, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
+            Debug.Log("Did the thing!");
+            pimp = false;
+        }
 
         timer++;
         if (timer > 119)

@@ -61,7 +61,14 @@ public class EnemyHealth : MonoBehaviour {
         if (currentHealth <= 0)
         {
             LevelManager.deaths++;
-            gameObject.SetActive(false);
+            if(gameObject.GetComponent<BossAI>() != null)
+            {
+                Destroy(transform.parent.parent.gameObject);
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
         }
     }
 }

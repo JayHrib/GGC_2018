@@ -5,11 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class Transition : MonoBehaviour {
 
-    public float visibility;
-    public bool reverse;
+    public float visibility = 0;
+    public bool reverse = false;
 
     private float timer = 0;
-    private bool on = false;
+    public bool on = false;
 
     // Use this for initialization
     void Start () {
@@ -17,12 +17,12 @@ public class Transition : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (reverse)
         {
             if (on)
             {
-                timer = timer + 0.0001f;
+                timer = timer + 0.00001f;
                 visibility = visibility + timer;
                 gameObject.GetComponent<SpriteRenderer>().color = new Color(0, 0, 0, visibility);
                 if (visibility > 2)
