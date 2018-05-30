@@ -45,8 +45,6 @@ public class PlayerHealthSystem : MonoBehaviour {
         {
             currentHealth = PlayerPrefs.GetFloat("health");
         }
-        //currentHealth = maxHealth;
-            //PlayerPrefs.GetFloat("health");
 
 
         lastFrameHealth = currentHealth;
@@ -54,11 +52,6 @@ public class PlayerHealthSystem : MonoBehaviour {
 
         clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
         Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
-
-        /*if(playerSounds != null)
-        {
-            damageSound.clip = playerSounds[0];
-        }*/
     }
 
     void Update()
@@ -107,13 +100,10 @@ public class PlayerHealthSystem : MonoBehaviour {
     public void TakeDamage(float strenght)
     {
         //PlayDamageSound();
-        Debug.Log("Test 1: " + currentHealth);
         currentHealth -= (baseDamage * strenght);
-        Debug.Log("Test damage: " + (baseDamage * strenght));
-        Debug.Log("Test 2: " + currentHealth);
 
         SetHealth(CalculateHealth(currentHealth));
-        //Debug.Log("Test3");
+
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
@@ -125,14 +115,12 @@ public class PlayerHealthSystem : MonoBehaviour {
     {
         float toReturn;
         toReturn = health / maxHealth;
-        Debug.Log(toReturn);
         return toReturn;
     }
 
     void SetHealth(float myHealth)
     {
         healthBar.fillAmount = myHealth;
-        //Debug.Log("Test 4");
     }
 
     void TriggerLoss()

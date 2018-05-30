@@ -31,6 +31,10 @@ public class PlayerMovement : MonoBehaviour {
         {
             Debug.LogWarning("PlayerMovement: No destination marker was found!");
         }
+        if (inBossScene)
+        {
+            gameCon.SetGameplay();
+        }
     }
     // Update is called once per frame
     void Update () {
