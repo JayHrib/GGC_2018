@@ -53,6 +53,10 @@ public class BossControler : MonoBehaviour {
         {
             timer++;
             gameObject.GetComponentInChildren<BossAI>().vulnerable = true;
+            if (gameObject.GetComponentInChildren<EnemyHealth>().currentHealth <= 0)
+            {
+                Instantiate(ender, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
+            }
             if (timer == (limit - 15) && bulletspawner.GetComponent<BulletSpawner>().active == false)
             {
                 if (bulletspawner.GetComponent<BulletSpawner>().active)
@@ -192,10 +196,5 @@ public class BossControler : MonoBehaviour {
         {
             RightList[temp].leg.GetComponent<BossLeg>().active = true;
         }
-    }
-
-    void OnDisable()
-    {
-        Instantiate(ender, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
     }
 }
