@@ -102,7 +102,6 @@ public class PlayerMovement : MonoBehaviour {
                     {
                         if (hit.collider.gameObject.CompareTag("ClickBox"))
                         {
-                            Debug.Log(hit.collider.gameObject.tag);
                             marked = true;
                         }
                     }
