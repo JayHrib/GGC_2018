@@ -43644,6 +43644,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   visibility: 0
   reverse: 1
+  on: 0
 --- !u!212 &1227595680
 SpriteRenderer:
   m_ObjectHideFlags: 0

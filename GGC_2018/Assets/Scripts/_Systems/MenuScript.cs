@@ -5,11 +5,20 @@ using UnityEngine.SceneManagement;
 
 public class MenuScript : MonoBehaviour {
 
+    public GameObject promptText;
+
     public void StartGame()
     {
         if (PlayerPrefs.GetString("Character") == "Bartholomew" || PlayerPrefs.GetString("Character") == "Bokaj")
         {
             SceneManager.LoadScene(1);
+        }
+        else
+        {
+            if (!promptText.activeInHierarchy)
+            {
+                promptText.SetActive(true);
+            }
         }
     }
 

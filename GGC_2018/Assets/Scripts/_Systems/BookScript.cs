@@ -21,6 +21,7 @@ public class BookScript : MonoBehaviour {
     Book[] books;
 
     private string currentBook = "";
+    public GameObject pickAChar;
 
     void Awake()
     {
@@ -53,6 +54,10 @@ public class BookScript : MonoBehaviour {
         if (currentBook != books[0].name)
         {
             ActivateNext("Main");
+            if (!pickAChar.activeInHierarchy)
+            {
+                pickAChar.SetActive(true);
+            }
             DeactivateCurrent(currentBook);
             currentBook = "Main";
         }

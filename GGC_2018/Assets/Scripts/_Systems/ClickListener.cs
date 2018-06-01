@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickListener : MonoBehaviour {
+public class ClickListener : MonoBehaviour{
 
     private float doubleClickTimeLimit = 0.25f;
     private bool clickedOnce = false;

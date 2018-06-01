@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private Vector3 targetPos;
     private ClickListener clickListener;
+    //private ClickManager click;
     private GameConfig gameCon;
     private Animator animator;
     private bool locked = false;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
         animator = GetComponent<Animator>();
         gameCon = FindObjectOfType<GameConfig>();
         clickListener = FindObjectOfType<ClickListener>();
+        //click = new ClickManager();
         if (destination == null)
         {
             Debug.LogWarning("PlayerMovement: No destination marker was found!");
@@ -128,6 +130,7 @@ public class PlayerMovement : MonoBehaviour {
         #region DoubleClick
         else if(!usingDragMovement && gameCon.GamePlayIsActive())
         {
+         
             //Check for double clicks
             if (clickListener.IsClickedTwice())
             {
@@ -155,6 +158,8 @@ public class PlayerMovement : MonoBehaviour {
                 }
                 destination.position = transform.position;
             }
+            
+            
         } 
     }
     #endregion
