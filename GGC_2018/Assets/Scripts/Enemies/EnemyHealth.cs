@@ -13,6 +13,9 @@ public class EnemyHealth : MonoBehaviour {
     private float modifier;
     private DamageModifierCalculator damageCalculator;
 
+    public GameObject healthpotion;
+    public GameObject manapotion;
+
     // Use this for initialization
     void Start()
     {
@@ -67,6 +70,15 @@ public class EnemyHealth : MonoBehaviour {
             }
             else
             {
+                int temp = Random.Range(1,4);
+                if(temp == 1)
+                {
+                    Instantiate(healthpotion, transform.position, Quaternion.identity);
+                }
+                else if(temp == 2)
+                {
+                    Instantiate(manapotion, transform.position, Quaternion.identity);
+                }
                 gameObject.SetActive(false);
             }
         }
