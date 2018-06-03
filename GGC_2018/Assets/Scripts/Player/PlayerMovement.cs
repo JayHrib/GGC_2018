@@ -77,32 +77,30 @@ public class PlayerMovement : MonoBehaviour {
         if (usingDragMovement)
         {
             // drag controls start
-            if (Input.GetMouseButton(0) && marked)
+            if (Input.GetMouseButtonDown(0) && marked)
             {
-                targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                destination.position = targetPos;
+                Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit2 = Physics2D.GetRayIntersection(ray2, Mathf.Infinity);
+
+                if (!hit2.collider.gameObject.CompareTag("ClickBox") || !hit2.collider.gameObject.CompareTag("Enemy") || !hit2.collider.gameObject.CompareTag("Player"))
+                {
+                    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                    destination.position = targetPos;
+                }
             }
-
-            if (Input.GetMouseButtonUp(0))
-            {
-                marked = false;
-            }
-            // drag controls end
-
-
 
             if (Input.GetMouseButtonDown(0))
             {
                 //Use mouse clicks if keys aren't being used
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+                Ray ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit1 = Physics2D.GetRayIntersection(ray1, Mathf.Infinity);
 
                 //Make sure clicked collider isn't empty
-                if (hit.collider != null)
+                if (hit1.collider != null)
                 {
                     if (!marked)
                     {
-                        if (hit.collider.gameObject.CompareTag("ClickBox"))
+                        if (hit1.collider.gameObject.CompareTag("ClickBox"))
                         {
                             marked = true;
                         }

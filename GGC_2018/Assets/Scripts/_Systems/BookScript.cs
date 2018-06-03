@@ -73,19 +73,9 @@ public class BookScript : MonoBehaviour {
         }
     }
 
-    public void FlipToStory()
-    {
-        if (currentBook != books[2].name)
-        {
-            ActivateNext("Story");
-            DeactivateCurrent(currentBook);
-            currentBook = "Story";
-        }
-    }
-
     public void FlipToCredits()
     {
-        if (currentBook != books[3].name)
+        if (currentBook != books[2].name)
         {
             ActivateNext("Credits");
             DeactivateCurrent(currentBook);
