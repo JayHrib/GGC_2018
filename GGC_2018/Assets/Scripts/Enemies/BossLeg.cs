@@ -109,6 +109,8 @@ public class BossLeg : MonoBehaviour {
 
     void OnDisable()
     {
+        GameObject temp = transform.parent.GetComponentInChildren<BossAI>().gameObject;
+        temp.GetComponent<EnemyHealth>().currentHealth = temp.GetComponent<EnemyHealth>().currentHealth - 50;
         if (right)
         {
             transform.parent.GetComponent<BossControler>().rightKill = true;

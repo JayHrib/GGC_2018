@@ -68,6 +68,10 @@ public class EnemyHealth : MonoBehaviour {
             {
                 Destroy(transform.parent.parent.gameObject);
             }
+            else if (gameObject.GetComponent<BossLeg>() != null)
+            {
+                gameObject.SetActive(false);
+            }
             else
             {
                 int temp = Random.Range(1,4);
