@@ -70,7 +70,7 @@ public class Demo : MonoBehaviour {
             if (Input.GetMouseButtonDown(0))
             {
                 CheckClick();
-                Debug.Log(allowedToDraw);
+                
                 if (allowedToDraw)
                 {
                     displayDrawing = true;

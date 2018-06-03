@@ -21,6 +21,7 @@ public class PlayerMovement : MonoBehaviour {
     private GameConfig gameCon;
     private Animator animator;
     private bool locked = false;
+    private bool receiveInput = true;
 
 
     void Start()
@@ -55,9 +56,9 @@ public class PlayerMovement : MonoBehaviour {
         #region Movement
         if (gameCon.GamePlayIsActive())
         {
-
-            if (Input.GetMouseButtonDown(0))
+            if (Input.GetMouseButtonDown(0) && receiveInput)
             {
+                receiveInput = false;
                 Mark();
             }
 
@@ -71,15 +72,18 @@ public class PlayerMovement : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 marked = false;
+                receiveInput = true;
             }
 
             if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
             {
+                receiveInput = false;
                 transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
             }
             else
             {
                 destination.position = transform.position;
+                receiveInput = true;
             }
         }
         #endregion
@@ -87,22 +91,29 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Mark()
     {
-     
         //Use mouse clicks if keys aren't being used
-        Ray ray1 = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit1 = Physics2D.GetRayIntersection(ray1, Mathf.Infinity);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
         //Make sure clicked collider isn't empty
-        if (hit1.collider != null)
+        if (hit.collider != null)
         {
-            if (!marked)
+            if (hit.collider.gameObject.CompareTag("ClickBox") || hit.collider.gameObject.CompareTag("Player"))
             {
-                if (hit1.collider.gameObject.CompareTag("ClickBox"))
+                if (!marked)
                 {
+                    Debug.Log("Marked!");
                     marked = true;
                 }
             }
+            else
+            {
+                marked = false;
+            }
         }
-        
+        else
+        {
+            marked = false;
+        }
     }
 }
