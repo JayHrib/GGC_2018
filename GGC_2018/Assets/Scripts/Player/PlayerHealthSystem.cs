@@ -21,6 +21,8 @@ public class PlayerHealthSystem : MonoBehaviour {
     public AudioClip playerBumpSound;
 
     private GameObject clickbox;
+
+    public GameObject angel;
     // Use this for initialization
     void Start () {
 
@@ -107,7 +109,7 @@ public class PlayerHealthSystem : MonoBehaviour {
         if (currentHealth <= 0)
         {
             gameObject.SetActive(false);
-            SceneManager.LoadScene(0);
+            Instantiate(angel, transform.position, Quaternion.identity);
         }
     }
 
