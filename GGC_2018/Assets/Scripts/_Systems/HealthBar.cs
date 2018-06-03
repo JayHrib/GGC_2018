@@ -6,28 +6,43 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour {
 
     private GameObject target;
+    public GameObject boss = null;
     private Image bar;
+    private bool bossfollower = false;
 
     private float health;
 
     // Use this for initialization
     void Start() {
 
-        target = gameObject.transform.parent.parent.gameObject;
         bar = gameObject.GetComponent<Image>();
-        gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
+        if(gameObject.GetComponentInParent<BossControler>() != null)
+        {
+            gameObject.GetComponent<Image>().color = new Color(1,1,1,1);
+            target = boss;
+            bossfollower = true;
+        }
+        else
+        {
+            gameObject.GetComponent<Image>().color = new Color(1, 0, 0, 1);
+            target = gameObject.transform.parent.parent.gameObject;
+        }
 
     }
 
 	void FixedUpdate () {
-        
-        Vector3 newpos = target.transform.position;
+
+        Vector3 newpos = transform.position;
+        if (!bossfollower)
+        {
+            newpos = target.transform.position;
+        }
         if (target.GetComponent<PlayerStats>() != null)
         {
             newpos.y = newpos.y + 2;
             health = target.GetComponent<PlayerHealthSystem>().currentHealth;
         }
-        else
+        else if(!bossfollower)
         {
             newpos.y = newpos.y - 1.5f;
             health = target.GetComponent<EnemyHealth>().currentHealth;

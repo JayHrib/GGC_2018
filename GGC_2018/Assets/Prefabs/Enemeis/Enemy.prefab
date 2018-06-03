@@ -267,6 +267,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentHealth: 0
   marked: 0
+  healthpotion: {fileID: 1832748357295464, guid: 460cd281424e39f48a6e4b498c4307a3,
+    type: 2}
+  manapotion: {fileID: 1571647807433876, guid: c54fc4f497e533b4c8baaf960e47c9ff, type: 2}
 --- !u!114 &114265963296144972
 MonoBehaviour:
   m_ObjectHideFlags: 1
