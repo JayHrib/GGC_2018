@@ -74,19 +74,14 @@ public class PlayerMovement : MonoBehaviour {
         #endregion
 
         #region Drag
-        if (usingDragMovement)
+        if (usingDragMovement && gameCon.GamePlayIsActive())
         {
             // drag controls start
-            if (Input.GetMouseButtonDown(0) && marked)
+            if (Input.GetMouseButton(0) && marked)
             {
-                Ray ray2 = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit2D hit2 = Physics2D.GetRayIntersection(ray2, Mathf.Infinity);
-
-                if (!hit2.collider.gameObject.CompareTag("ClickBox") || !hit2.collider.gameObject.CompareTag("Enemy") || !hit2.collider.gameObject.CompareTag("Player"))
-                {
-                    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                    destination.position = targetPos;
-                }
+               
+                targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                destination.position = targetPos;
             }
 
             if (Input.GetMouseButtonDown(0))
@@ -108,8 +103,7 @@ public class PlayerMovement : MonoBehaviour {
                 }
             }
 
-            //Cancel move command if drawing window is opened
-            if (Input.GetMouseButtonDown(1) && marked)
+            if (Input.GetMouseButtonUp(0))
             {
                 marked = false;
             }
