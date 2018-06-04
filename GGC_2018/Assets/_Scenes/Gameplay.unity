@@ -40736,6 +40736,11 @@ Prefab:
       propertyPath: baseDamage
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 61056568761732554, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114504734770260648, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}
@@ -70058,7 +70063,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.16296434, y: 0.7842921}
+  m_Offset: {x: 0.5730312, y: -1.9915457}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -70069,7 +70074,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.3275201, y: 1.198489}
+  m_Size: {x: 2.1476536, y: 2.0186253}
   m_EdgeRadius: 0
 --- !u!114 &2061668488
 MonoBehaviour:

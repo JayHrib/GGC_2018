@@ -21,15 +21,14 @@ public class SignBehavior : MonoBehaviour {
         
     }
 
-    /*private void OnCollisionExit2D(Collision2D collision)
+    private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
             //Debug.Log("On collision exit, as player");
-            this.GetComponent<SpriteRenderer>().sortingLayerName = "UI";
+            this.GetComponent<SpriteRenderer>().sortingLayerName = "Background";
         }
-           
-    }*/
+    } 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

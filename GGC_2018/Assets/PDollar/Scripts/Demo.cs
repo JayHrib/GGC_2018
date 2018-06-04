@@ -38,7 +38,7 @@ public class Demo : MonoBehaviour {
     private bool drawnWellEnough = false;
     private bool drawing = false;
 
-    private const float REQUIRED_SCORE = 0.2f;
+    private const float REQUIRED_SCORE = 0.4f;
     private GameObject spellCheck;
     private ManaBar mana;
 
@@ -59,6 +59,11 @@ public class Demo : MonoBehaviour {
         TextAsset[] filePaths = Resources.LoadAll<TextAsset>("CustomGestureSet/");
         foreach (TextAsset filePath in filePaths)
             trainingSet.Add(GestureIO.ReadGestureFromXML(filePath.text));
+        Debug.Log("filePath loaded: " + filePaths.Length);
+        foreach (TextAsset filePath in filePaths)
+        {
+            Debug.Log("Gesture: " + filePath.name);
+        }
     }
 
     void Update() {
