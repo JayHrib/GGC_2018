@@ -368,26 +368,5 @@ public class Demo : MonoBehaviour {
         return ductTape;
     }
 
-    private void CheckClick()
-    {
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
-        if (hit.collider != null)
-        {
-            if (hit.collider.gameObject.CompareTag("ClickBox"))
-            {
-                allowedToDraw = false;
-            }
-            else
-            {
-                allowedToDraw = true;
-            }
-        }
-        else
-        {
-            allowedToDraw = true;
-        }
-       
-    }
 }
 
