@@ -54,6 +54,8 @@ public class PlayerHealthSystem : MonoBehaviour {
 
         clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
         Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
+
+        Debug.Log(currentHealth);
     }
 
     void Update()
@@ -111,6 +113,7 @@ public class PlayerHealthSystem : MonoBehaviour {
             gameObject.SetActive(false);
             Instantiate(angel, transform.position, Quaternion.identity);
         }
+        Debug.Log(currentHealth);
     }
 
     private float CalculateHealth(float health)

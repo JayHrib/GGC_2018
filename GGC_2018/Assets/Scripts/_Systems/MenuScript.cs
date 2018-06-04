@@ -7,6 +7,11 @@ public class MenuScript : MonoBehaviour {
 
     public GameObject promptText;
 
+    void Start()
+    {
+        PlayerPrefs.SetFloat("health", 100);
+    }
+
     public void StartGame()
     {
         if (PlayerPrefs.GetString("Character") == "Bartholomew" || PlayerPrefs.GetString("Character") == "Bokaj")
