@@ -5359,6 +5359,12 @@ Prefab:
       propertyPath: inBossScene
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: angel
+      value: 
+      objectReference: {fileID: 1588845094504098, guid: 085e219c47ac46d48a4b187285494eda,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_IsPrefabParent: 0
