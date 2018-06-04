@@ -38,8 +38,11 @@ public class TestMovement : MonoBehaviour {
             {
                 if (!hit.collider.gameObject.CompareTag("Enemy"))
                 {
-                    targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-                    target.position = targetPos;
+                    if (!hit.collider.gameObject.CompareTag("Boss"))
+                    {
+                        targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                        target.position = targetPos;
+                    }
                 }
 
                 if (hit.collider.gameObject.CompareTag("Target"))

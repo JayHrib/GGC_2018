@@ -8231,7 +8231,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectGameplay: 1
   dialogue: {fileID: 308440113}
-  timer: 27
+  timer: 16.5
 --- !u!114 &308440113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32014,7 +32014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectGameplay: 1
   dialogue: {fileID: 951149063}
-  timer: 27
+  timer: 16.5
 --- !u!61 &951149065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -34525,7 +34525,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 973b958a88a70214e9832215afaa91ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 1149856116}
+  manager: {fileID: 1039017300}
   animator: {fileID: 2106604243}
   _name: {fileID: 2106604242}
   _dialogue: {fileID: 2106604241}
@@ -35646,7 +35646,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7179f1c44460f74394d3c359bd63ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTimer: 3.5
+  dialogueTimer: 2
 --- !u!114 &1039017301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -54110,7 +54110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environment: Desert
-  environmentMusic: {fileID: 8300000, guid: b86d2aa2afc60914385481864f6874bc, type: 3}
+  environmentMusic: {fileID: 8300000, guid: c3342dc092a5ecd4cb5d6a3001d68249, type: 3}
 --- !u!61 &1528706255
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -69736,7 +69736,7 @@ Prefab:
     - target: {fileID: 114892522850593244, guid: f1e5664050ed9cc45a07196bb6962553,
         type: 2}
       propertyPath: moveTimer
-      value: 24
+      value: 13.5
       objectReference: {fileID: 0}
     - target: {fileID: 114892522850593244, guid: f1e5664050ed9cc45a07196bb6962553,
         type: 2}

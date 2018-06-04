@@ -123,10 +123,18 @@ public class BookScript : MonoBehaviour {
     public void PickedBartholomew()
     {
         SetCharacter("Bartholomew");
+        if (pickAChar.activeInHierarchy)
+        {
+            gameObject.GetComponent<MenuScript>().StartGame();
+        }
     }
 
     public void PickedBokaj()
     {
         SetCharacter("Bokaj");
+        if (pickAChar.activeInHierarchy)
+        {
+            gameObject.GetComponent<MenuScript>().StartGame();
+        }
     }
 }
