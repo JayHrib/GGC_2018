@@ -54105,7 +54105,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   environment: Desert
-  environmentMusic: {fileID: 8300000, guid: b86d2aa2afc60914385481864f6874bc, type: 3}
+  environmentMusic: {fileID: 8300000, guid: c3342dc092a5ecd4cb5d6a3001d68249, type: 3}
 --- !u!61 &1528706255
 BoxCollider2D:
   m_ObjectHideFlags: 0
