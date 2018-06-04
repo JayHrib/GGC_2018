@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerMovement : MonoBehaviour
+{
 
-    private bool inBossScene = false;
+    public bool usingDragMovement = false;
+    public bool inBossScene = false;
 
     public Transform destination;
     public float desiredDistance;
@@ -15,33 +16,20 @@ public class PlayerMovement : MonoBehaviour {
     private bool marked = false;
 
     private Vector3 targetPos;
-    private Scene currentScene;
-   
-   
+    private ClickListener clickListener;
     private GameConfig gameCon;
     private Animator animator;
     private bool locked = false;
-    private bool receiveInput = true;
 
 
     void Start()
     {
         animator = GetComponent<Animator>();
         gameCon = FindObjectOfType<GameConfig>();
-        currentScene = SceneManager.GetActiveScene();
-
-        if (currentScene.name == "Boss Test")
-        {
-            inBossScene = true;
-        }
-    
+        clickListener = FindObjectOfType<ClickListener>();
         if (destination == null)
         {
             Debug.LogWarning("PlayerMovement: No destination marker was found!");
-        }
-        if (inBossScene)
-        {
-            gameCon.SetGameplay();
         }
     }
     // Update is called once per frame
@@ -53,15 +41,9 @@ public class PlayerMovement : MonoBehaviour {
             animator.SetBool("Walking", true);
         }
 
-        #region Movement
-        if (gameCon.GamePlayIsActive())
+        #region Drag
+        if (usingDragMovement)
         {
-            if (Input.GetMouseButtonDown(0) && receiveInput)
-            {
-                receiveInput = false;
-                Mark();
-            }
-
             // drag controls start
             if (Input.GetMouseButton(0) && marked)
             {
@@ -72,48 +54,79 @@ public class PlayerMovement : MonoBehaviour {
             if (Input.GetMouseButtonUp(0))
             {
                 marked = false;
-                receiveInput = true;
+            }
+            // drag controls end
+
+
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                //Use mouse clicks if keys aren't being used
+                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
+
+                //Make sure clicked collider isn't empty
+                if (hit.collider != null)
+                {
+                    if (!marked)
+                    {
+                        if (hit.collider.gameObject.CompareTag("ClickBox"))
+                        {
+                            Debug.Log(hit.collider.gameObject.tag);
+                            marked = true;
+                        }
+                    }
+                }
+            }
+
+            //Cancel move command if drawing window is opened
+            if (Input.GetMouseButtonDown(1) && marked)
+            {
+                marked = false;
             }
 
             if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
             {
-                receiveInput = false;
                 transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
             }
             else
             {
                 destination.position = transform.position;
-                receiveInput = true;
             }
         }
         #endregion
-    }
 
-    private void Mark()
-    {
-        //Use mouse clicks if keys aren't being used
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
-
-        //Make sure clicked collider isn't empty
-        if (hit.collider != null)
+        #region DoubleClick
+        else if (!usingDragMovement && gameCon.GamePlayIsActive())
         {
-            if (hit.collider.gameObject.CompareTag("ClickBox") || hit.collider.gameObject.CompareTag("Player"))
+            //Check for double clicks
+            if (clickListener.IsClickedTwice())
             {
-                if (!marked)
-                {
-                    Debug.Log("Marked!");
-                    marked = true;
-                }
+                //Set target position based on the clicked location
+                targetPos = Camera.main.ScreenToWorldPoint(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
+                destination.position = targetPos;
+                clickListener.SetBoolTwice();
             }
+
+            //Move towards target point if it's not close enough
+            if (Vector2.Distance(transform.position, destination.position) > desiredDistance)
+            {
+                if (inBossScene)
+                {
+                    animator.SetBool("Walking", true);
+                }
+                transform.position = Vector2.MoveTowards(transform.position, destination.position, (movementSpeed * Time.deltaTime));
+            }
+            //Reset target position to player position if target has been reached 
             else
             {
-                marked = false;
+                if (inBossScene)
+                {
+                    animator.SetBool("Walking", false);
+                }
+                destination.position = transform.position;
             }
         }
-        else
-        {
-            marked = false;
-        }
     }
+    #endregion
 }

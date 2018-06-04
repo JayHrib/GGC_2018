@@ -45,7 +45,6 @@ public class Demo : MonoBehaviour {
     private bool ductTape = false;
     private CastingManager castManager;
     private ClickListener clickListener;
-    private bool allowedToDraw = true;
 
     void Start() {
         spellSpawner = FindObjectOfType<CastSpell>();
@@ -69,38 +68,32 @@ public class Demo : MonoBehaviour {
             //Create draw area
             if (Input.GetMouseButtonDown(0))
             {
-                CheckClick();
-                
-                if (allowedToDraw)
-                {
-                    displayDrawing = true;
-                    drawArea = new Rect(0, 0, Screen.width, Screen.height);
-                }
+                displayDrawing = true;
+                drawArea = new Rect(0, 0, Screen.width, Screen.height);
             }
 
             if (Input.GetMouseButton(0))
             {
-                if (allowedToDraw)
+                
+                if (mana.GetMana() > 50)
                 {
-                    if (mana.GetMana() > 50)
-                    {
-                        ductTape = true;
-                    }
-                    if (ductTape)
-                    {
-                        GameConfig.gameSpeed = 0.25f;
-                    }
-                    else
-                    {
-                        GameConfig.gameSpeed = 1;
-                    }
-
-                    if (mana.GetMana() < 1f)
-                    {
-                        GameConfig.gameSpeed = 1f;
-                        ductTape = false;
-                    }
+                    ductTape = true;
                 }
+                if (ductTape)
+                {
+                    GameConfig.gameSpeed = 0.25f;
+                }
+                else
+                {
+                    GameConfig.gameSpeed = 1;
+                }
+
+                if (mana.GetMana() < 1f)
+                {
+                    GameConfig.gameSpeed = 1f;
+                    ductTape = false;
+                }
+                
             }
 
             //Destroy draw area
@@ -110,7 +103,6 @@ public class Demo : MonoBehaviour {
                 ductTape = false;
 
                 displayDrawing = false;
-                allowedToDraw = true;
 
                 if (drawing)
                 {
@@ -157,12 +149,11 @@ public class Demo : MonoBehaviour {
             //Create draw area
             if (Input.GetMouseButtonDown(1))
             {
-                if (!clickListener.IsClickedTwice())
-                {
-                    displayDrawing = true;
+               
+                displayDrawing = true;
 
-                    drawArea = new Rect(0, 0, Screen.width, Screen.height);
-                }
+                drawArea = new Rect(0, 0, Screen.width, Screen.height);
+                
             }
 
             if (Input.GetMouseButton(1))
@@ -260,30 +251,28 @@ public class Demo : MonoBehaviour {
                 Transform tmpGesture = Instantiate(gestureOnScreenPrefab, transform.position, transform.rotation) as Transform;
                 currentGestureLineRenderer = tmpGesture.GetComponent<LineRenderer>();
 
-                if (allowedToDraw)
-                {
-                    ++strokeId;
+                
+                ++strokeId;
 
-                    gestureLinesRenderer.Add(currentGestureLineRenderer);
+                gestureLinesRenderer.Add(currentGestureLineRenderer);
 
-                    vertexCount = 0;
-                }
+                vertexCount = 0;
+                
             }
 
             if (Input.GetMouseButton(0))
             {
-                if (allowedToDraw)
+                
+                if (!drawing)
                 {
-                    if (!drawing)
-                    {
-                        drawing = true;
-                    }
-
-                    points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
-
-                    currentGestureLineRenderer.SetVertexCount(++vertexCount);
-                    currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
+                    drawing = true;
                 }
+
+                points.Add(new Point(virtualKeyPosition.x, -virtualKeyPosition.y, strokeId));
+
+                currentGestureLineRenderer.SetVertexCount(++vertexCount);
+                currentGestureLineRenderer.SetPosition(vertexCount - 1, Camera.main.ScreenToWorldPoint(new Vector3(virtualKeyPosition.x, virtualKeyPosition.y, 10)));
+                
             }
 
             #endregion

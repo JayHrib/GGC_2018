@@ -26,6 +26,7 @@ TagManager:
   - FlowerHeadDown
   - NotChosen
   - PickUp
+  - Target
   layers:
   - Default
   - TransparentFX
