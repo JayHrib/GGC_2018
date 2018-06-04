@@ -113,7 +113,6 @@ public class PlayerHealthSystem : MonoBehaviour {
             gameObject.SetActive(false);
             Instantiate(angel, transform.position, Quaternion.identity);
         }
-        Debug.Log(currentHealth);
     }
 
     private float CalculateHealth(float health)

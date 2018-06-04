@@ -112,8 +112,7 @@ public class Demo : MonoBehaviour {
                     Result gestureResult = PointCloudRecognizer.Classify(candidate, trainingSet.ToArray());
 
                     message = gestureResult.GestureClass + " " + gestureResult.Score;
-                    Debug.Log(gestureResult.Score);
-                    Debug.Log(gestureResult.GestureClass);
+                  
                     if (gestureResult.Score > REQUIRED_SCORE)
                     {
                         if (!drawnWellEnough)
