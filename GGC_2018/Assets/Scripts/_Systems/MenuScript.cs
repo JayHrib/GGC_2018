@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class MenuScript : MonoBehaviour {
 
     public GameObject promptText;
+    public GameObject smokescreen;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class MenuScript : MonoBehaviour {
     {
         if (PlayerPrefs.GetString("Character") == "Bartholomew" || PlayerPrefs.GetString("Character") == "Bokaj")
         {
-            SceneManager.LoadScene(1);
+            Instantiate(smokescreen, transform.position, Quaternion.identity);
         }
         else
         {
