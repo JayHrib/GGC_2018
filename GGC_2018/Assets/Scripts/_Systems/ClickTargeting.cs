@@ -25,7 +25,6 @@ public class ClickTargeting : MonoBehaviour {
             RaycastHit2D hit = Physics2D.GetRayIntersection(ray, Mathf.Infinity);
 
 
-            Debug.Log(hit.collider.gameObject.tag);
             if (hit.collider != null)
             {
                 //Make sure that the clicked object is either a hazard or an enemy
@@ -89,7 +88,7 @@ public class ClickTargeting : MonoBehaviour {
         somethingIsMarked = true;
     }
 
-    private void DeMarkTarget(GameObject target)
+    public void DeMarkTarget(GameObject target)
     {
         PrevClickedObject = null;
         if (marker != null)

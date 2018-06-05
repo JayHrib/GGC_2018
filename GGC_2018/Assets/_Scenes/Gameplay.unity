@@ -8363,7 +8363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectGameplay: 1
   dialogue: {fileID: 308440113}
-  timer: 16.5
+  timer: 20
 --- !u!114 &308440113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32146,7 +32146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   affectGameplay: 1
   dialogue: {fileID: 951149063}
-  timer: 16.5
+  timer: 20
 --- !u!61 &951149065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -35778,7 +35778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7179f1c44460f74394d3c359bd63ce3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueTimer: 2
+  dialogueTimer: 2.5
 --- !u!114 &1039017301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36712,7 +36712,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63465958d7bcc403e89a14826c19f7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devMode: 1
+  devMode: 0
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
 --- !u!81 &1053117067
@@ -69919,7 +69919,7 @@ Prefab:
     - target: {fileID: 114892522850593244, guid: f1e5664050ed9cc45a07196bb6962553,
         type: 2}
       propertyPath: moveTimer
-      value: 13.5
+      value: 17
       objectReference: {fileID: 0}
     - target: {fileID: 114892522850593244, guid: f1e5664050ed9cc45a07196bb6962553,
         type: 2}

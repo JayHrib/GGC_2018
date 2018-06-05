@@ -87,26 +87,19 @@ public class PropellSpell : MonoBehaviour {
                 }
 
                 transform.position = Vector2.MoveTowards(transform.position, target.transform.position, (moveSpeed * Time.deltaTime));
-
-                /*Checks if the spell is close enough to the target.
-                Enable the collider if spell is close enough*/
-                //if (Vector3.Distance(transform.position, target.transform.position) <= desiredDistance)
-                //{
-                //    collider.enabled = true;
-                //}
             }
         }
 	}
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log(other.tag);
         if (other.CompareTag("Enemy"))
         {
             if (ableToCollide)
             {
                 Instantiate(ripple, transform.position, Quaternion.identity);
                 targeting.SetMarked();
+                targeting.DeMarkTarget(other.gameObject);
                 gameObject.SetActive(false);
             }
         }

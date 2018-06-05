@@ -64,14 +64,13 @@ public class PlayerHealthSystem : MonoBehaviour {
         clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
         Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
 
-        Debug.Log(currentHealth);
+        SetHealth(CalculateHealth(currentHealth));
     }
 
     void Update()
     {
         if (this.GetComponent<SpriteRenderer>().color != originalColor)
         {
-            Debug.Log("Color is not original");
             timerDamageColorChange++;
             DamageEffect(timerDamageColorChange);
         }
@@ -87,6 +86,11 @@ public class PlayerHealthSystem : MonoBehaviour {
             PlayerPrefs.SetFloat("health", maxHealth);
             gameObject.SetActive(false);
             TriggerLoss();
+        }
+        
+        if(currentHealth > maxHealth)
+        {
+            currentHealth = maxHealth;
         }
     }
 
