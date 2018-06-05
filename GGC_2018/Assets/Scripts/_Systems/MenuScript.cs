@@ -2,15 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuScript : MonoBehaviour {
 
     public GameObject promptText;
     public GameObject smokescreen;
+    private GameObject startButton;
 
     void Start()
     {
         PlayerPrefs.SetFloat("health", 100);
+        startButton = GameObject.Find("StartButton");
     }
 
     public void StartGame()
@@ -24,6 +27,9 @@ public class MenuScript : MonoBehaviour {
             if (!promptText.activeInHierarchy)
             {
                 promptText.SetActive(true);
+                ColorBlock cb = startButton.GetComponent<Button>().colors;
+                cb.normalColor = cb.highlightedColor;
+                startButton.GetComponent<Button>().colors = cb;
             }
         }
     }

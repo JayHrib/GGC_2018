@@ -36580,7 +36580,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63465958d7bcc403e89a14826c19f7bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  devMode: 0
+  devMode: 1
   gestureOnScreenPrefab: {fileID: 400000, guid: 971129baafd304455a111daa5207b8a1,
     type: 2}
 --- !u!81 &1053117067
@@ -40741,6 +40741,56 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 212822324723519432, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.9632353
+      objectReference: {fileID: 0}
+    - target: {fileID: 212822324723519432, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.9632353
+      objectReference: {fileID: 0}
+    - target: {fileID: 212822324723519432, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: m_Color.b
+      value: 0.9632353
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: damageColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: damageColor.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: damageColor.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: damageColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: playerDrinkingPickup
+      value: 
+      objectReference: {fileID: 8300000, guid: 84540c9605c013f4182c1b0ad4515dcc, type: 3}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: playerDrinkingPickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 84540c9605c013f4182c1b0ad4515dcc, type: 3}
+    - target: {fileID: 114553827785081634, guid: b50e332627add2b48aa13901e04f282f,
+        type: 2}
+      propertyPath: playerPickupSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 68a6dd8c477229b46af705c149822858, type: 3}
     m_RemovedComponents:
     - {fileID: 114504734770260648, guid: b50e332627add2b48aa13901e04f282f, type: 2}
   m_ParentPrefab: {fileID: 100100000, guid: b50e332627add2b48aa13901e04f282f, type: 2}

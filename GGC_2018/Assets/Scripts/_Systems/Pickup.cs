@@ -30,7 +30,9 @@ public class Pickup : MonoBehaviour {
         if (other.CompareTag("Player") && active)
         {
             active = false;
-            gameObject.GetComponent<SpriteRenderer>().color = new Color(0,0,0,0);
+            //gameObject.GetComponent<SpriteRenderer>().color = new Color(0,0,0,0);
+            Destroy(gameObject);
+            other.gameObject.GetComponent<PlayerHealthSystem>().PlayPickUpSound();
             if (health)
             {
                 other.gameObject.GetComponent<PlayerHealthSystem>().TakeDamage(-1);
@@ -38,6 +40,7 @@ public class Pickup : MonoBehaviour {
             if (mana)
             {
                 other.GetComponent<ManaBar>().PickUpMana();
+                //other.GetComponent<PlayerHealthSystem>().PlayDrinkingPickUpSound();
             }
 
         }

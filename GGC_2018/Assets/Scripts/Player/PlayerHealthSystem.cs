@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,19 +13,27 @@ public class PlayerHealthSystem : MonoBehaviour {
     public float lastFrameHealth;
     public float baseDamage = 20f;
     public Image healthBar;
-    private AudioSource damageSound;
+    private AudioSource playerSound;
     private Scene currentScene;
-    
+    private Color originalColor;
+    public Color damageColor;
+    private float timerDamageColorChange = 0;
+
     [SerializeField]
     public AudioClip[] playerDamageSounds;
 
     public AudioClip playerBumpSound;
+
+    public AudioClip playerDrinkingPickupSound;
+
+    public AudioClip playerPickupSound;
 
     private GameObject clickbox;
 
     public GameObject angel;
     // Use this for initialization
     void Start () {
+        originalColor = GetComponent<SpriteRenderer>().color;
 
         currentScene = SceneManager.GetActiveScene();
 
@@ -50,7 +59,7 @@ public class PlayerHealthSystem : MonoBehaviour {
 
 
         lastFrameHealth = currentHealth;
-        damageSound = gameObject.AddComponent<AudioSource>();
+        playerSound = gameObject.AddComponent<AudioSource>();
 
         clickbox = GameObject.FindGameObjectWithTag("ClickBox").gameObject;
         Physics2D.IgnoreCollision(gameObject.GetComponent<BoxCollider2D>(), clickbox.GetComponent<BoxCollider2D>());
@@ -60,6 +69,13 @@ public class PlayerHealthSystem : MonoBehaviour {
 
     void Update()
     {
+        if (this.GetComponent<SpriteRenderer>().color != originalColor)
+        {
+            Debug.Log("Color is not original");
+            timerDamageColorChange++;
+            DamageEffect(timerDamageColorChange);
+        }
+
         if (currentHealth != lastFrameHealth)
         {
             PlayerPrefs.SetFloat("health", currentHealth);
@@ -71,6 +87,15 @@ public class PlayerHealthSystem : MonoBehaviour {
             PlayerPrefs.SetFloat("health", maxHealth);
             gameObject.SetActive(false);
             TriggerLoss();
+        }
+    }
+
+    private void DamageEffect(float timer)
+    {
+        if (timer > ((1 / Time.deltaTime) / 2))
+        {
+            this.GetComponent<SpriteRenderer>().color = originalColor;
+            timerDamageColorChange = 0;
         }
     }
 
@@ -103,7 +128,13 @@ public class PlayerHealthSystem : MonoBehaviour {
 
     public void TakeDamage(float strenght)
     {
-        //PlayDamageSound();
+        if(strenght > 0)
+        {
+            PlayDamageSound();
+            DamageVisualisation();
+        }
+        //else{   PlayDrinkingPickUpSound(); }
+        
         currentHealth -= (baseDamage * strenght);
 
         SetHealth(CalculateHealth(currentHealth));
@@ -113,6 +144,18 @@ public class PlayerHealthSystem : MonoBehaviour {
             gameObject.SetActive(false);
             Instantiate(angel, transform.position, Quaternion.identity);
         }
+    }
+
+    public void PlayDrinkingPickUpSound()
+    {
+        playerSound.clip = playerDrinkingPickupSound;
+        playerSound.Play();
+    }
+
+    public void PlayPickUpSound()
+    {
+        playerSound.clip = playerPickupSound;
+        playerSound.Play();
     }
 
     private float CalculateHealth(float health)
@@ -136,8 +179,8 @@ public class PlayerHealthSystem : MonoBehaviour {
     {    
         if(playerDamageSounds != null || playerDamageSounds.Length > 0)
         {
-            damageSound.clip = playerDamageSounds[Random.Range(0, 2)];
-            damageSound.Play();
+            playerSound.clip = playerDamageSounds[UnityEngine.Random.Range(0, 2)];
+            playerSound.Play();
         }
         else
         {
@@ -146,11 +189,16 @@ public class PlayerHealthSystem : MonoBehaviour {
         
     }
 
+    private void DamageVisualisation()
+    {
+        GetComponent<SpriteRenderer>().color = damageColor;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
        
-            damageSound.clip = playerBumpSound;
-            damageSound.Play();
+            playerSound.clip = playerBumpSound;
+            playerSound.Play();
           
     }
 }
