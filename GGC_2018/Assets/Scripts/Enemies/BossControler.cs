@@ -67,7 +67,7 @@ public class BossControler : MonoBehaviour {
             {
                 Instantiate(ripple, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
                 timer = 0;
-                limit = Random.Range(30, 240);
+                limit = Random.Range(90, 240);
                 if (bulletspawner.GetComponent<BulletSpawner>().active)
                 {
                     bulletspawner.GetComponent<BulletSpawner>().active = false;
@@ -116,7 +116,7 @@ public class BossControler : MonoBehaviour {
             {
                 Instantiate(ripple, new Vector3(transform.position.x, transform.position.y - 1.5f, transform.position.z), Quaternion.identity);
                 timer = 0;
-                limit = Random.Range(90, 480);
+                limit = Random.Range(120, 480);
                 if (bulletspawner.GetComponent<BulletSpawner>().active)
                 {
                     animator.SetInteger("linus", 4);

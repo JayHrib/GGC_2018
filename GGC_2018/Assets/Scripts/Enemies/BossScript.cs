@@ -82,11 +82,11 @@ public class BossScript : MonoBehaviour {
             timer = 0;
             if(obj4.GetComponent<BossControler>().leftkills > 3 || obj4.GetComponent<BossControler>().rightkills > 3)
             {
-                limit = Random.Range(10, 120);
+                limit = Random.Range(60, 120);
             }
             else
             {
-                limit = Random.Range(90, 480);
+                limit = Random.Range(120, 480);
             }
             
         }
