@@ -35,7 +35,7 @@ public class BulletSpawner : MonoBehaviour {
                 rotation = rotation + 6;
                 timer = 0;
                 GameObject go = (GameObject)Instantiate(bullet, transform.position, transform.rotation);
-                go.GetComponent<Rigidbody2D>().velocity = go.transform.up * -5;
+                go.GetComponent<Rigidbody2D>().velocity = go.transform.up * -2;
                 
             }
         }

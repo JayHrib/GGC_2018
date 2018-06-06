@@ -38,7 +38,7 @@ public class Demo : MonoBehaviour {
     private bool drawnWellEnough = false;
     private bool drawing = false;
 
-    private const float REQUIRED_SCORE = 0.75f;
+    private const float REQUIRED_SCORE = 0.35f;
     private GameObject spellCheck;
     private ManaBar mana;
 
